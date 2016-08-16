@@ -1,10 +1,11 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update,:destroy]
   def index
     @jobs = Job.all
   end
 
   def new
-    @jobs = Job.new
+    @job = Job.new
   end
 
   def show
@@ -36,7 +37,7 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    @job = Job.find(parama[:id])
+    @job = Job.find(params[:id])
 
     @job.destroy
     redirect_to jobs_path,alert:"Job deleted"
