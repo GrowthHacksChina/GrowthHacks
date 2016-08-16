@@ -27,6 +27,12 @@ class GroupsController < ApplicationController
     redirect_to groups_path, notice: "更新成功"
   end
 
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path, alert: "成功删除讨论版"
+  end
+
   private
 
   def group_params
