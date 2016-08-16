@@ -1,0 +1,12 @@
+<div class="col-md-4 col-md-offset-4">
+<h2>新增讨论版</h2>
+<hr>
+<%= form_for @gorup do |f| %>
+版块名称
+<%= f.text_field :title %>
+版块描述
+<%= f.text_area :description %>
+<br>
+<%= f.submit "提交", :disable_with => '提交中'%>
+<% end %>
+</div>
