@@ -1,15 +1,5 @@
 <div class="col-md-4 col-md-offset-4">
   <h2>编辑讨论版</h2>
   <hr>
-  <%= form_for @group do |f| %>
-  版块名称
-  <br>
-  <%= f.text_field :title %>
-  <br>
-  版块描述
-  <br>
-  <%= f.text_area :description %>
-  <br>
-  <%= f.submit "提交", :disable_with => '提交中...'%>
-  <% end %>
+  <%= render "form" %>
   </div>

@@ -9,8 +9,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.save
+    if @group.save
     redirect_to groups_path, notice: "成功新建讨论版"
+    else
+      render :new
+    end
   end
 
   def show
