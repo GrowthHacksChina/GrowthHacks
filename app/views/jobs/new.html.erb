@@ -2,8 +2,18 @@
 
 <%= simple_form_for @job do |f| %>
 
+<h3>工作讯息</h3>
 <%= f.input :title %>
-<%= f.input :description %>
+<%= f.input :wage_lower_bound, :label => "最低工资" %>
+<%= f.input :wage_upper_bound, :label => "最高工资" %>
+<%= f.input :work_address, :label => "工作地点" %>
+<%= f.input :description, :label => "工作叙述" %>
+<%= f.input :work_experience, :label => "工作经验要求" %>
+
+<h3>公司介绍</h3>
+<%= f.input :company, :label => "公司名称" %>
+<%= f.input :company_description, :label => "公司介绍" %>
+<%= f.input :contact_email, :label => "Email"%>
 
 <%= f.submit "Submit" %>
 <% end %>
