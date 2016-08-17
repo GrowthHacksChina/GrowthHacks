@@ -10,19 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20160817062508) do
 
-
-ActiveRecord::Schema.define(version: 20160816093953) do
-
-  create_table "group_relationships", force: :cascade do |t|
-    t.integer  "group_id"
+  create_table "issue_relationships", force: :cascade do |t|
+    t.integer  "issue_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-
-  create_table "groups", force: :cascade do |t|
+  create_table "issues", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  null: false
@@ -35,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160816093953) do
     t.text     "description"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "user_id"
     t.integer  "wage_upper_bound"
     t.integer  "wage_lower_bound"
     t.string   "contact_email"
@@ -42,14 +40,11 @@ ActiveRecord::Schema.define(version: 20160816093953) do
     t.string   "work_experience"
     t.string   "company"
     t.text     "company_description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
-    t.integer  "group_id"
+    t.integer  "issue_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
