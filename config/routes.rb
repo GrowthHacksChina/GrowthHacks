@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   end
 
   resources :jobs
-  
+
   root 'welcome#index'
 
   namespace :admin do
     resources :users do
       post :change
     end
+    resources :jobs
   end
 
 end
