@@ -14,4 +14,4 @@ create_jobs = for i in 1..10 do
   Job.create!([title: "Job no.#{i}", description: "這是用種子建立的第 #{i} 個工作", wage_upper_bound: rand(50..99)*100, wage_lower_bound: rand(10..49)*100,
                contact_email: "example@gmail.com", work_address: "china"])
 end
-puts "10 Public jobs created."
+puts "10 jobs created."
