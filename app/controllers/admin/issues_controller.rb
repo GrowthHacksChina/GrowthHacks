@@ -1,6 +1,10 @@
 class Admin::IssuesController < ApplicationController
+
   before_action :authenticate_user!
-  before_filter :require_is_admin
+  before_action :require_is_admin
+
+  layout "admin"
+
   def index
     @issues = Issue.all
   end
@@ -13,7 +17,7 @@ class Admin::IssuesController < ApplicationController
     @issue = Issue.new(issue_params)
     @issue.user = current_user
     if @issue.save
-    redirect_to issues_path, notice: "成功新建讨论版"
+    redirect_to admin_issues_path, notice: "admin成功新建讨论版"
     else
       render :new
     end

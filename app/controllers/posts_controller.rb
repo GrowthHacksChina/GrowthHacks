@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_action :authenticate_user!, :only[:new , :create]
+
   def new
     @issue = Issue.find(params[:issue_id])
     @post = Post.new
@@ -14,14 +17,16 @@ class PostsController < ApplicationController
     else
       render :new
     end
-end
+  end
 
-    def index
-      @posts = Post.all
-    end
+  def index
+    @posts = Post.all
+  end
 
   private
+
   def post_params
     params.require(:post).permit(:content)
   end
-  end
+  
+end
