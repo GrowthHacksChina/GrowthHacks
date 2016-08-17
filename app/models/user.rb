@@ -1,29 +1,49 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  is_admin               :boolean          default(FALSE)
+#
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :groups
+  has_many :issues
   has_many :jobs
-  has_many :group_relationships
-  has_many :participated_groups, :through => :group_relationships, :source => :group
+  has_many :issue_relationships
+  has_many :participated_issues, :through => :issue_relationships, :source => :issue
 
 
     def admin?
       is_admin
     end
 
-    def is_member_of?(group)
-      participated_groups.include?(group)
+    def is_member_of?(issue)
+      participated_issues.include?(issue)
     end
 
-    def join!(group)
-      participated_groups << group
+    def join!(issue)
+      participated_issues << issue
     end
 
-    def quit!(group)
-      participated_groups.delete(group)
+    def quit!(issue)
+      participated_issues.delete(issue)
     end
 
 
