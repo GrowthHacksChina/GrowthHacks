@@ -1,6 +1,10 @@
 class Admin::GroupsController < ApplicationController
+
   before_action :authenticate_user!
   before_filter :require_is_admin
+
+  layout "admin"
+
   def index
     @groups = Group.all
   end

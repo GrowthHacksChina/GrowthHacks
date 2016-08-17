@@ -51,18 +51,18 @@ class GroupsController < ApplicationController
         redirect_to group_path(@group)
     end
 
-    def quit
-      @group = Group.find(params[:id])
+  def quit
+    @group = Group.find(params[:id])
 
-      if current_user.is_member_of?(@group)
-        current_user.quit!(@group)
-        flash[:alert] = "已退出本討論版！"
-      else
-        flash[:warning] = "你不是本討論版成員，怎麼退出 XD"
-      end
-
-      redirect_to group_path(@group)
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+      flash[:alert] = "已退出本討論版！"
+    else
+      flash[:warning] = "你不是本討論版成員，怎麼退出 XD"
     end
+
+    redirect_to group_path(@group)
+  end
 
 
   private

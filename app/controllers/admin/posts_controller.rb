@@ -1,6 +1,9 @@
 class Admin::PostsController < ApplicationController
+
   before_action :authenticate_user!
   before_filter :require_is_admin
+
+  layout "admin"
   def new
     @group = Group.find(params[:group_id])
     @post = Post.new
