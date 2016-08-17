@@ -2,8 +2,17 @@ class Admin::PostsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :require_is_admin
-
   layout "admin"
+
+  def index
+    @posts = Post.all
+  end
+
+  def edit
+    @issue = Issue.find(params[:issue_id])
+    @post = Post.new
+  end
+
   def new
     @group = Group.find(params[:group_id])
     @post = Post.new
@@ -19,11 +28,7 @@ class Admin::PostsController < ApplicationController
     else
       render :new
     end
-end
-
-    def index
-      @posts = Post.all
-    end
+  end
 
   private
   def post_params
