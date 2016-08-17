@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+
+  def edit
+    @issue = Issue.find(params[:issue_id])
+    @post = Post.new
+  end
+
   def new
     @issue = Issue.find(params[:issue_id])
     @post = Post.new
