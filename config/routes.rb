@@ -3,18 +3,21 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  resources :groups do
+  resources :issues do
     resources :posts
   end
 
   resources :jobs
-  
+
   root 'welcome#index'
 
   namespace :admin do
     resources :users do
       post :change
     end
+    resources :jobs
+    resources :issues
+    resources :posts
   end
 
 end

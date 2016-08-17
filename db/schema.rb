@@ -10,37 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816093953) do
+ActiveRecord::Schema.define(version: 20160817074231) do
 
-  create_table "group_relationships", force: :cascade do |t|
-    t.integer  "group_id"
+  create_table "issue_relationships", force: :cascade do |t|
+    t.integer  "issue_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "issues", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "issue"
+    t.string   "tag"
+    t.string   "origin_link"
+    t.string   "PV"
   end
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "user_id"
+    t.integer  "wage_upper_bound"
+    t.integer  "wage_lower_bound"
+    t.string   "contact_email"
+    t.string   "work_address"
+    t.string   "work_experience"
+    t.string   "company"
+    t.text     "company_description"
   end
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
-    t.integer  "group_id"
+    t.integer  "issue_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.string   "author"
+    t.string   "issue"
+    t.string   "tag"
+    t.string   "origin_link"
+    t.string   "PV"
+    t.string   "favorite"
   end
 
   create_table "users", force: :cascade do |t|
