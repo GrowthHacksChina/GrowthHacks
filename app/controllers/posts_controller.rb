@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, :only[:new, :create, :edit, :destroy]
   def index
     @posts = Post.all
   end
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
     end
   end
 
+
   def destroy
     @issue = Issue.find(params[:issue_id])
     @post = Post.find(params[:id])
@@ -39,10 +41,10 @@ class PostsController < ApplicationController
   end
 
 
-
-
   private
+
   def post_params
     params.require(:post).permit(:title, :content, :author, :tag, :origin_link, :PV)
   end
-  end
+
+end

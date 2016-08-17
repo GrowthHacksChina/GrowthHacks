@@ -1,4 +1,8 @@
 class IssuesController < ApplicationController
+
+  before_action :authenticate_user!, only: [:create , :new ,:edit ,:destroy,:update ,:join ,:quit]
+
+
   def index
     @issues = Issue.all
   end
