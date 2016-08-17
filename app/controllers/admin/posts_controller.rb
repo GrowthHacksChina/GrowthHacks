@@ -1,7 +1,7 @@
 class Admin::PostsController < ApplicationController
 
   before_action :authenticate_user!
-  before_filter :require_is_admin
+  before_action :require_is_admin
 
   layout "admin"
   def new
