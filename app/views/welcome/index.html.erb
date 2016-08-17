@@ -12,6 +12,7 @@
 <div class="panel-heading"><%= issue.title %></div>
 
 <%issue.posts.each do |post| %>
+
 <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %> </div>
 <% end %>
 </div>
