@@ -10,6 +10,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show
+    @issue = Issue.find(params[:issue_id])
+    @post = Post.find(params[:id])
+  end
+
   def create
     @issue = Issue.find(params[:issue_id])
     @post =Post.new(post_params)
