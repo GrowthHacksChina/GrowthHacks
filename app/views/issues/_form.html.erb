@@ -1,0 +1,6 @@
+<%= simple_form_for @issue do |f| %>
+<div class="form-issue">
+    <%= f.input :title %>
+</div>
+<%= f.submit "提交", class: "btn btn-primary", data: {disable_with: "提交中..."}%>
+<% end %>
