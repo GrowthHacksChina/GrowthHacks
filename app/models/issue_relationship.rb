@@ -1,22 +1,16 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: issue_relationships
 #
 #  id         :integer          not null, primary key
-#  content    :text
 #  issue_id   :integer
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Post < ApplicationRecord
+class IssueRelationship < ApplicationRecord
 
   belongs_to :issue
   belongs_to :user
-
-  validates :content, presence: true
-  validates :title, presence: true
-  validates :author, presence: true
-  scope :recent, -> {order("created_at DESC")}
 end
