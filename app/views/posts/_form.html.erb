@@ -1,7 +1,9 @@
 <%= simple_form_for [@issue,@post] do |f| %>
 <div class="form-group">
   <%= f.input :title %>
-  <%= f.input :content, input_html: {class:"form-control"}%>
+  <%#= f.input :content, input_html: {class:"form-control"}%>
+  <p><strong>文章内容
+  <%= f.trix_editor :content %></strong></p>
   <%= f.input :author %>
   <%= f.input :tag %>
   <%= f.input :origin_link %>
