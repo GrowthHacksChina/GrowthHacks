@@ -1,10 +1,10 @@
 <div class="col-md-12">
-  <div class="group">
-    <%= link_to("发布文章", new_group_post_path(@group),class: "btn btn-default pull-right") %>
-    <%= link_to("编辑讨论版", edit_group_path(@group), class: "btn btn-primary pull-right")%>
+  <div class="issue">
+    <%= link_to("发布文章", new_issue_post_path(@issue),class: "btn btn-default pull-right") %>
+    <%= link_to("编辑讨论版", edit_issue_path(@issue), class: "btn btn-primary pull-right")%>
   </div>
-  <h2><%= @group.title %> </h2>
-  <p> <%= @group.description %></p>
+  <h2><%= @issue.title %> </h2>
+  <p> <%= @issue.description %></p>
   <table class="table">
     <thead>
       <tr>

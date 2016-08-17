@@ -4,26 +4,26 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :groups
+  has_many :issues
   has_many :jobs
-  has_many :group_relationships
-  has_many :participated_groups, :through => :group_relationships, :source => :group
+  has_many :issue_relationships
+  has_many :participated_issues, :through => :issue_relationships, :source => :issue
 
 
     def admin?
       is_admin
     end
 
-    def is_member_of?(group)
-      participated_groups.include?(group)
+    def is_member_of?(issue)
+      participated_issues.include?(issue)
     end
 
-    def join!(group)
-      participated_groups << group
+    def join!(issue)
+      participated_issues << issue
     end
 
-    def quit!(group)
-      participated_groups.delete(group)
+    def quit!(issue)
+      participated_issues.delete(issue)
     end
 
 
