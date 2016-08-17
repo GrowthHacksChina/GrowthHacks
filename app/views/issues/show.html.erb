@@ -19,6 +19,7 @@
         <td><%= post.content %></td>
         <td><%= "email"%></td>
         <td><%= post.created_at %></td>
+        <td><%= link_to("编辑",edit_issue_post_path(post.issue, post), class:"btn btn-xs btn-primary") %>
       </tr>
       <% end %>
     </tbody>
