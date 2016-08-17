@@ -16,5 +16,7 @@ class Post < ApplicationRecord
   belongs_to :user
 
   validates :content, presence: true
+  validates :title, presence: true
+  validates :author, presence: true
   scope :recent, -> {order("created_at DESC")}
 end
