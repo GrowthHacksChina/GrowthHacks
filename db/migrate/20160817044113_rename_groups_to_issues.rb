@@ -1,4 +1,4 @@
-class RenameissuesToIssues < ActiveRecord::Migration[5.0]
+class RenameGroupsToIssues < ActiveRecord::Migration[5.0]
   def change
     rename_table :groups, :issues
   end
