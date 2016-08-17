@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
 
   def edit
     @issue = Issue.find(params[:issue_id])
@@ -25,11 +28,18 @@ class PostsController < ApplicationController
     else
       render :new
     end
-end
+  end
 
-    def index
-      @posts = Post.all
-    end
+  def destroy
+    @issue = Issue.find(params[:issue_id])
+    @post = Post.find(params[:id])
+
+    @post.destroy
+    redirect_to issue_path(@issue),alert:"Post deleted!"
+  end
+
+
+
 
   private
   def post_params

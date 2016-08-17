@@ -20,6 +20,7 @@
         <td><%= "email"%></td>
         <td><%= post.created_at %></td>
         <td><%= link_to("编辑",edit_issue_post_path(post.issue, post), class:"btn btn-xs btn-primary") %>
+        <td><%= link_to("删除",issue_post_path(post.issue, post),:method => :delete,data:{ :confirm => "你确认要删除该文章吗？"} ,class:"btn btn-xs btn-primary") %>
       </tr>
       <% end %>
     </tbody>
