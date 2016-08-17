@@ -12,7 +12,6 @@ class IssuesController < ApplicationController
     @issue.user = current_user
 
     if @issue.save!
-      puts "--------"
       current_user.join!(@issue)
       redirect_to issues_path, notice: "成功新建讨论版"
     else
@@ -69,6 +68,6 @@ class IssuesController < ApplicationController
   private
 
   def issue_params
-    params.require(:issue).permit(:title, :description)
+    params.require(:issue).permit(:title, :description, :issue, :tag, :origin_link, :PV)
   end
 end
