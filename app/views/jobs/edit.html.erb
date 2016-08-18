@@ -1,4 +1,6 @@
-<h1> 编辑职位 </h1>
+<h1>
+    编辑职位
+</h1>
 
 <%= simple_form_for @job do |f| %>
 
@@ -7,14 +9,18 @@
 <%= f.input :wage_lower_bound, :label => "最低工资" %>
 <%= f.input :wage_upper_bound, :label => "最高工资" %>
 <%= f.input :work_address, :label => "工作地点" %>
-<p><strong>工作描述
-<%= f.trix_editor :description %></strong></p>
+<p>
+    <strong>工作描述
+        <%= f.trix_editor :description %></strong>
+</p>
 <%= f.input :work_experience, :label => "工作经验要求" %>
 
 <h3>公司介绍</h3>
 <%= f.input :company, :label => "公司名称" %>
-<p><strong>公司介绍
-<%= f.trix_editor :company_description %></strong></p>
+<p>
+    <strong>公司介绍
+        <%= f.trix_editor :company_description %></strong>
+</p>
 <%= f.input :contact_email, :label => "Email"%>
 
 <%= f.submit "Submit" %>
