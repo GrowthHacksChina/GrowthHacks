@@ -8,6 +8,10 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  issue       :string
+#  tag         :string
+#  origin_link :string
+#  PV          :string
 #
 
 class Issue < ApplicationRecord

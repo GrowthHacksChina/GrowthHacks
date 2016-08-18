@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+
   before_action :authenticate_user!, only:[:new, :create, :edit, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -39,6 +41,7 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to issue_path(@issue),alert:"Post deleted!"
   end
+
 
 
   private
