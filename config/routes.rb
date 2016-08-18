@@ -4,7 +4,13 @@ Rails.application.routes.draw do
 
 
   resources :issues do
-    resources :posts
+    resources :posts 
+  end
+
+  resources :posts do
+    collection do
+      get :search
+    end
   end
 
   resources :jobs
