@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_action :authenticate_user!, only:[:new, :create, :edit, :destroy]
   before_action :validate_search_key , :only => [:search]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
 
   def index
     @posts = Post.all
@@ -34,6 +34,7 @@ class PostsController < ApplicationController
     end
   end
 
+
   def update
     @issue = Issue.find(params[:issue_id])
     @post = Post.find(params[:id])
@@ -52,8 +53,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     @post.destroy
-    redirect_to issue_path(@issue),alert:"Post deleted!"
+    redirect_to issue_path(@issue), alert: 'Post deleted!'
   end
+
 
   def search
     if @query_string.present?
@@ -65,11 +67,13 @@ class PostsController < ApplicationController
     end
   end
 
+
   private
 
   def post_params
     params.require(:post).permit(:title, :content, :author, :tag, :origin_link, :PV)
   end
+
 
   protected
 
@@ -82,5 +86,6 @@ class PostsController < ApplicationController
   def search_criteria(query_string)
     { :title_cont => query_string }
   end
+
 
 end

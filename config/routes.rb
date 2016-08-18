@@ -22,8 +22,13 @@ Rails.application.routes.draw do
       post :change
     end
     resources :jobs
-    resources :issues
+
+    resources :issues do
+      resources :posts
+    end
+    
     resources :posts
+
   end
 
 end
