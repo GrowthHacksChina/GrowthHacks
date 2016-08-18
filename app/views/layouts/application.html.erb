@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>GrowthHacks</title>
-        <%= csrf_meta_tags %>
-
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
-
+  <head>
+    <title>GrowthHacks</title>
+    <%= csrf_meta_tags %>
+    <%#= render_page_title_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
     <body>
         <div class="container-fluid">
             <%= render "common/navbar" %>
