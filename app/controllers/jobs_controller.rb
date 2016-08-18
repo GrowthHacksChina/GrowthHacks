@@ -1,7 +1,6 @@
 class JobsController < ApplicationController
-
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  
+
   def index
     @jobs = Job.all
   end
@@ -32,7 +31,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.update(job_params)
-      redirect_to jobs_path,notice:"Update Success"
+      redirect_to jobs_path, notice: 'Update Success'
     else
       render :edit
     end
@@ -42,7 +41,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     @job.destroy
-    redirect_to jobs_path,alert:"Job deleted"
+    redirect_to jobs_path, alert: 'Job deleted'
   end
 
   private
@@ -50,5 +49,4 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :work_address, :work_experience, :company, :company_description)
   end
-
 end

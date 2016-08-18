@@ -1,21 +1,21 @@
 <div class="jumbotron">
-  <h1>GrowthHacker中国</h1>
-  <p>每天5篇精品文章,了解最新Growth技术</p>
-  <%= link_to("马上注册", new_user_registration_path, class:"btn btn-lg btn-primary")%>
+    <h1>GrowthHacker中国</h1>
+    <p>每天5篇精品文章,了解最新Growth技术</p>
+    <%= link_to("马上注册", new_user_registration_path, class:"btn btn-lg btn-primary")%>
 </div>
-
 
 <div class="row">
-<% @issues.each do |issue| %>
-<div class="col-md-4">
-  <div class="panel panel-primary">
-<div class="panel-heading"><%= issue.title %></div>
+    <% @issues.each do |issue| %>
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><%= issue.title %></div>
 
-<%issue.posts.each do |post| %>
+            <%issue.posts.each do |post| %>
 
-<div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %> </div>
-<% end %>
-</div>
-</div>
-<% end %>
+            <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
 </div>
