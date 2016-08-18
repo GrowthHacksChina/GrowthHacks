@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="issue">
-        <%= link_to("发布文章", new_admin_post_path(@issue),class: "btn btn-default pull-right") %>
-        <%= link_to("编辑讨论版", edit_admin_issue_path(@issue), class: "btn btn-primary pull-right")%>
+        <%= link_to("发布文章", new_admin_issue_post_path(@issue),class: "btn btn-default pull-right") %>
+        <!-- <%= link_to("编辑讨论版", edit_admin_issue_path(@issue), class: "btn btn-primary pull-right")%> -->
     </div>
     <h2><%= @issue.title %>
     </h2>
@@ -10,17 +10,25 @@
     <table class="table">
         <thead>
             <tr>
-                <th>文章内容</th>
-                <th>作者</th>
-                <th>发表时间</th>
+              <th>文章名</th>
+              <th>文章内容</th>
+              <th>作者</th>
+              <th>发表时间</th>
+              <th>操作</th>
             </tr>
         </thead>
         <tbody>
             <% @posts.each do |post| %>
             <tr>
+                <td><%= link_to(post.title , admin_post_path(post)) %></td>
                 <td><%= post.content %></td>
-                <td><%= "email"%></td>
+                <td><%= post.author%></td>
                 <td><%= post.created_at %></td>
+                <td>
+                    <%= link_to("编辑", edit_admin_post_path(post), class: "btn btn-sm btn-default")%>
+                    <%= link_to("删除", admin_post_path(post), class: "btn btn-sm btn-default",
+          method: :delete, data: {confirm: "确定删除吗?"})%>
+                </td>
             </tr>
             <% end %>
         </tbody>
