@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def edit
     @issue = Issue.find(params[:issue_id])
-    @post = Post.new
+    @post = Post.find(params[:id])
   end
 
   def new
