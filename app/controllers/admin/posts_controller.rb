@@ -14,17 +14,17 @@ class Admin::PostsController < ApplicationController
   end
 
   def new
-    @group = Group.find(params[:group_id])
+    @issue = Issue.find(params[:issue_id])
     @post = Post.new
   end
 
   def create
-    @group = Group.find(params[:group_id])
+    @issue = Issue.find(params[:issue_id])
     @post =Post.new(post_params)
-    @post.group = @group
+    @post.issue = @issue
     @post.user = current_user
     if @post.save
-      redirect_to group_path(@group)
+      redirect_to issue_path(@issue)
     else
       render :new
     end
