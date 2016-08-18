@@ -23,13 +23,25 @@ class PostsController < ApplicationController
 
   def create
     @issue = Issue.find(params[:issue_id])
-    @post =Post.new(post_params)
+    @post = Post.new(post_params)
     @post.issue = @issue
     @post.user = current_user
     if @post.save
       redirect_to issue_path(@issue)
     else
       render :new
+    end
+  end
+
+  def update
+    @issue = Issue.find(params[:issue_id])
+    @post = Post.find(params[:id])
+    @post.issue = @issue
+    @post.user = current_user
+    if @post.update(post_params)
+      redirect_to issue_path(@issue)
+    else
+      render :edit
     end
   end
 
