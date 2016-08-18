@@ -1,23 +1,24 @@
-<div class="pull-right">
-  <%= link_to("发布职位", new_job_path, :class => "btn btn-primary") %>
-</div>
+<!-- <div class="pull-right">
+    <%= link_to("发布职位", new_job_path, :class => "btn btn-primary") %>
+</div> -->
 <br>
 <h3>GrowHack 热门岗位</h3>
 <br>
 
 <table class="table table-boldered">
-  <% @jobs.each do |job| %>
-  <tr>
-    <td>
-      <%= link_to(job.title, job_path(job)) %>
-    </td>
-    <td>
-      <%= link_to("编辑",edit_job_path(job), :class => "btn btn-xs btn-info") %> |
-      <%= link_to("删除",job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?"}) %>
-    </td>
-    <td>
-      <%= job.created_at %>
-    </td>
-  </tr>
-  <% end %>
+    <% @jobs.each do |job| %>
+    <tr>
+        <td>
+            <%= link_to(job.title, job_path(job)) %>
+        </td>
+        <td>
+            <%= link_to("编辑",edit_job_path(job), :class => "btn btn-xs btn-info") %>
+            |
+            <%= link_to("删除",job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?"}) %>
+        </td>
+        <td>
+            <%= job.created_at %>
+        </td>
+    </tr>
+    <% end %>
 </table>

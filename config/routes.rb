@@ -4,7 +4,13 @@ Rails.application.routes.draw do
 
 
   resources :issues do
-    resources :posts
+    resources :posts 
+  end
+
+  resources :posts do
+    collection do
+      get :search
+    end
   end
 
   resources :jobs
@@ -16,8 +22,13 @@ Rails.application.routes.draw do
       post :change
     end
     resources :jobs
-    resources :issues
+
+    resources :issues do
+      resources :posts
+    end
+    
     resources :posts
+
   end
 
 end

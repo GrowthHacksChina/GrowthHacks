@@ -1,5 +1,11 @@
 <div class="col-md-4 col-md-offset-4">
-  <h2>编辑期号</h2>
-  <hr>
-  <%= render "form" %>
-  </div>
+    <h2>编辑期号</h2>
+    <hr>
+    <%= simple_form_for @issue , :url => admin_issue_path do |f|   %>
+
+    <div class="form-issue">
+        <%= f.input :title %>
+    </div>
+    <%= f.submit "提交", class: "btn btn-primary", data: {disable_with: "提交中..."}%>
+    <% end %>
+</div>
