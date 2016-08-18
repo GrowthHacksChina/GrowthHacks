@@ -4,6 +4,10 @@
     <%= link_to("马上注册", new_user_registration_path, class:"btn btn-lg btn-primary")%>
 </div>
 
+<%= render :partial => "welcome/search_bar" %>
+<br>
+
+
 <div class="row">
     <% @issues.each do |issue| %>
     <div class="col-md-4">
