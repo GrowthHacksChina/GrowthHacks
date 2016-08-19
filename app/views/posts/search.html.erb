@@ -1,17 +1,15 @@
-
 <%= render :partial => "welcome/search_bar" %>
-
 <br>
 <div class="search-result">
-
   <table class="table table-borderd">
     <% if !@posts.nil? %>
       <% @posts.each do |f| %>
+      <%= link_to(f.issue.title, issue_path(f.issue)) %>
+      <hr>
       <%= link_to(f.title, issue_post_path(f.issue, f)) %>
-      <%end%>
-
+      <br>
+      <% end %>
     <% end %>
    <%#= render :partial => "jobs/item", :collection => @jobs, :as => :job %>
  </table>
-
 </div>
