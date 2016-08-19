@@ -1,24 +1,23 @@
 <div class="col-md-12">
     <div class="issue">
-        <%= link_to("新建讨论版", new_admin_issue_path, class: "btn btn-primary pull-right")%>
+        <%= link_to("新建期刊", new_admin_issue_path, class: "btn btn-primary pull-right")%>
     </div>
-    <table class="table table-hover">
+    <table class="table table-hover table-condensed table-striped">
         <thead>
             <tr>
-                <td>#</td>
-                <td>版块名</td>
-                <td>版块描述</td>
+                <td>期刊号</td>
+                <td>期刊描述</td>
+                <td>期刊管理</td>
             </tr>
         </thead>
         <tbody>
             <% @issues.each do |issue| %>
             <tr>
-                <td>#</td>
                 <td><%= link_to(issue.title, admin_issue_path(issue)) %></td>
                 <td><%= issue.description %></td>
                 <td>
-                    <%= link_to("编辑", edit_admin_issue_path(issue), class: "btn btn-sm btn-default")%>
-                    <%= link_to("删除", admin_issue_path(issue), class: "btn btn-sm btn-default",
+                    <%= link_to("Edit", edit_admin_issue_path(issue), class: "btn btn-xs btn-primary")%>
+                    <%= link_to("Destroy", admin_issue_path(issue), class: "btn btn-xs btn-danger",
           method: :delete, data: {confirm: "确定删除吗?"})%>
                 </td>
             </tr>
