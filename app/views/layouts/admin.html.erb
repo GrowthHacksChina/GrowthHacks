@@ -7,10 +7,10 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
     <body>
-        <div class="container" style="width: 950px; padding:0 0px;">
+        <div class="container" >
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
-            <br/>
+            <br />
             <div class="container">
                 <div class="row">
                     <div class="col-md-2">
@@ -19,7 +19,7 @@
                                 <a href="/admin/users">用户管理</a>
                             </li>
                             <li role="presentation">
-                                <a href="/admin/issues">论坛管理</a>
+                                <a href="/admin/issues">期刊管理</a>
                             </li>
                             <li role="presentation">
                                 <a href="/admin/posts">文章管理</a>
@@ -34,6 +34,8 @@
                     </div>
                 </div>
             </div>
-            <%= render "common/footer" %>
+          </div>
       </body>
+      <%= render "common/footer" %>
+
   </html>
