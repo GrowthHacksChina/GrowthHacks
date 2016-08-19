@@ -1,0 +1,19 @@
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1><%= @post.title %></h1>
+            <div class:"row">
+                <span class="label label-danger" style="margin-right:100px">作者:
+                    <%= @post.author %></span>
+                <span class="label label-danger" style="margin-right:50px">
+                    标签:
+                    <%= @post.tag%></span>
+                <span class="label label-danger" style="margin-right:1px">
+                    时间:
+                    <%= @post.created_at %></span>
+            </div>
+        </div>
+        <div class="panel-body"><%= simple_format(@post.content) %>
+        </div>
+    </div>
+</div>

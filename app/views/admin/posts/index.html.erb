@@ -1,0 +1,26 @@
+<div class="col-md-12">
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>文章名</td>
+                <td>文章内容</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @posts.each do |post| %>
+            <tr>
+                <td>#</td>
+                <td><%= link_to(post.title, admin_post_path(post)) %></td>
+                <td><%= post.content %></td>
+                <td>
+                    <%= link_to("编辑", edit_admin_post_path(post), class: "btn btn-sm btn-default")%>
+                    <%= link_to("删除", admin_post_path(post), class: "btn btn-sm btn-default",
+          method: :delete, data: {confirm: "确定删除吗?"})%>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
