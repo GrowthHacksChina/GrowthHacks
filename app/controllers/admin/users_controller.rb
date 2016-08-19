@@ -10,24 +10,18 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id] )
+    @user = User.find(params[:user_id] )
   end
 
 
   def update
-    @user = User.find(params[:id])
 
-    if @user.update(user_params)
-      redirect_to admin_users_path, notice: "Update Success"
-    else
-      render :edit , notice: "Failed to update"
-    end
   end
 
   def destroy
-    @user = User.find(params[:id] )
+    @user = User.find(params[:user_id] )
     @user.destroy
-    redirect_to admin_users_path
+    redirect_to dmin_userss_path
   end
 
   def change
@@ -42,12 +36,6 @@ class Admin::UsersController < ApplicationController
     render :index
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:email)
-
-  end
 
 
 end

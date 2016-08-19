@@ -7,7 +7,6 @@ class Admin::IssuesController < ApplicationController
 
   def index
     @issues = Issue.all
-    @issues = @issues.recent
   end
 
   def new
@@ -36,13 +35,13 @@ class Admin::IssuesController < ApplicationController
   def update
     @issue = Issue.find(params[:id])
     @issue.update(issue_params)
-    redirect_to admin_issues_path, notice: "更新成功"
+    redirect_to issues_path, notice: "更新成功"
   end
 
   def destroy
     @issue = Issue.find(params[:id])
     @issue.destroy
-    redirect_to admin_issues_path, alert: "成功删除讨论版"
+    redirect_to issues_path, alert: "成功删除讨论版"
   end
 
   private
