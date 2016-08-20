@@ -1,0 +1,16 @@
+
+<%= render :partial => "jobs/search_bar" %>
+
+<br>
+<div class="search-result">
+
+  <table class="table table-borderd">
+    <% @jobs.each do |job| %>
+      <%= link_to(job.title, job_path(job)) %>
+
+      <hr>
+    <% end %>
+   <%#= render :partial => "jobs/item", :collection => @jobs, :as => :job %>
+ </table>
+
+</div>
