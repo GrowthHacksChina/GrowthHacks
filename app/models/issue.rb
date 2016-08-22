@@ -20,4 +20,6 @@ class Issue < ApplicationRecord
 
   validates :title, presence: true
   has_many :posts
+  scope :recent, -> {order("created_at DESC")}
+
 end

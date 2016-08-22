@@ -6,10 +6,6 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
 
-  def new
-    @job = Job.new
-  end
-
   def show
     @job = Job.find(params[:id])
   end
@@ -30,6 +26,7 @@ class JobsController < ApplicationController
 
 
   protected
+
 
   def validate_search_key
     @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
