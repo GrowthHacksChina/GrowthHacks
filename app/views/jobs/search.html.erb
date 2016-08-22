@@ -1,0 +1,15 @@
+
+<%= render :partial => "jobs/search_bar" %>
+
+<br>
+<div class="search-result">
+
+  <table class="table table-borderd">
+    <% @jobs.each do |job| %>
+      <%= link_to(render_highlight_content(job,@query_string),job_path(job)) %>
+      <hr>
+    <% end %>
+   <%#= render :partial => "jobs/item", :collection => @jobs, :as => :job %>
+ </table>
+
+</div>

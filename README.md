@@ -6,3 +6,8 @@
 * 随时随地保持公德心，才是好队友
 
 # 开发用帐号
+account:example@gmail.com
+passwore:123456
+
+#Tower网址
+https://tower.im/projects/42669124612740698edfce219bc4fa1c/
