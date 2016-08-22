@@ -13,7 +13,7 @@
     <% @issues.each do |issue| %>
     <div class="col-md-4">
         <div class="panel panel-primary">
-            <div class="panel-heading issuetitle"><%= link_to(issue.title, issue_path(issue), class:"issuetitle") %></div>
+            <div class="panel-heading"><%= link_to(issue.title, issue_path(issue),class:"issuetitle") %></div>
             <%issue.posts.each do |post| %>
             <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %>
             </div>
