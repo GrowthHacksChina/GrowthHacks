@@ -13,7 +13,7 @@
 #  issue       :string
 #  tag         :string
 #  origin_link :string
-#  PV          :string
+#  pv          :string
 #  favorite    :string
 #
 
