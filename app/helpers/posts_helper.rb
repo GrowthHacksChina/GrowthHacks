@@ -5,4 +5,5 @@ module PostsHelper
     highlight(excerpt_cont, query_string)
   end
 
+
 end
