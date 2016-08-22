@@ -26,4 +26,9 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
   scope :recent, -> {order("created_at DESC")}
+
+
+  def visit
+    Post.increment_counter(:pv, self.id)
+  end
 end
