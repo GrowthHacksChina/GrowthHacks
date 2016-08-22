@@ -7,17 +7,17 @@
                       <%= gravatar_tag current_user.email, :size => 150, :default => "https://tower.im/assets/default_avatars/path.jpg" %>
                     </div>
                     <div class="col-sm-6 col-md-8">
-                        <h3>用户资料 </h3>
+                      <h3>用户资料 </h3>
                           <p>
                             <i class="glyphicon glyphicon-envelope"></i> <%= @user.email %>
                             <br />
                             <i class="glyphicon glyphicon-gift"></i> <%= simple_format(@user.introduction) %>
                           </p>
                         <!-- Split button -->
-                            <div class="pull-right">
-                              <%= link_to("编辑信息", edit_account_user_path, :class => "btn btn-default") %>
-                              <%= link_to("修改密码", edit_user_registration_path, :class => "btn btn-default" ) %>
-                            </div>
+                          <div class="pull-right">
+                            <%= link_to("编辑信息", edit_account_user_path, :class => "btn btn-default") %>
+                            <%= link_to("修改密码", edit_user_registration_path, :class => "btn btn-default" ) %>
+                          </div>
                         </div>
                     </div>
                 </div>
