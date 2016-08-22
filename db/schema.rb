@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817074231) do
+ActiveRecord::Schema.define(version: 20160822050151) do
 
   create_table "issue_relationships", force: :cascade do |t|
     t.integer  "issue_id"
@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(version: 20160817074231) do
     t.string   "origin_link"
     t.string   "PV"
     t.string   "favorite"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
