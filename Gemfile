@@ -44,6 +44,8 @@ gem "ransack"
 gem "seo_helper", '~> 1.0'
 gem 'rubocop', require: false
 gem 'active_link_to', :github => "xdite/active_link_to", :branch => "wrap_tag_css"
+gem 'gravatarify'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
