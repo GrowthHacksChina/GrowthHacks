@@ -46,6 +46,7 @@ gem "trix"
 gem "ransack"
 gem "seo_helper", '~> 1.0'
 gem 'rubocop', require: false
+gem 'gravatarify'
 
 
 group :development, :test do
