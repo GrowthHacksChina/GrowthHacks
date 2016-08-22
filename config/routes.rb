@@ -7,7 +7,17 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  resources :jobs
+  resources :posts do
+    collection do
+      get :search
+    end
+  end
+
+  resources :jobs do
+    collection do
+      get :search
+    end
+  end
 
   root 'welcome#index'
 
@@ -16,7 +26,11 @@ Rails.application.routes.draw do
       post :change
     end
     resources :jobs
-    resources :issues
+
+    resources :issues do
+      resources :posts
+    end
+
     resources :posts
   end
 

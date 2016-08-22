@@ -1,0 +1,14 @@
+<%= render :partial => "welcome/search_bar" %>
+<br>
+<div class="search-result">
+  <table class="table table-borderd">
+    <% if !@posts.nil? %>
+      <% @posts.each do |f| %>
+      <%= link_to(render_highlight_content(f,@query_string),issue_post_path(f.issue, f)) %>
+      <hr>
+      <% end %>
+    <% end %>
+   <%#= render :partial => "jobs/item", :collection => @jobs, :as => :job %>
+
+ </table>
+</div>
