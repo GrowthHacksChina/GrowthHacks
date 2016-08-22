@@ -1,25 +1,27 @@
-<div class="pull-right">
-  <%= link_to("编辑信息", edit_account_user_path, :class => "btn btn-default") %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-12">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                      <%= gravatar_tag current_user.email, :size => 150, :default => "https://tower.im/assets/default_avatars/path.jpg" %>
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h3>用户资料 </h3>
+                          <p>
+                            <i class="glyphicon glyphicon-envelope"></i> <%= @user.email %>
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i> <%= simple_format(@user.introduction) %>
+                          </p>
+                        <!-- Split button -->
+                            <div class="pull-right">
+                              <%= link_to("编辑信息", edit_account_user_path, :class => "btn btn-default") %>
+                              <%= link_to("修改密码", edit_user_registration_path, :class => "btn btn-default" ) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<table class="table table-boldered">
-  <h3>个人信息</h3>
-  <tr>
-    <td>头像</td>
-    <td><%= gravatar_tag current_user.email, :size => 80, :default => "https://tower.im/assets/default_avatars/path.jpg" %></td>
-  </tr>
-  <tr>
-    <td>姓名</td>
-    <td>#</td>
-  </tr>
-  <tr>
-    <td>邮箱</td>
-    <td> <%= @user.email %> </td>
-  </tr>
-  <tr>
-    <td>个人简介</td>
-  </tr>
-  <tr>
-    <td class="text_center"><%= simple_format(@user.introduction) %></td>
-  </tr>
-</table>
