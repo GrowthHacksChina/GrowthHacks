@@ -1,5 +1,6 @@
-<div class="col-md-10">
-    <table class="table table-boldered .table-striped .table-bordered ">
+<div class="col-md-12">
+    <table class="table table-hover table-condensed table-striped">
+      <thead>
         <tr>
             <th>
                 用户名
@@ -11,15 +12,13 @@
                 管理选项
             </th>
             <th>
-                删除用户
-            </th>
-            <th>
                 权限状态
             </th>
             <th>
-                注册时间时间
+                注册时间
             </th>
         </tr>
+      </thead>
         <% @users.each do |user|%>
         <tr>
             <td class="col-md-3">
@@ -38,19 +37,17 @@
                 <%end%>
             </td>
             <td>
-                <%= link_to("Edit", edit_admin_user_path(user)) %>
-            </td>
-            <td>
-                <%= link_to("Destroy", admin_user_path(user), :method => :delete, :data => { :confirm => "Are you sure?"}) %>
+                <%= link_to("Edit", edit_admin_user_path(user), class:"btn btn-xs btn-primary") %>
+                <%= link_to("Destroy", admin_user_path(user), class:"btn btn-xs btn-danger", :method => :delete, :data => { :confirm => "Are you sure?"}) %>
 
             </td>
             <% if(user.is_admin)%>
             <td>
-                <%= button_to("Admin" , admin_user_change_path(user)) %>
+                <%= button_to("Admin" , admin_user_change_path(user), class:"btn btn-xs btn-warning") %>
             </td>
         <% else%>
             <td>
-                <%= button_to("Normal" , admin_user_change_path(user)) %>
+                <%= button_to("Normal" , admin_user_change_path(user), class:"btn btn-xs btn-warning") %>
             </td>
 
             <%end%>

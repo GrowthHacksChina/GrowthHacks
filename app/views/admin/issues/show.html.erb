@@ -21,6 +21,12 @@
                 <td><%= post.content %></td>
                 <td><%= "email"%></td>
                 <td><%= post.created_at %></td>
+
+                <td>
+                    <%= link_to("Edit", edit_admin_post_path(post), class: "btn btn-primary btn-xs btn-default")%>
+                    <%= link_to("Destroy", admin_post_path(post), class: "btn btn-danger btn-xs btn-default",
+          method: :delete, data: {confirm: "确定删除吗?"})%>
+                </td>
             </tr>
             <% end %>
         </tbody>
