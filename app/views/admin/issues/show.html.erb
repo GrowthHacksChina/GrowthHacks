@@ -7,7 +7,7 @@
     </h2>
     <p>
         <%= @issue.description %></p>
-    <table class="table">
+    <table class="table" height="200px">
         <thead>
             <tr>
               <th>文章名</th>
@@ -24,6 +24,7 @@
                 <td><%= post.content %></td>
                 <td><%= post.author%></td>
                 <td><%= post.created_at %></td>
+
                 <td>
                     <%= link_to("Edit", edit_admin_post_path(post), class: "btn btn-primary btn-xs btn-default")%>
                     <%= link_to("Destroy", admin_post_path(post), class: "btn btn-danger btn-xs btn-default",
