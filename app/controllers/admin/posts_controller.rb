@@ -16,6 +16,13 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def show
+    @issue = Issue.find(params[:issue_id])
+    @post = Post.find(params[:id])
+    drop_breadcrumb( @issue.title , admin_issue_path(@issue))
+    drop_breadcrumb( @post.title , admin_issue_post_path(@issue,@post) )
+  end
+
   def edit
     @post = Post.find(params[:id])
   end
