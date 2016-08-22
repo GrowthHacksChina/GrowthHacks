@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @user = current_user
   end
@@ -25,7 +25,7 @@ class Account::UsersController < ApplicationController
   private
 
 def params_user
-  params.require(:user).permit(:email, :description)
+  params.require(:user).permit(:email, :introduction)
 end
 
 
