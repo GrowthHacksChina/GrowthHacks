@@ -18,7 +18,7 @@
 
         <span class="col-md-5">
         <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
-        <%= @post.created_at%>
+        <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 
         </span>
 
