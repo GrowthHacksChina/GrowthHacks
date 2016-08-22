@@ -1,4 +1,4 @@
-<div class="panel panel-primary " >
+<div class="panel panel-primary" >
   <% @issue.posts.each do |post| %>
   <div class="panel-heading">
     <%= link_to(post.title, issue_post_path(@issue,post), class: "issue_post_title")%>
