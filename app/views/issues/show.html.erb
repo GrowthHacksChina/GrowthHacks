@@ -2,10 +2,12 @@
   <% @issue.posts.each do |post| %>
   <div class="panel-heading">
     <%= link_to(post.title, issue_post_path(@issue,post), class: "issue_post_title")%>
-    <hr>
+    <div class="">
       <span class="label label-danger" id="tag1"> 作者: <%= post.author %></span>
       <span class="label label-danger" id="tag2"> 标签: <%= post.tag %></span>
       <span class="label label-danger" id="tag3"> 时间: <%= post.created_at %></span>
+    </div>
+
   </div>
   <div class="panel-body issue_content" >
   <%= truncate(post.content, :ommision => "...Read More", :length => 500)%>
