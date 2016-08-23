@@ -25,7 +25,7 @@
 
         </div>
     </div>
-    <div class="panel-body"><%= simple_format(@post.content) %> </div>
+    <div class="panel-body"><%= render_markdown_text(@post.content) %> </div>
       <ul class="pager">
         <li class="previous"> <%=link_to("上一页", @post.previous) %></li>
         <li class="next"> <%=link_to("下一页", @post.next) %></li>
