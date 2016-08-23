@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-md-12 col-xs-12">
     <table class="table table-hover table-condensed table-striped">
       <thead>
         <tr>
@@ -21,7 +21,7 @@
       </thead>
         <% @users.each do |user|%>
         <tr>
-            <td class="col-md-3">
+            <td class="col-md-3 col-xs-3">
                 <% if(user.is_admin)%>
                 <%= fa_icon "lock", right: true%>
             <% else%>

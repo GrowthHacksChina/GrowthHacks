@@ -33,6 +33,7 @@ class Post < ApplicationRecord
 
   def visit
     Post.increment_counter(:pv, self.id)
+  end
 
   def previous
     Post.where(["id < ?", id]).last
@@ -40,6 +41,5 @@ class Post < ApplicationRecord
 
   def next
     Post.where(["id > ?", id]).first
-
   end
 end
