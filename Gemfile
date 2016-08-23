@@ -39,10 +39,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "will_paginate"
 gem "trix"
-<<<<<<< HEAD
 
-=======
->>>>>>> 4b81ae80138321fdd66bf342d497dc8dd0c86fe5
 gem "ransack"
 gem "seo_helper", '~> 1.0'
 gem 'rubocop', require: false

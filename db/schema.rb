@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822033905) do
+ActiveRecord::Schema.define(version: 20160823015533) do
 
   create_table "issue_relationships", force: :cascade do |t|
     t.integer  "issue_id"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20160822033905) do
     t.text     "content"
     t.integer  "issue_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "title"
     t.string   "author"
     t.string   "issue"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160822033905) do
     t.string   "origin_link"
     t.string   "pv"
     t.string   "favorite"
+    t.text     "brief_introduction"
   end
 
   create_table "users", force: :cascade do |t|
