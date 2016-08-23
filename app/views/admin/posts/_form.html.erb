@@ -2,16 +2,13 @@
 <div class="form-group">
     <%= f.input :title %>
     <%#= f.input :content, input_html: {class:"form-control"}%>
-    <p>
-      <strong>文章内容
-      <%= f.trix_editor :content, :input_html => { :cols => 5, :rows => 100 } %></strong>
-    </p>
-        <%= f.input :author %>
-        <%= f.input :tag %>
-        <%= f.input :origin_link %>
-        <%= f.input :image %>
-        <%= f.input :PV %>
-        <%= f.input :brief_introduction %>
+    <%= f.input :content %>
+    <%= f.input :author %>
+    <%= f.input :tag %>
+    <%= f.input :origin_link %>
+    <%= f.input :image %>
+    <%= f.input :PV %>
+    <%= f.input :brief_introduction %>
 </div>
 
 <div class="form-actions">
@@ -20,8 +17,14 @@
 <% end %>
 
 <style>
-  trix-editor.formatted_content {
-    min-height: 400px !important;
-    width: 750px !important;
-  }
+    trix-editor.formatted_content {
+        min-height: 400px !important;
+        width: 750px !important;
+    }
+
 </style>
+
+<script>
+    var simplemde = new SimpleMDE({element: document.getElementById("post_content")});
+    simplemde.value();
+</script>
