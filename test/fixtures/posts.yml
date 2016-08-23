@@ -16,6 +16,7 @@
 #  PV          :string
 #  favorite    :string
 #  introduce   :string
+#  image       :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

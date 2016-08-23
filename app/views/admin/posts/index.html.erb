@@ -13,7 +13,9 @@
                   <% @posts.each do |post| %>
             <tr>
                 <td><%= link_to(post.title, admin_post_path(post)) %></td>
-                <td><%= post.content %></td>
+                <td>
+                  <%= truncate(post.content, :ommision => "...Read More", :length => 50)%>
+                </td>
                 <td>
                     <%= link_to("Edit", edit_admin_post_path(post), class:"btn btn-xs btn-primary" )%>
                     <%= link_to("Destroy", admin_post_path(post), class:"btn btn-xs btn-danger",
