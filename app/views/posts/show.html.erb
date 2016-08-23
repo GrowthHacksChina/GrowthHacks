@@ -5,26 +5,27 @@
 
       <div class="row">
         <span class="col-md-2, margin-bottom:10px">
-        <i class="fa fa-user tag_color" aria-hidden="true"></i>
-        作者: <%= @post.author %>
+          <i class="fa fa-user tag_color" aria-hidden="true"></i>
+          作者: <%= @post.author %>
         </span>
 
         <span class="col-md-3">
-        <i class="fa fa-tags tag_color" aria-hidden="true" ></i>
-        <%=link_to("标签","#",style:"color:white")%>
+          <i class="fa fa-tags tag_color" aria-hidden="true" ></i>
+          <%=link_to("标签","#",style:"color:white")%>
 
-        <%= @post.tag%>
+          <%= @post.tag%>
         </span>
 
         <span class="col-md-5">
-        <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
-        <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
+          <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 
         </span>
 
-        </div>
+      </div>
     </div>
     <div class="panel-body"><%= simple_format(@post.content) %> </div>
+    <div> <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %> </div>
   </div>
   <!-- <img src="/x.png" alt="" /> -->
 </div>

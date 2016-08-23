@@ -15,7 +15,6 @@
 #  origin_link :string
 #  PV          :string
 #  favorite    :string
-#  introduce   :string
 #
 
 class Post < ApplicationRecord
@@ -27,4 +26,8 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
   scope :recent, -> {order("created_at DESC")}
+
+  has_many :favorites
+  has_many :favorite_by_users,through: :favorites, source: :user
+
 end
