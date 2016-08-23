@@ -13,7 +13,6 @@ class PostsController < ApplicationController
         drop_breadcrumb(@post.title, issue_post_path(@issue, @post))
     end
 
-
     def search
         if @query_string.present?
             search_result = Post.ransack(@search_criteria).result(distinct: true)
@@ -27,7 +26,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:title, :content, :author, :tag, :origin_link, :pv, :brief_introduction)
+        params.require(:post).permit(:title, :content, :author, :tag, :origin_link, :pv, :image, :brief_introduction)
     end
 
     protected
