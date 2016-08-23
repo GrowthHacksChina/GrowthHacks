@@ -30,7 +30,16 @@ class Post < ApplicationRecord
   scope :recent, -> {order("created_at DESC")}
 
 
+
   def visit
     Post.increment_counter(:pv, self.id)
+
+  def previous
+    Post.where(["id < ?", id]).last
+  end
+
+  def next
+    Post.where(["id > ?", id]).first
+
   end
 end
