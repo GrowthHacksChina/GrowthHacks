@@ -1,5 +1,13 @@
+GIT
+  remote: git://github.com/xdite/active_link_to.git
+  revision: 2ba9f926fd8564a0d08307e490ea3886a7e5a325
+  branch: wrap_tag_css
+  specs:
+    active_link_to (1.0.2)
+      actionpack
+
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.ruby-china.org/
   specs:
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
@@ -79,6 +87,7 @@ GEM
       railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gravatarify (3.1.1)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -215,6 +224,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to!
   annotate
   bootstrap-sass
   byebug
@@ -222,6 +232,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   font-awesome-rails (~> 4.6, >= 4.6.3.1)
+  gravatarify
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

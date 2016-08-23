@@ -10,11 +10,10 @@ class PostsController < ApplicationController
   def show
     @issue = Issue.find(params[:issue_id])
     @post = Post.find(params[:id])
+    drop_breadcrumb( @issue.title , issue_path(@issue))
+    drop_breadcrumb( @post.title , issue_post_path(@issue,@post) )
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
 
   def search
     if @query_string.present?
