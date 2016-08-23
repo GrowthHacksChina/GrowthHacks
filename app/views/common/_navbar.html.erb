@@ -34,9 +34,11 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
+                        <% if current_user.admin? %>
                         <li>
                             <%= link_to("管理后台", admin_users_path) %>
                         </li>
+                        <% end %>
                         <li>
                             <%= link_to("个人信息", account_user_path(current_user)) %>
                         </li>
