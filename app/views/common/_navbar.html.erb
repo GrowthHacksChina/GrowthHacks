@@ -26,6 +26,7 @@
                     <ul class="dropdown-menu">
                       <li> <%= link_to("管理后台", admin_users_path) %> </li>
                       <li> <%= link_to("个人信息", account_user_path(current_user)) %> </li>
+                      <li> <%= link_to("我的收藏", account_user_favorite_path(current_user)) %> </li>
                       <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
                     </ul>
                   </li>

@@ -15,7 +15,6 @@
 #  origin_link :string
 #  PV          :string
 #  favorite    :string
-#  introduce   :string
 #
 
 require 'test_helper'
