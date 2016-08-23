@@ -15,9 +15,8 @@
 #  origin_link :string
 #  PV          :string
 #  favorite    :string
-#  introduce   :string
 #  image       :string
-#
+#  brief_introduction :text
 
 class Post < ApplicationRecord
     belongs_to :issue
@@ -26,7 +25,12 @@ class Post < ApplicationRecord
     validates :content, presence: true
     validates :title, presence: true
     validates :author, presence: true
+    validates_length_of :brief_introduction, maximum: 200
     scope :recent, -> { order('created_at DESC') }
+
+    def visit
+        Post.increment_counter(:pv, id)
+    end
 
     def previous
         Post.where(['id < ?', id]).last
