@@ -33,9 +33,9 @@
 <div class="row visible-xs-block">
   <% @posts.each do |post| %>
   <div class="col-xs-12 ">
-  <%= link_to(post.title, post_path(post)) %>
+  <h3><%= link_to(post.title, post_path(post)) %></h3>
   <br>
-  <%= link_to(post.brief_introduction, post_path(post)) %>
+  <p><%= link_to(post.brief_introduction, post_path(post)) %></p>
   <hr>
   </div>
   <% end %>
