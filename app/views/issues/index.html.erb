@@ -1,13 +1,32 @@
-<div class="row">
-<% @issues.each do |issue| %>
-<div class="col-md-4">
-<div class="panel panel-primary">
-<div class="panel-heading" ><%= link_to(issue.title, issue_path(issue), class: "issuetitle") %></div>
+<div class="row hidden-xs">
+  <% @issues.each do |issue| %>
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= link_to(issue.title, issue_path(issue), class: "issuetitle") %></div>
 
-<%issue.posts.each do |post| %>
-<div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %> </div>
-<% end %>
+      <%issue.posts.each do |post| %>
+      <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
 </div>
-</div>
-<% end %>
+
+<div class="row visible-xs-block">
+  <% @issues.each do |issue| %>
+  <div class="col-xs-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= link_to(issue.title, issue_path(issue), class: "issuetitle") %></div>
+
+      <%issue.posts.each do |post| %>
+      <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post), class: "posttitle") %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <div class="text-center">
+  <%= will_paginate @issues %>
+  </div>
 </div>
