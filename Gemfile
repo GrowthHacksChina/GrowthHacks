@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -43,6 +43,8 @@ gem "trix"
 gem "ransack"
 gem "seo_helper", '~> 1.0'
 gem 'rubocop', require: false
+gem 'active_link_to', :github => "xdite/active_link_to", :branch => "wrap_tag_css"
+gem 'gravatarify'
 
 
 group :development, :test do

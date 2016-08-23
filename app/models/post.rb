@@ -16,6 +16,7 @@
 #  pv                 :string
 #  favorite           :string
 #  brief_introduction :text
+#  introduce   :string
 #
 
 class Post < ApplicationRecord

@@ -29,6 +29,12 @@ class Admin::IssuesController < ApplicationController
     @posts = @issue.posts.recent.paginate(:page => params[:page], :per_page => 15)
   end
 
+  def show
+    @issue = Issue.find(params[:id])
+    @posts = @issue.posts.recent.paginate(:page => params[:page], :per_page => 15)
+    drop_breadcrumb( @issue.title , admin_issue_path(@issue))
+  end
+
   def edit
     @issue = Issue.find(params[:id])
   end
