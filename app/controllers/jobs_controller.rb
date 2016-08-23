@@ -10,6 +10,12 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
+
+  private
+
+  def job_params
+    params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :work_address, :work_experience, :company, :company_description)
+  end
   def search
     if @query_string.present?
       search_result = Job.ransack(@search_criteria).result(:distinct => true)
@@ -20,6 +26,7 @@ class JobsController < ApplicationController
 
 
   protected
+
 
   def validate_search_key
     @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
