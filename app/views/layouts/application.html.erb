@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GrowthHacks</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-  <div class="container" style="width: 950px; padding:0 0px;">
-     <%= render "common/navbar" %>
-     <%= render "common/flashes"%>
-     <%= render_breadcrumb %>
-     <%= yield %>
-  </div>
-    <%= render "common/footer" %>
-  </body>
+    <head>
+        <title>GrowthHacks</title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+        <div class="container" style="width: 950px; padding:0 0;">
+            <%= render "common/navbar" %>
+            <%= render "common/flashes"%>
+            <%= render_breadcrumb %>
+            <%= yield %>
+        </div>
+        <%= render "common/footer" %>
+    </body>
 </html>
