@@ -1,6 +1,5 @@
 source 'https://gems.ruby-china.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
@@ -35,39 +34,38 @@ gem 'devise'
 gem 'simple_form'
 gem 'annotate'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
-gem "carrierwave"
-gem "mini_magick"
-gem "will_paginate"
-gem "trix"
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'will_paginate'
+gem 'trix'
+gem 'fog'
 
-gem "ransack"
-gem "seo_helper", '~> 1.0'
+gem 'ransack'
+gem 'seo_helper', '~> 1.0'
 gem 'rubocop', require: false
-gem 'active_link_to', :github => "xdite/active_link_to", :branch => "wrap_tag_css"
+gem 'active_link_to', github: 'xdite/active_link_to', branch: 'wrap_tag_css'
 gem 'gravatarify'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
-  gem 'sqlite3'
+    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+    gem 'byebug', platform: :mri
+    gem 'sqlite3'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-
-
+    # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+    gem 'web-console'
+    gem 'listen', '~> 3.0.5'
+    # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+    gem 'spring'
+    gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :development do
 end
 
 group :production do
-  gem 'pg'
+    gem 'pg'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
