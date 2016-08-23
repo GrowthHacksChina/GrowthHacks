@@ -16,6 +16,7 @@
 #  PV          :string
 #  favorite    :string
 #  introduce   :string
+#  image       :string
 #
 
 require 'test_helper'
