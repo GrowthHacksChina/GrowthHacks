@@ -26,4 +26,12 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
   scope :recent, -> {order("created_at DESC")}
+
+  def previous
+    Post.where(["id < ?", id]).last
+  end
+
+  def next
+    Post.where(["id > ?", id]).first
+  end
 end

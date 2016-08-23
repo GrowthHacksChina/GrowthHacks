@@ -9,8 +9,8 @@ class PostsController < ApplicationController
 
 
   def show
-    @issue = Issue.find(params[:issue_id])
     @post = Post.find(params[:id])
+    # @issue = Issue.find(params[:issue_id])
   end
 
 
