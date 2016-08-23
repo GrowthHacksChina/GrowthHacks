@@ -15,25 +15,23 @@
                 <div class="row">
                     <div class="col-md-2">
                         <ul class="nav nav-pills nav-stacked">
-                            <li role="presentation">
-                                <a href="/admin/users">用户管理</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="/admin/issues">期刊管理</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="/admin/posts">文章管理</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="/admin/jobs">招聘管理</a>
-                            </li>
+                              <%= active_link_to '用户管理', admin_users_path, :active => :exclusive, :wrap_tag => :li %>
+
+                              <%= active_link_to '期刊管理', admin_issues_path, :active => :exclusive, :wrap_tag => :li %>
+
+                              <%= active_link_to '文章管理', admin_posts_path, :active => :exclusive, :wrap_tag => :li %>
+
+                              <%= active_link_to '招聘管理', admin_jobs_path, :active => :exclusive, :wrap_tag => :li %>
+
                         </ul>
                     </div>
                     <div class="col-md-10">
+                       <%= render_breadcrumb %>
                         <%= yield %>
                     </div>
                 </div>
             </div>
+
           </div>
       </body>
       <%= render "common/footer" %>
