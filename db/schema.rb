@@ -59,11 +59,7 @@ ActiveRecord::Schema.define(version: 20160822100206) do
     t.string   "origin_link"
     t.string   "PV"
     t.string   "favorite"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "introduce"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160822100206) do
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
     t.text     "introduction"
+    t.string   "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
