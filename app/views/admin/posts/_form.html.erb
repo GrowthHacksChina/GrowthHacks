@@ -2,12 +2,13 @@
 <div class="form-group">
     <%= f.input :title %>
     <%#= f.input :content, input_html: {class:"form-control"}%>
-        <%= f.input :content %>
-        <%= f.input :author %>
-        <%= f.input :tag %>
-        <%= f.input :origin_link %>
-        <%= f.input :brief_introduction %>
-
+    <%= f.input :content %>
+    <%= f.input :author %>
+    <%= f.input :tag %>
+    <%= f.input :origin_link %>
+    <%= f.input :image %>
+    <%= f.input :PV %>
+    <%= f.input :brief_introduction %>
 </div>
 
 <div class="form-actions">
@@ -16,13 +17,14 @@
 <% end %>
 
 <style>
-  trix-editor.formatted_content {
-    min-height: 400px !important;
-    width: 750px !important;
-  }
+    trix-editor.formatted_content {
+        min-height: 400px !important;
+        width: 750px !important;
+    }
+
 </style>
 
 <script>
-var simplemde = new SimpleMDE({ element: document.getElementById("post_content") });
-simplemde.value();
+    var simplemde = new SimpleMDE({element: document.getElementById("post_content")});
+    simplemde.value();
 </script>

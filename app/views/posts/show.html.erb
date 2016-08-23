@@ -1,35 +1,39 @@
 <div class="col-md-12 col-xs-12">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <span class="issue_post_title"><%= @post.title %></span>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="issue_post_title"><%= @post.title %></span>
 
+            <div class="row">
+                <span class="col-md-2 col-xs-4, margin-bottom:10px">
+                    <i class="fa fa-user tag_color" aria-hidden="true"></i>
+                    作者:
+                    <%= @post.author %>
+                </span>
 
-      <div class="row">
-        <span class="col-md-2 col-xs-4, margin-bottom:10px">
-        <i class="fa fa-user tag_color" aria-hidden="true"></i>
-        作者: <%= @post.author %>
-        </span>
+                <span class="col-md-3 col-xs-6">
+                    <i class="fa fa-tags tag_color" aria-hidden="true"></i>
+                    <%=link_to("标签","#",style:"color:white")%>
+                    <%= @post.tag%>
+                </span>
 
-        <span class="col-md-3 col-xs-6">
-        <i class="fa fa-tags tag_color" aria-hidden="true" ></i>
-        <%=link_to("标签","#",style:"color:white")%>
+                <span class="col-md-5 col-xs-12">
+                    <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
+                    <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 
-        <%= @post.tag%>
-        </span>
+                </span>
 
-        <span class="col-md-5 col-xs-12">
-        <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
-        <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-
-        </span>
-
+            </div>
         </div>
+
+        <div class="panel-body"><%= render_markdown_text(@post.content) %>
+        </div>
+        <ul class="pager">
+            <li class="previous">
+                <%=link_to("上一页", @post.previous) %>
+            </li>
+            <li class="next">
+                <%=link_to("下一页", @post.next) %>
+            </li>
+        </ul>
     </div>
-    <div class="panel-body"><%= render_markdown_text(@post.content) %> </div>
-      <ul class="pager">
-        <li class="previous"> <%=link_to("上一页", @post.previous) %></li>
-        <li class="next"> <%=link_to("下一页", @post.next) %></li>
-      </ul>
-  </div>
-  <!-- <img src="/x.png" alt="" /> -->
 </div>
