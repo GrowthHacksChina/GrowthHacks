@@ -20,10 +20,11 @@
         <tbody>
             <% @posts.each do |post| %>
             <tr>
-                <td><%= link_to(post.title , admin_post_path(post)) %></td>
+                <td><%= link_to(post.title , admin_issue_post_path(@issue,post)) %></td>
                 <td><%= post.content %></td>
                 <td><%= post.author%></td>
                 <td><%= post.created_at %></td>
+
                 <td>
                     <%= link_to("Edit", edit_admin_post_path(post), class: "btn btn-primary btn-xs btn-default")%>
                     <%= link_to("Destroy", admin_post_path(post), class: "btn btn-danger btn-xs btn-default",
