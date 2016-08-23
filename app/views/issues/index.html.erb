@@ -5,8 +5,7 @@
       <div class="panel-heading"><%= link_to(issue.title, issue_path(issue), class: "issuetitle") %></div>
 
       <%issue.posts.each do |post| %>
-      <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %>
-      </div>
+      <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %></div>
       <% end %>
     </div>
   </div>
@@ -26,7 +25,4 @@
     </div>
   </div>
   <% end %>
-  <div class="text-center">
-  <%= will_paginate @issues %>
-  </div>
 </div>
