@@ -19,25 +19,30 @@
                 <span class="col-md-5 col-xs-12">
                     <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
                     <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+                </span>
 
+                <span class="col-md-2 col-xs-12">
+                    <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
+                    阅读量: <%= @post.visit %>
                 </span>
 
             </div>
         </div>
-      </div>
-    </div>
-  <!-- <img src="/x.png" alt="" /> -->
+
         <div class="panel-body">
           <div> <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %> </div>
           <div><%= render_markdown_text(@post.content) %></div>
+          <ul class="pager">
+              <li class="previous">
+                  <%=link_to("上一页", @post.previous) %>
+              </li>
+              <li class="next">
+                  <%=link_to("下一页", @post.next) %>
+              </li>
+          </ul>
+
         </div>
-        <ul class="pager">
-            <li class="previous">
-                <%=link_to("上一页", @post.previous) %>
-            </li>
-            <li class="next">
-                <%=link_to("下一页", @post.next) %>
-            </li>
-        </ul>
+
+      </div>
     </div>
-</div>
+  <!-- <img src="/x.png" alt="" /> -->
