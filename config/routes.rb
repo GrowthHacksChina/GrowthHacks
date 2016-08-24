@@ -13,6 +13,18 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :account do
+    resources :users do
+      get :favorite
+    end
+
+    resources :posts do
+      member do
+        post :add_to_favorite_test
+      end
+    end
+  end
+
   resources :jobs do
     collection do
       get :search
@@ -35,8 +47,5 @@ Rails.application.routes.draw do
 
   end
 
-  namespace :account do
-    resources :users
-  end
 
 end

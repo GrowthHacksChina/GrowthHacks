@@ -22,11 +22,11 @@ class Account::UsersController < ApplicationController
     end
   end
 
-  private
-
-def params_user
-  params.require(:user).permit(:email, :introduction)
-end
-
+  def favorite
+  	@posts = current_user.favorite_posts
+  	unless @posts
+  		redirect_to :back , notice: “没有收藏的文章”
+  	end
+  end
 
 end
