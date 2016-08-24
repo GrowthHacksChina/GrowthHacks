@@ -59,4 +59,8 @@ class User < ApplicationRecord
   def join_favorite!(post)
     favorite_posts << post
   end
+
+  def delete_favorite!(post)
+    favorite_posts.delete(post) 
+  end
 end
