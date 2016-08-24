@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :posts do
       member do
         post :add_to_favorite_test
+        delete :remove_favorite_post
       end
     end
   end
