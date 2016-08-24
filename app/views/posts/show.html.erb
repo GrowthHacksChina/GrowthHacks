@@ -28,20 +28,20 @@
 
             </div>
         </div>
-      </div>
-    </div>
-  <!-- <img src="/x.png" alt="" /> -->
+
         <div class="panel-body">
           <div> <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %> </div>
           <div><%= render_markdown_text(@post.content) %></div>
+          <ul class="pager">
+              <li class="previous">
+                  <%=link_to("上一页", @post.previous) %>
+              </li>
+              <li class="next">
+                  <%=link_to("下一页", @post.next) %>
+              </li>
+          </ul>
         </div>
-        <ul class="pager">
-            <li class="previous">
-                <%=link_to("上一页", @post.previous) %>
-            </li>
-            <li class="next">
-                <%=link_to("下一页", @post.next) %>
-            </li>
-        </ul>
+
+      </div>
     </div>
-</div>
+  <!-- <img src="/x.png" alt="" /> -->
