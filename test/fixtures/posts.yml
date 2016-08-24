@@ -19,6 +19,10 @@
 #  brief_introduction :text
 #
 
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
 one:
   content: MyText
   issue_id: 1

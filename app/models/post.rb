@@ -41,5 +41,12 @@ class Post < ApplicationRecord
         Post.where(['id > ?', id]).first
     end
 
-    mount_uploader :image, ImageUploader
+  validates :content, presence: true
+  validates :title, presence: true
+  validates :author, presence: true
+  scope :recent, -> {order("created_at DESC")}
+
+  has_many :favorites
+  has_many :favorite_by_users,through: :favorites, source: :user
+
 end
