@@ -11,7 +11,7 @@
         <thead>
             <tr>
               <th>文章名</th>
-              <th>文章内容</th>
+              <th>文章简介</th>
               <th>作者</th>
               <th>发表时间</th>
               <th>操作</th>
@@ -21,8 +21,8 @@
             <% @posts.each do |post| %>
             <tr>
                 <td><%= link_to(post.title , admin_issue_post_path(@issue,post)) %></td>
-                <td><%= post.content %></td>
-                <td><%= post.author%></td>
+                <td><%= post.brief_introduction %></td>
+                <td><%= post.author %></td>
                 <td><%= post.created_at %></td>
 
                 <td>
