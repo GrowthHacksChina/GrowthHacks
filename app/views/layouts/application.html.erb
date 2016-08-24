@@ -14,7 +14,7 @@
   <div class="container" >
      <%= render "common/navbar" %>
      <%= render "common/flashes"%>
-     <%= render_breadcrumb %>
+     <span class="hidden-xs"><%= render_breadcrumb %></span>
      <%= yield %>
      <div class="bdsharebuttonbox pull-right"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a>
        <a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
