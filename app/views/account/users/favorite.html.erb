@@ -22,7 +22,7 @@
           <td> <%= link_to(post.title, issue_post_path(post.issue,post)) %> </td>
           <td> <%= post.author %> </td>
           <td> <%= post.updated_at %> </td>
-          <td> <%= link_to('Delete', account_post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %></td>
+          <td> <%= link_to('Delete', remove_favorite_post_account_post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %></td>
         </tr>
       <% end %>
     </tbody>
