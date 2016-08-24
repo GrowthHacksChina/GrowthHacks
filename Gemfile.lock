@@ -296,14 +296,11 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-<<<<<<< HEAD
     rbvmomi (1.8.2)
       builder
       nokogiri (>= 1.4.1)
       trollop
-=======
     redcarpet (3.3.4)
->>>>>>> d788e0858652af7e972a1b2456ff85ea749c4be2
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rubocop (0.42.0)
