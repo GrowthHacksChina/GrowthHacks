@@ -30,7 +30,7 @@ class Post < ApplicationRecord
     scope :recent, -> { order('created_at DESC') }
 
     def visit
-        Post.increment_counter(:pv, id)
+        Post.increment_counter(:pv, self.id)
     end
 
     def previous
