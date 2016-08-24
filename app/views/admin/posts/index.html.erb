@@ -4,9 +4,9 @@
 
         <thead>
             <tr>
-                <td>文章名</td>
-                <td>文章内容</td>
-                <td>文章管理</td>
+                <td class="col-md-3">文章名</td>
+                <td class="col-md-5">文章简介</td>
+                <td class="col-md-2 col-md-offset-2">文章管理</td>
             </tr>
         </thead>
         <tbody>
@@ -14,7 +14,7 @@
             <tr>
                 <td><%= link_to(post.title, admin_post_path(post)) %></td>
                 <td>
-                  <%= truncate(post.content, :ommision => "...Read More", :length =>40)%>
+                  <%= post.brief_introduction %>
                 </td>
                 <td>
                     <%= link_to("Edit", edit_admin_post_path(post), class:"btn btn-xs btn-primary" )%>

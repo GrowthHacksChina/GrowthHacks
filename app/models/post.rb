@@ -32,7 +32,7 @@ class Post < ApplicationRecord
     mount_uploader :image, ImageUploader
 
     def visit
-        Post.increment_counter(:pv, id)
+        Post.increment_counter(:pv, self.id)
     end
 
     def previous
