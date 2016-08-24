@@ -15,8 +15,13 @@
 #  origin_link        :string
 #  pv                 :string
 #  favorite           :string
+#  image              :string
 #  brief_introduction :text
+#
+
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
 
 one:
   content: MyText
