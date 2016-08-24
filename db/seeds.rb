@@ -424,7 +424,7 @@ end
 create_issues = for i in 2..11 do
   Issue.create!([title: "Issue no.#{i}"])
   create_posts = for j in 1..10 do
-    Post.create!([title: "Post no.#{j} with Issue no.#{i}", content: "content no.#{j}", issue_id: i,author: "content no.#{j}"])
+    Post.create!([title: "Post no.#{j} with Issue no.#{i}", content: "content no.#{j}", issue_id: i,author: "content no.#{j}", brief_introduction: "introduction no.#{j}"])
   end
 end
 puts "10 issues created."

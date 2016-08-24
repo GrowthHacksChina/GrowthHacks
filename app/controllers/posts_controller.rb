@@ -10,7 +10,7 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         @issue = @post.issue
         drop_breadcrumb(@issue.title, issue_path(@issue))
-        drop_breadcrumb(@post.title, issue_post_path(@issue, @post))
+        drop_breadcrumb("本文")
     end
 
     def search
