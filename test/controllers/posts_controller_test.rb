@@ -18,6 +18,7 @@
 #  image              :string
 #  brief_introduction :text
 #
+#
 
 require 'test_helper'
 

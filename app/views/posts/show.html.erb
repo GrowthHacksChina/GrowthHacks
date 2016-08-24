@@ -24,8 +24,12 @@
 
             </div>
         </div>
-
-        <div class="panel-body"><%= render_markdown_text(@post.content) %>
+      </div>
+    </div>
+  <!-- <img src="/x.png" alt="" /> -->
+        <div class="panel-body">
+          <div> <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %> </div>
+          <div><%= render_markdown_text(@post.content) %></div>
         </div>
         <ul class="pager">
             <li class="previous">
