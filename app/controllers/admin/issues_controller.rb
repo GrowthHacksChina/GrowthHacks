@@ -1,59 +1,53 @@
 class Admin::IssuesController < ApplicationController
+    before_action :authenticate_user!
+    before_action :require_is_admin
 
-  before_action :authenticate_user!
-  before_action :require_is_admin
+    layout 'admin'
 
-  layout "admin"
-
-  def index
-    @issues = Issue.all
-    @issues = @issues.recent
-  end
-
-  def new
-    @issue = Issue.new
-  end
-
-  def create
-    @issue = Issue.new(issue_params)
-    @issue.user = current_user
-    if @issue.save
-    redirect_to admin_issues_path, notice: "admin成功新建讨论版"
-    else
-      render :new
+    def index
+        @issues = Issue.all
+        @issues = @issues.recent.paginate(page: params[:page], per_page: 10)
     end
-  end
 
-  def show
-    @issue = Issue.find(params[:id])
-    @posts = @issue.posts.recent.paginate(:page => params[:page], :per_page => 15)
-  end
+    def new
+        @issue = Issue.new
+    end
 
-  def show
-    @issue = Issue.find(params[:id])
-    @posts = @issue.posts.recent.paginate(:page => params[:page], :per_page => 15)
-    drop_breadcrumb( @issue.title , admin_issue_path(@issue))
-  end
+    def create
+        @issue = Issue.new(issue_params)
+        @issue.user = current_user
+        if @issue.save
+            redirect_to admin_issues_path, notice: 'admin成功新建讨论版'
+        else
+            render :new
+        end
+    end
 
-  def edit
-    @issue = Issue.find(params[:id])
-  end
+    def show
+        @issue = Issue.find(params[:id])
+        @posts = @issue.posts.recent.paginate(page: params[:page], per_page: 10)
+        drop_breadcrumb(@issue.title, admin_issue_path(@issue))
+    end
 
-  def update
-    @issue = Issue.find(params[:id])
-    @issue.update(issue_params)
-    redirect_to admin_issues_path, notice: "更新成功"
-  end
+    def edit
+        @issue = Issue.find(params[:id])
+    end
 
-  def destroy
-    @issue = Issue.find(params[:id])
-    @issue.destroy
-    redirect_to admin_issues_path, alert: "成功删除讨论版"
-  end
+    def update
+        @issue = Issue.find(params[:id])
+        @issue.update(issue_params)
+        redirect_to admin_issues_path, notice: '更新成功'
+    end
 
-  private
+    def destroy
+        @issue = Issue.find(params[:id])
+        @issue.destroy
+        redirect_to admin_issues_path, alert: '成功删除讨论版'
+    end
 
-  def issue_params
-    params.require(:issue).permit(:title, :description)
-  end
+    private
+
+    def issue_params
+        params.require(:issue).permit(:title, :description)
+    end
 end
