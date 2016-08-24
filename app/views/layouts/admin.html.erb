@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>GrowthHack中国 </title>
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'simplemde.min' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'simplemde.min' %>
     </head>
     <body>
         <div class="container" >
@@ -13,7 +17,7 @@
             <br />
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-xs-12">
                         <ul class="nav nav-pills nav-stacked">
                               <%= active_link_to '用户管理', admin_users_path, :active => :exclusive, :wrap_tag => :li %>
 
@@ -25,7 +29,7 @@
 
                         </ul>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-10 col-xs-12">
                        <%= render_breadcrumb %>
                         <%= yield %>
                     </div>
