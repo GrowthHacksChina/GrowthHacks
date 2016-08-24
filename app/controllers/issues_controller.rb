@@ -8,7 +8,7 @@ class IssuesController < ApplicationController
   def show
     @issue = Issue.find(params[:id])
     @posts = @issue.posts.recent.paginate(page: params[:page], per_page: 15)
-    drop_breadcrumb( @issue.title , admin_issue_path(@issue))
+    drop_breadcrumb(@issue.title)
 
   end
 
