@@ -4,7 +4,7 @@ class Admin::PostsController < ApplicationController
     layout 'admin'
 
     def index
-        @posts = Post.all
+      @posts = Post.all
     end
 
     def show
@@ -12,15 +12,16 @@ class Admin::PostsController < ApplicationController
             @issue = Issue.find(params[:issue_id])
             @post = Post.find(params[:id])
             drop_breadcrumb(@issue.title, admin_issue_path(@issue))
-            drop_breadcrumb(@post.title, admin_issue_post_path(@issue, @post))
+            drop_breadcrumb("本文")
         else
             @post = Post.find(params[:id])
-            drop_breadcrumb(@post.title, admin_post_path(@post))
+            drop_breadcrumb("本文")
         end
     end
 
     def edit
         @post = Post.find(params[:id])
+        drop_breadcrumb(@post.title, admin_post_path(@post))
     end
 
     def new
