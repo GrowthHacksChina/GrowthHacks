@@ -29,6 +29,8 @@ class Post < ApplicationRecord
     validates_length_of :brief_introduction, maximum: 200
     scope :recent, -> { order('created_at DESC') }
 
+    mount_uploader :image, ImageUploader
+
     def visit
         Post.increment_counter(:pv, id)
     end
@@ -41,12 +43,11 @@ class Post < ApplicationRecord
         Post.where(['id > ?', id]).first
     end
 
-  validates :content, presence: true
-  validates :title, presence: true
-  validates :author, presence: true
-  scope :recent, -> {order("created_at DESC")}
+    validates :content, presence: true
+    validates :title, presence: true
+    validates :author, presence: true
+    scope :recent, -> { order('created_at DESC') }
 
-  has_many :favorites
-  has_many :favorite_by_users,through: :favorites, source: :user
-
+    has_many :favorites
+    has_many :favorite_by_users, through: :favorites, source: :user
 end
