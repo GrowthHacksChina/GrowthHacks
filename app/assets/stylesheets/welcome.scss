@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .issuetitle {
-  color: green;
+  color: white;
   font-size: 30px;
 }
 
@@ -13,6 +13,28 @@
   width: 119px;
   height: 63px;
   float: left;
+}
+
+.issuetitle-mobile {
+  color: black;
+}
+
+.issuetitle-mobile:active, .issuetitle-mobile:hover {
+  color: black;
+  text-decoration: none;
+  background: #DCDCDC;
+}
+
+
+
+.issue-brief-controduction-mobile {
+  color: black;
+}
+
+.issue-brief-controduction-mobile:active, .issue-brief-controduction-mobile:hover {
+  color: black;
+  text-decoration: none;
+  background: #DCDCDC;
 }
 
 
