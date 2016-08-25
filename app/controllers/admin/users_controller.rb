@@ -2,8 +2,12 @@ class Admin::UsersController < ApplicationController
 
   before_action :authenticate_user!
   before_action :require_is_admin
-
+  before_filter :set_admin_breadcrumbs
   layout "admin"
+
+  def set_admin_breadcrumbs
+    @breadcrumbs = ["<a href='/admin/users'>用户管理</a>".html_safe]
+  end
 
   def index
     @users = User.all
