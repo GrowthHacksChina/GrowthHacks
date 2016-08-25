@@ -1,7 +1,14 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_is_admin
+  before_filter :set_admin_breadcrumbs
+
+
   layout 'admin'
+
+  def set_admin_breadcrumbs
+    @breadcrumbs = ["<a href='/admin/posts'>文章管理</a>".html_safe]
+  end
 
   def index
     @posts = Post.all.paginate(page: params[:page], per_page: 10)
