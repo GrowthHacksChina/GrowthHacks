@@ -12,10 +12,10 @@ class Admin::PostsController < ApplicationController
       @issue = Issue.find(params[:issue_id])
       @post = Post.find(params[:id])
       drop_breadcrumb(@issue.title, admin_issue_path(@issue))
-      drop_breadcrumb('本文')
+      drop_breadcrumb('正文')
     else
       @post = Post.find(params[:id])
-      drop_breadcrumb('本文')
+      drop_breadcrumb('正文')
     end
   end
 
