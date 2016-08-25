@@ -12,14 +12,14 @@
 
 
 <div class="center">
-  <%= render :partial => "welcome/search_bar" %>
+  <%= render :partial => "welcome/search_bar"%>
 </div>
 
 <br>
 
 <div class="row hidden-xs">
   <% @issues.each do |issue| %>
-  <div class="col-md-4 ">
+  <div class="col-md-6">
     <div class="panel panel-primary">
       <div class="panel-heading issuetitle"><%= link_to(issue.title, issue_path(issue), class:"issuetitle") %></div>
       <%issue.posts.each do |post| %>
@@ -41,7 +41,9 @@
   <hr>
   </div>
   <% end %>
-  <div class="text-center">
-  <%= will_paginate @posts %>
-  </div>
+</div>
+
+
+<div class="text-center">
+<%= will_paginate @issues %>
 </div>
