@@ -35,10 +35,10 @@
   <% @posts.each do |post| %>
   <div class="panel panel-default">
     <div class="panel-body">
-        <h3><%= link_to(post.title, post_path(post)) %></h3>
+        <h3><%= link_to(post.title, post_path(post), class:"issuetitle-mobile") %></h3>
         <hr>
         <div class="index-article-picture"><%= image_tag post.image.mobile %></div>
-        <p><%= link_to(post.brief_introduction, post_path(post)) %></p>
+        <p><%= link_to(post.brief_introduction, post_path(post), class:"issue-brief-controduction-mobile") %></p>
     </div>
   </div>
     <% end %>
