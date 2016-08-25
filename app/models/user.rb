@@ -36,6 +36,10 @@ class User < ApplicationRecord
   has_many :issue_relationships
   has_many :participated_issues, through: :issue_relationships, source: :issue
 
+  has_many :favorites
+  has_many :favorite_posts, through: :favorites, source: :post
+
+
   def admin?
     is_admin
   end
@@ -50,5 +54,13 @@ class User < ApplicationRecord
 
   def quit!(issue)
     participated_issues.delete(issue)
+  end
+
+  def join_favorite!(post)
+    favorite_posts << post
+  end
+
+  def delete_favorite!(post)
+    favorite_posts.delete(post) 
   end
 end

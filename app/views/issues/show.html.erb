@@ -2,6 +2,8 @@
     <% @issue.posts.each do |post| %>
     <div class="panel-heading">
         <%= link_to(post.title, issue_post_path(@issue,post), class: "issue_post_title")%>
+    </div>
+    <div class="panel-body issue_content">
         <div class="row">
             <span class="col-md-2 col-xs-4, margin-bottom:10px">
                 <i class="fa fa-user tag_color" aria-hidden="true"></i>
@@ -19,13 +21,20 @@
                 <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
                 <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
             </span>
+
+            <span class="col-md-2 col-xs-12">
+                <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
+                阅读量:
+                <%= post.visit %>
+            </span>
+
         </div>
-    </div>
-    <div class="panel-body issue_content">
         <div class="col-xs-2 col-md-2 thumbnail"><%= image_tag post.image.thumb %></div>
-        <div class="col-xs-2 col-md-10"><%= truncate(post.content, :ommision => "...Read More", :length => 500)%>
-            <%=link_to( "阅读全文...", issue_post_path(@issue,post))%>
-        </div>
+        <div class="col-xs-10 col-md-10"><%= post.brief_introduction %></div>
     </div>
     <% end %>
+</div>
+
+<div class="text-center">
+    <%= will_paginate @posts %>
 </div>
