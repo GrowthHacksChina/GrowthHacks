@@ -27,8 +27,15 @@ class Admin::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
-    drop_breadcrumb(@post.title, admin_post_path(@post))
+    if params[:issue_id]
+      @issue = Issue.find(params[:issue_id])
+      @post = Post.find(params[:id])
+      drop_breadcrumb(@issue.title, admin_issue_path(@issue))
+      drop_breadcrumb('正文')
+    else
+      @post = Post.find(params[:id])
+      drop_breadcrumb('正文')
+    end
   end
 
   def new
