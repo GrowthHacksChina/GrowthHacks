@@ -2,7 +2,7 @@
 <div class="col-md-10 ">
   <%= simple_form_for [@issue,@post] ,url: admin_post_path do |f| %>
   <div class="form-group">
-      <%= f.input :title %>
+      <%= f.input :title,maxlength: 20 %>
       <%#= f.input :content, input_html: {class:"form-control"}%>
       <p>
         <strong>文章内容
