@@ -7,6 +7,38 @@
   font-size: 30px;
 }
 
+.index-article-picture {
+  margin: 3px 10px 0 0;
+  border: 1px;
+  width: 119px;
+  height: 63px;
+  float: left;
+}
+
+.issuetitle-mobile {
+  color: black;
+}
+
+.issuetitle-mobile:active, .issuetitle-mobile:hover {
+  color: black;
+  text-decoration: none;
+  background: #DCDCDC;
+}
+
+
+
+.issue-brief-controduction-mobile {
+  color: black;
+}
+
+.issue-brief-controduction-mobile:active, .issue-brief-controduction-mobile:hover {
+  color: black;
+  text-decoration: none;
+  background: #DCDCDC;
+}
+
+
+
 // background-color: orange;
 // (kevin add this for learn:this is a css class)
 .panel-primary > .panel-heading {
