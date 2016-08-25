@@ -1,8 +1,13 @@
 class Admin::JobsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_is_admin
+  before_action :set_admin_breadcrumbs
 
   layout 'admin'
+
+  def set_admin_breadcrumbs
+    @breadcrumbs = ["<a href='/admin/jobs'>招聘管理</a>".html_safe]
+  end
 
   def index
     @jobs = Job.all.paginate(page: params[:page], per_page: 10)
