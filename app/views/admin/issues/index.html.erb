@@ -6,7 +6,6 @@
         <thead>
             <tr>
                 <td>期刊号</td>
-                <td>期刊描述</td>
                 <td>期刊管理</td>
             </tr>
         </thead>
@@ -14,7 +13,6 @@
             <% @issues.each do |issue| %>
             <tr>
                 <td><%= link_to(issue.title, admin_issue_path(issue)) %></td>
-                <td><%= issue.description %></td>
                 <td>
                     <%= link_to("Edit", edit_admin_issue_path(issue), class: "btn btn-xs btn-primary")%>
                     <%= link_to("Destroy", admin_issue_path(issue), class: "btn btn-xs btn-danger",
@@ -24,4 +22,7 @@
             <% end %>
         </tbody>
     </table>
+    <div class="text-center">
+        <%= will_paginate @issues %>
+    </div>
 </div>
