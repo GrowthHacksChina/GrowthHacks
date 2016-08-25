@@ -26,7 +26,7 @@
                 <td><%= post.created_at %></td>
 
                 <td>
-                    <%= link_to("Edit", edit_admin_post_path(post), class: "btn btn-primary btn-xs btn-default")%>
+                    <%= link_to("Edit", edit_admin_issue_post_path(@issue,post), class: "btn btn-primary btn-xs btn-default")%>
                     <%= link_to("Destroy", admin_post_path(post), class: "btn btn-danger btn-xs btn-default",
           method: :delete, data: {confirm: "确定删除吗?"})%>
                 </td>

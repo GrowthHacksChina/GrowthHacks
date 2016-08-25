@@ -4,7 +4,7 @@
     <%= simple_form_for @issue , :url => admin_issues_path do |f|   %>
 
     <div class="form-issue">
-        <%= f.input :title %>
+        <%= f.input :title,maxlength: 20 %>
 
     </div>
     <%= f.submit "提交", class: "btn btn-primary", data: {disable_with: "提交中..."}%>
