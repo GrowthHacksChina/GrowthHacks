@@ -24,7 +24,7 @@ class Post < ApplicationRecord
     belongs_to :user
 
     validates :content, presence: true
-    validates :title, presence: true
+    validates :title, presence: true,length: { in: 1..40 }
     validates :author, presence: true
     validates_length_of :brief_introduction, maximum: 200
     scope :recent, -> { order('created_at DESC') }
