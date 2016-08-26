@@ -38,6 +38,12 @@
 }
 
 
+.container .jumbotron, .container-fluid .jumbotron {
+   padding-left: 60px;
+   background-color: #416941;
+   color: wheat;
+ }
+
 
 // background-color: orange;
 // (kevin add this for learn:this is a css class)
@@ -45,4 +51,12 @@
     color: #fff;
     background-color: #fff;
     border-color: #337ab7;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: rgba(165, 173, 142, 0.44);
 }
