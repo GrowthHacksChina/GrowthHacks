@@ -1,6 +1,6 @@
 <%= simple_form_for [@issue,@post] ,url: admin_issue_posts_path do |f| %>
 <div class="form-group">
-    <%= f.input :title %>
+    <%= f.input :title,maxlength: 20 %>
     <%#= f.input :content, input_html: {class:"form-control"}%>
     <%= f.input :content %>
     <%= f.input :author %>
