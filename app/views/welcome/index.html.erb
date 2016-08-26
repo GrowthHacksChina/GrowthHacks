@@ -1,21 +1,13 @@
-<div class="jumbotron hidden-xs">
-  <h1>GrowthHacker中国</h1>
-  <p>每天5篇精品文章,了解最新Growth技术</p>
-  <%= link_to("马上注册", new_user_registration_path, class:"btn btn-lg btn-primary")%>
-</div>
 
-<div class="jumbotron visible-xs-block text-center">
-  <h1>GrowthHacker中国</h1>
-  <p>每天5篇精品文章,了解最新Growth技术</p>
-  <%= link_to("马上注册", new_user_registration_path, class:"btn btn-lg btn-primary")%>
+<div class="center">
+  <%= render :partial => "welcome/slide"%>
 </div>
-
+<br>
 <div class="center">
   <%= render :partial => "welcome/search_bar"%>
 </div>
 
 <br>
-
 <div class="row hidden-xs">
   <% @issues.each do |issue| %>
   <div class="col-md-6">
