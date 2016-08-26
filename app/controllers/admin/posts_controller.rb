@@ -1,7 +1,14 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_is_admin
+  before_filter :set_admin_breadcrumbs
+
+
   layout 'admin'
+
+  def set_admin_breadcrumbs
+    @breadcrumbs = ["<a href='/admin/posts'>文章管理</a>".html_safe]
+  end
 
   def index
     @posts = Post.all.paginate(page: params[:page], per_page: 10)
@@ -20,8 +27,15 @@ class Admin::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
-    drop_breadcrumb(@post.title, admin_post_path(@post))
+    if params[:issue_id]
+      @issue = Issue.find(params[:issue_id])
+      @post = Post.find(params[:id])
+      drop_breadcrumb(@issue.title, admin_issue_path(@issue))
+      drop_breadcrumb('正文')
+    else
+      @post = Post.find(params[:id])
+      drop_breadcrumb('正文')
+    end
   end
 
   def new
