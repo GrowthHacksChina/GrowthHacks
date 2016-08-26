@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @issue = @post.issue.find(params[:issue_id])
+    @issue = @post.issue
     drop_breadcrumb(@issue.title, issue_path(@issue))
     drop_breadcrumb('正文')
   end
