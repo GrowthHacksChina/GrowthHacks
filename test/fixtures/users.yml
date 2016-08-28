@@ -18,6 +18,7 @@
 #  is_admin               :boolean          default(FALSE)
 #  introduction           :text
 #  image                  :string
+#  avatar                 :string
 #
 # Indexes
 #
