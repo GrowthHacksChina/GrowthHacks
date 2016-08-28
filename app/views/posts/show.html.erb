@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <span class="issue_post_title"><%= @post.title %></span>
+    <span class="issue_post_title h2"><%= @post.title %></span>
   </div>
 
   <div class="panel-body">
@@ -54,7 +54,7 @@
       </span>
     </div>
 
-    <div><%= render_markdown_text(@post.content) %></div>
+    <div class="post-content"><%= render_markdown_text(@post.content) %></div>
 
     <ul class="pager">
       <li class="previous">
@@ -68,7 +68,7 @@
       </li>
     </ul>
   </div>
-  
+
 </div>
 
 <!-- <img src="/x.png" alt="" /> -->
