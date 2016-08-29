@@ -18,6 +18,7 @@
 #  introduce          :string
 #  brief_introduction :text
 #  image              :string
+#  support            :integer          default(0)
 #
 
 require 'test_helper'

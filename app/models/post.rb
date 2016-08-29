@@ -18,6 +18,7 @@
 #  introduce          :string
 #  brief_introduction :text
 #  image              :string
+#  support            :integer          default(0)
 #
 
 class Post < ApplicationRecord
@@ -30,6 +31,7 @@ class Post < ApplicationRecord
     validates :author, presence: true
     validates_length_of :brief_introduction, maximum: 200
     scope :recent, -> { order('created_at DESC') }
+    scope :hot_post,-> { order("support DESC").limit(20) }
 
     mount_uploader :image, ImageUploader
 
