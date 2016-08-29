@@ -36,7 +36,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   '/images/fallback/' + [mobile, 'sample.jpeg'].compact.join('_')
   # end
   def default_url(*_args)
-    ActionController::Base.helpers.asset_path('/fallback/' + [thumb, 'mobile_default.png'].compact.join('_'))
+    ActionController::Base.helpers.asset_path("/fallback/" + [thumb, "mobile_default.png"].compact.join("_"))
     # '/images/fallback/' + [mobile, 'default.png'].compact.join('_')
   end
 
