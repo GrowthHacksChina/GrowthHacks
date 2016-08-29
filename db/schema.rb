@@ -72,9 +72,8 @@ ActiveRecord::Schema.define(version: 20160828081124) do
     t.string   "origin_link"
     t.string   "pv"
     t.string   "favorite"
-    t.string   "introduce"
-    t.text     "brief_introduction"
     t.string   "image"
+    t.text     "brief_introduction"
   end
 
   create_table "users", force: :cascade do |t|

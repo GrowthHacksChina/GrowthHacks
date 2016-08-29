@@ -15,9 +15,8 @@
 #  origin_link        :string
 #  pv                 :string
 #  favorite           :string
-#  introduce          :string
-#  brief_introduction :text
 #  image              :string
+#  brief_introduction :text
 #
 
 class Post < ApplicationRecord
@@ -26,7 +25,7 @@ class Post < ApplicationRecord
     has_many :likes, dependent: :destroy
 
     validates :content, presence: true
-    validates :title, presence: true,length: { in: 1..20 }
+    validates :title, presence: true,length: { in: 1..50 }
     validates :author, presence: true
     validates_length_of :brief_introduction, maximum: 200
     scope :recent, -> { order('created_at DESC') }
