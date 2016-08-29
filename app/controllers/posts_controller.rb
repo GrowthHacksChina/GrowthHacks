@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     if @query_string.present?
       search_result = Post.ransack(@search_criteria).result(distinct: true)
       @posts = search_result.paginate(page: params[:page], per_page: 20)
+      drop_breadcrumb('搜索')
       # set_page_title "搜索 #{@query_string}"
       # @q = Post.ransack( params[:q])
       # @posts = @q.result(distinct: true)
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
   def like
     @post = Post.find(params[:id])
     @post.likes.create
+
     redirect_to issue_post_path(@post.issue,@post)
   end
 

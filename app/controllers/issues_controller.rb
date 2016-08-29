@@ -3,6 +3,8 @@ class IssuesController < ApplicationController
 
   def index
     @issues = Issue.all.recent.paginate(page: params[:page], per_page: 10)
+    drop_breadcrumb("往期")
+
   end
 
   def show
