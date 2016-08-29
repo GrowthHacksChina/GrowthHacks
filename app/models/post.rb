@@ -13,11 +13,10 @@
 #  issue              :string
 #  tag                :string
 #  origin_link        :string
-#  pv                 :integer
 #  favorite           :string
-#  introduce          :string
-#  brief_introduction :text
 #  image              :string
+#  brief_introduction :text
+#  pv                 :integer          default(1)
 #
 
 class Post < ApplicationRecord
