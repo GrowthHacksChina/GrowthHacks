@@ -26,9 +26,14 @@ class PostsController < ApplicationController
 
   def like
     @post = Post.find(params[:id])
-    @post.likes.create
+    @post.support = @post.support + 1
+    @post.save
 
     redirect_to issue_post_path(@post.issue,@post)
+  end
+
+  def hot
+    @posts = Post.all.hot_post
   end
 
   private
