@@ -22,6 +22,7 @@
 class Post < ApplicationRecord
     belongs_to :issue
     belongs_to :user
+    has_many :likes, dependent: :destroy
 
     validates :content, presence: true
     validates :title, presence: true,length: { in: 1..20 }
