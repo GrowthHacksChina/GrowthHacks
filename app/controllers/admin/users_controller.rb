@@ -1,8 +1,4 @@
 class Admin::UsersController < AdminController
-  def set_admin_breadcrumbs
-    @breadcrumbs = ["<a href='/admin/users'>用户管理</a>".html_safe]
-  end
-
   def index
     @users = User.all
   end
@@ -41,6 +37,10 @@ class Admin::UsersController < AdminController
   end
 
   private
+
+  def drop_each_admin_breadcrumbs
+    drop_breadcrumb "用户管理", admin_users_path
+  end
 
   def user_params
     params.require(:user).permit(:email)

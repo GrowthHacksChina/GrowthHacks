@@ -1,8 +1,4 @@
 class Admin::PostsController < AdminController
-  def set_admin_breadcrumbs
-    @breadcrumbs = ["<a href='/admin/posts'>文章管理</a>".html_safe]
-  end
-
   def index
     @posts = Post.all.paginate(page: params[:page], per_page: 10)
   end
@@ -68,6 +64,10 @@ class Admin::PostsController < AdminController
   end
 
   private
+
+  def drop_each_admin_breadcrumbs
+    drop_breadcrumb "文章管理", admin_posts_path
+  end
 
   def post_params
     params.require(:post).permit(:content, :title, :author, :tag, :origin_link, :pv, :image, :brief_introduction)
