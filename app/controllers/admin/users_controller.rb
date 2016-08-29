@@ -30,7 +30,7 @@ class Admin::UsersController < AdminController
         false
       else
         true
-                          end
+      end
     @user.save
     @users = User.all
     render :index

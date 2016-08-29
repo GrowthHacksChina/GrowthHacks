@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_breadcrumbs
-    @breadcrumbs = ["<a href='/'>首页</a>".html_safe]
+    @breadcrumbs = [view_context.link_to("首页", "/")]
   end
 
   def drop_breadcrumb(title = nil, url = nil)
