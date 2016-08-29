@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :validate_search_key, only: [:search]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+  before_action :authenticate_user!, only: %i(new create edit destroy)
+  before_action :set_breadcrumbs
 
   def index
     @posts = Post.all
@@ -10,14 +11,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @issue = @post.issue
     drop_breadcrumb(@issue.title, issue_path(@issue))
-    drop_breadcrumb('正文')
+    drop_breadcrumb("正文")
   end
 
   def search
     if @query_string.present?
       search_result = Post.ransack(@search_criteria).result(distinct: true)
       @posts = search_result.paginate(page: params[:page], per_page: 20)
-      drop_breadcrumb('搜索')
+      drop_breadcrumb("搜索")
       # set_page_title "搜索 #{@query_string}"
       # @q = Post.ransack( params[:q])
       # @posts = @q.result(distinct: true)
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
     @post.support = @post.support + 1
     @post.save
 
-    redirect_to issue_post_path(@post.issue,@post)
+    redirect_to issue_post_path(@post.issue, @post)
   end
 
   def hot
@@ -45,7 +46,7 @@ class PostsController < ApplicationController
   protected
 
   def validate_search_key
-    @query_string = params[:q].gsub(/\\|\'|\/|\?/, '') if params[:q].present?
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
     @search_criteria = search_criteria(@query_string)
   end
 
