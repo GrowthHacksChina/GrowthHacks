@@ -13,7 +13,7 @@
 #  issue              :string
 #  tag                :string
 #  origin_link        :string
-#  pv                 :text
+#  pv                 :integer
 #  favorite           :string
 #  introduce          :string
 #  brief_introduction :text
