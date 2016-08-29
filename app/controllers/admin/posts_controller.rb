@@ -1,10 +1,4 @@
-class Admin::PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :require_is_admin
-  before_action :set_admin_breadcrumbs
-
-  layout "admin"
-
+class Admin::PostsController < AdminController
   def set_admin_breadcrumbs
     @breadcrumbs = ["<a href='/admin/posts'>文章管理</a>".html_safe]
   end
