@@ -17,7 +17,7 @@ class User < ApplicationRecord
     is_admin
   end
 
-  def is_member_of?(issue)
+  def member_of?(issue)
     participated_issues.include?(issue)
   end
 

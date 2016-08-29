@@ -5,7 +5,7 @@ module ApplicationHelper
   # end
 
   def render_markdown_text(text)
-    require 'redcarpet'
+    require "redcarpet"
     text.to_markdown
   end
   # def markdown(text)

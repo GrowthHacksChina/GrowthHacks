@@ -3,7 +3,7 @@ class Admin::JobsController < ApplicationController
   before_action :require_is_admin
   before_action :set_admin_breadcrumbs
 
-  layout 'admin'
+  layout "admin"
 
   def set_admin_breadcrumbs
     @breadcrumbs = ["<a href='/admin/jobs'>招聘管理</a>".html_safe]
@@ -39,7 +39,7 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.update(job_params)
-      redirect_to jobs_path, notice: 'Update Success'
+      redirect_to jobs_path, notice: "Update Success"
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     @job.destroy
-    redirect_to jobs_path, alert: 'Job deleted'
+    redirect_to jobs_path, alert: "Job deleted"
   end
 
   private
