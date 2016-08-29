@@ -1,7 +1,7 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_is_admin
-  before_filter :set_admin_breadcrumbs
+  before_action :set_admin_breadcrumbs
 
   layout "admin"
 
