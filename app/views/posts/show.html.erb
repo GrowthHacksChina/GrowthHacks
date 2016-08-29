@@ -1,8 +1,8 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <span class="issue_post_title h2"><%= @post.title %></span>
     点赞数：<%= pluralize(@post.support,'') %>
     <i class="fa fa-heart-o pull-right" aria-hidden="true"><%= link_to '点赞', like_post_path(@post),method: :post %></i>
+    <span class="issue_post_title h3"><%= @post.title %></span>
   </div>
   <div class="panel-body">
     <div class="row hidden-xs">
@@ -28,18 +28,19 @@
 
         <%= @post.pv %>
       </span>
+      <div class="post-content col-md-12"><%= render_markdown_text(@post.content) %></div>
     </div>
     <div class="row visible-xs-block">
-      <span class="col-md-2 col-xs-5, margin-bottom:10px">
-        <i class="fa fa-user tag_color" aria-hidden="true"></i>
-        作者:
-        <%= @post.author %>
-      </span>
       <span class="col-md-3 col-xs-7">
         <i class="fa fa-tags tag_color" aria-hidden="true"></i>
         <%#=link_to("标签","#",style:"color:black")%>
         <%#= @post.tag%>
         GrowthHack
+      </span>
+      <span class="col-md-2 col-xs-5, margin-bottom:10px">
+        <i class="fa fa-user tag_color" aria-hidden="true"></i>
+        作者:
+        <%= @post.author %>
       </span>
     </div>
     <div class="row visible-xs-block">
@@ -52,9 +53,11 @@
         阅读量:
         <%= @post.pv %>
       </span>
+    <div class="post-content col-xs-12"><%= render_markdown_text(@post.content) %></div>
     </div>
+    <br>
+    <br>
 
-    <div class="post-content"><%= render_markdown_text(@post.content) %></div>
 
     <ul class="pager">
       <li class="previous">
