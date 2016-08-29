@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20160829104832) do
 
-
   create_table "favorites", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -72,10 +71,10 @@ ActiveRecord::Schema.define(version: 20160829104832) do
     t.string   "tag"
     t.string   "origin_link"
     t.string   "favorite"
-    t.string   "image"
-    t.integer  "support",            default: 0
     t.text     "brief_introduction"
+    t.string   "image"
     t.integer  "pv",                 default: 1
+    t.integer  "support",            default: 0
   end
 
   create_table "users", force: :cascade do |t|
