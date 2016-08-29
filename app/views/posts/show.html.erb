@@ -1,48 +1,69 @@
-<div class="col-md-12 col-xs-12">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <span class="issue_post_title"><%= @post.title %></span>
-        </div>
-
-        <div class="panel-body">
-          <div class="row">
-              <span class="col-md-2 col-xs-4, margin-bottom:10px">
-                  <i class="fa fa-user tag_color" aria-hidden="true"></i>
-                  作者:
-                  <%= @post.author %>
-              </span>
-
-              <span class="col-md-3 col-xs-6">
-                  <i class="fa fa-tags tag_color" aria-hidden="true"></i>
-                  <%=link_to("标签","#",style:"color:black")%>
-                  <%= @post.tag%>
-              </span>
-
-              <span class="col-md-5 col-xs-12">
-                  <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
-                  <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-              </span>
-
-              <span class="col-md-2 col-xs-12">
-                  <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
-                  阅读量:
-                  <%= @post.visit %>
-              </span>
-
-          </div>
-            <div><%= render_markdown_text(@post.content) %></div>
-            <ul class="pager">
-                <li class="previous">
-                    <%=link_to("上一页", @post.previous) %>
-                </li>
-                <li>
-                    <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %>
-                </li>
-                <li class="next">
-                    <%=link_to("下一页", @post.next) %>
-                </li>
-            </ul>
-        </div>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <span class="issue_post_title h2"><%= @post.title %></span>
+    点赞数：<%= pluralize(@post.likes.count,'') %>
+    <i class="fa fa-heart-o pull-right" aria-hidden="true"><%= link_to '点赞', like_post_path(@post),method: :post %></i>
+  </div>
+  <div class="panel-body">
+    <div class="row hidden-xs">
+      <span class="col-md-2 col-xs-4, margin-bottom:10px">
+        <i class="fa fa-user tag_color" aria-hidden="true"></i>
+        作者:
+        <%= @post.author %>
+      </span>
+      <span class="col-md-3 col-xs-6">
+        <i class="fa fa-tags tag_color" aria-hidden="true"></i>
+        <%=link_to("标签","#",style:"color:black")%>
+        <%= @post.tag%>
+      </span>
+      <span class="col-md-5 col-xs-12">
+        <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
+        <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      </span>
+      <span class="col-md-2 col-xs-12">
+        <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
+        阅读量:
+        <%= @post.visit %>
+      </span>
     </div>
+    <div class="row visible-xs-block">
+      <span class="col-md-2 col-xs-5, margin-bottom:10px">
+        <i class="fa fa-user tag_color" aria-hidden="true"></i>
+        作者:
+        <%= @post.author %>
+      </span>
+      <span class="col-md-3 col-xs-7">
+        <i class="fa fa-tags tag_color" aria-hidden="true"></i>
+        <%=link_to("标签","#",style:"color:black")%>
+        <%= @post.tag%>
+      </span>
+    </div>
+    <div class="row visible-xs-block">
+      <span class="col-md-5 col-xs-7">
+        <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
+        <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      </span>
+      <span class="col-md-2 col-xs-5">
+        <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
+        阅读量:
+        <%= @post.visit %>
+      </span>
+    </div>
+
+    <div class="post-content"><%= render_markdown_text(@post.content) %></div>
+
+    <ul class="pager">
+      <li class="previous">
+        <%=link_to("上一页", @post.previous) %>
+      </li>
+      <li>
+        <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %>
+      </li>
+      <li class="next">
+        <%=link_to("下一页", @post.next) %>
+      </li>
+    </ul>
+  </div>
+
 </div>
 <!-- <img src="/x.png" alt="" /> -->

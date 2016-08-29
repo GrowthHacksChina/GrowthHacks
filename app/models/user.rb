@@ -38,7 +38,7 @@ class User < ApplicationRecord
 
   has_many :favorites
   has_many :favorite_posts, through: :favorites, source: :post
-
+  mount_uploader :image, ImageUploader
 
   def admin?
     is_admin
@@ -61,6 +61,6 @@ class User < ApplicationRecord
   end
 
   def delete_favorite!(post)
-    favorite_posts.delete(post) 
+    favorite_posts.delete(post)
   end
 end

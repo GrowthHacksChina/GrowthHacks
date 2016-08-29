@@ -7,7 +7,56 @@
   font-size: 30px;
 }
 
+.index-article-picture {
+  margin: 3px 10px 0 0;
+  border: 1px;
+  width: 119px;
+  height: 63px;
+  float: left;
+}
+
+.issuetitle-mobile {
+  color: black;
+}
+
+.issuetitle-mobile:active, .issuetitle-mobile:hover {
+  color: black;
+  text-decoration: none;
+  background: #DCDCDC;
+}
+
+
+
+.issue-brief-controduction-mobile {
+  color: black;
+}
+
+.issue-brief-controduction-mobile:active, .issue-brief-controduction-mobile:hover {
+  color: black;
+  text-decoration: none;
+  background: #DCDCDC;
+}
+
+
+.container .jumbotron, .container-fluid .jumbotron {
+   padding-left: 60px;
+   background-color: #416941;
+   color: wheat;
+ }
 
 
 // background-color: orange;
 // (kevin add this for learn:this is a css class)
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: #fff;
+    border-color: #337ab7;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: rgba(165, 173, 142, 0.44);
+}
