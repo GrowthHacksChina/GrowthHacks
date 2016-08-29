@@ -15,9 +15,8 @@
 #  origin_link        :string
 #  pv                 :string
 #  favorite           :string
-#  introduce          :string
-#  brief_introduction :text
 #  image              :string
+#  brief_introduction :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
