@@ -38,18 +38,18 @@
 }
 
 
+
 .container .jumbotron, .container-fluid .jumbotron {
    padding-left: 60px;
    background-color: #416941;
    color: wheat;
  }
 
-
 // background-color: orange;
 // (kevin add this for learn:this is a css class)
-.panel-primary > .panel-heading {
+.panel-primary .panel-heading {
     color: #fff;
-    background-color: #fff;
+    background-color: green;
     border-color: #337ab7;
 }
 
@@ -59,4 +59,27 @@ body {
     line-height: 1.42857143;
     color: #333333;
     background-color: rgba(165, 173, 142, 0.44);
+}
+
+
+.index_hot_image{
+  // width: 25%!important;
+  // float:right;
+}
+
+.content{
+  background-color: #3cc;
+  // width: 75%!important;
+}
+
+.index_tag{
+// background-color: red;
+}
+
+.index_tag p{
+
+}
+
+.index_tag span{
+  margin:0 55px 0 0;
 }
