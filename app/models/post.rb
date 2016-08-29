@@ -15,8 +15,9 @@
 #  origin_link        :string
 #  pv                 :string
 #  favorite           :string
-#  image              :string
+#  introduce          :string
 #  brief_introduction :text
+#  image              :string
 #
 
 class Post < ApplicationRecord
