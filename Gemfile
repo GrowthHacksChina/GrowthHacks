@@ -37,6 +37,7 @@ gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'trix'
 gem 'fog'
 
@@ -47,6 +48,7 @@ gem 'active_link_to', github: 'xdite/active_link_to', branch: 'wrap_tag_css'
 gem 'gravatarify'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'figaro'
+
 
 group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
