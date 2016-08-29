@@ -15,6 +15,7 @@
 #  origin_link        :string
 #  favorite           :string
 #  image              :string
+#  support            :integer          default(0)
 #  brief_introduction :text
 #  pv                 :integer          default(1)
 #

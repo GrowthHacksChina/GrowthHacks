@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get :search
+      get :hot
     end
     member do
       post :like
