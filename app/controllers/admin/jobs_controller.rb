@@ -1,14 +1,4 @@
-class Admin::JobsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :require_is_admin
-  before_action :set_admin_breadcrumbs
-
-  layout 'admin'
-
-  def set_admin_breadcrumbs
-    @breadcrumbs = ["<a href='/admin/jobs'>招聘管理</a>".html_safe]
-  end
-
+class Admin::JobsController < AdminController
   def index
     @jobs = Job.all.paginate(page: params[:page], per_page: 10)
   end
@@ -39,7 +29,7 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.update(job_params)
-      redirect_to jobs_path, notice: 'Update Success'
+      redirect_to jobs_path, notice: "Update Success"
     else
       render :edit
     end
@@ -49,10 +39,14 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     @job.destroy
-    redirect_to jobs_path, alert: 'Job deleted'
+    redirect_to jobs_path, alert: "Job deleted"
   end
 
   private
+
+  def drop_each_admin_breadcrumbs
+    drop_breadcrumb "招聘管理", admin_jobs_path
+  end
 
   def job_params
     params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :work_address, :work_experience, :company, :company_description)
