@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :validate_search_key, only: [:search]
   before_action :authenticate_user!, only: %i(new create edit destroy)
+  before_action :set_breadcrumbs
 
   def index
     @posts = Post.all

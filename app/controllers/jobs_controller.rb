@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: %i(new create edit update destroy)
   before_action :validate_search_key, only: [:search]
+  before_action :set_breadcrumbs
 
   def index
     @jobs = Job.all
