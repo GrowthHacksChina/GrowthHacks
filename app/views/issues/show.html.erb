@@ -4,33 +4,37 @@
         <%= link_to(post.title, issue_post_path(@issue,post), class: "issue_post_title") %>
     </div>
     <div class="panel-body issue_content">
+      <div class="container">
         <div class="row">
-            <span class="col-md-2 col-xs-6, margin-bottom:10px">
-                <i class="fa fa-user tag_color" aria-hidden="true"></i>
-                作者:
-                <%= post.author %>
-            </span>
+          <div class="col-md-2 col-xs-2  pull-left"><%= image_tag post.image.thumb, class:"img-grouded" %></div>
+              <div style="margin-bottom:30px">
+                <span class="col-md-2 col-xs-8" style="margin-left:50px">
+                    <i class="fa fa-user tag_color" aria-hidden="true"></i>
+                    <%= post.author %>
+                </span>
 
-            <span class="col-md-3 col-xs-6">
-                <i class="fa fa-tags tag_color" aria-hidden="true"></i>
-                <%=link_to("标签","#",style:"color:black")%>
-                <%= post.tag%>
-            </span>
+                <span class="col-md-2 col-xs-8 ">
+                    <i class="fa fa-tags tag_color" aria-hidden="true"></i>
+                    <%=link_to("标签","#",style:"color:black")%>
+                    <%= post.tag%>
+                </span>
 
-            <span class="col-md-5 col-xs-6">
-                <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
-                <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
-            </span>
+                <span class="col-md-3 col-xs-8">
+                    <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
+                    <%= post.created_at.strftime("%Y-%m-%d")%>
+                </span>
 
-            <span class="col-md-2 col-xs-6">
-                <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
-                阅读量:
-                <%= post.visit %>
-            </span>
-
+                <span class="col-md-2 col-xs-8">
+                    <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
+                    阅读量:
+                    <%= post.visit %>
+                </span>
+              </div>
+            <div class="col-xs-10 col-md-9" style="margin-top:10px;margin-left:50px "><%= post.brief_introduction %></div>
+          </div>
         </div>
-        <div class="col-xs-2 col-md-2 thumbnail"><%= image_tag post.image.thumb %></div>
-        <div class="col-xs-10 col-md-10"><%= post.brief_introduction %></div>
+
+            <!-- <div class="clearfix"></div> -->
     </div>
     <% end %>
 </div>
