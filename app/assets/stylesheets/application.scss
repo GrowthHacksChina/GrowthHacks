@@ -16,7 +16,50 @@
  *= require font-awesome
  */
 
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
  @import "mobile";
+
+
+ .btn-primary {
+     color: #fff;
+     background-color: rgb(51, 51, 51);
+     border-color: #f5deb3;
+ }
+
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: rgba(114, 138, 59, 0.14);
+}
+
+
+.panel-primary {
+    border-color: #333;
+}
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: #333;
+    border-color: #333333;
+}
+
+
+.panel-body {
+    padding: 15px;
+    background-color: rgba(215, 218, 205, 0.34);
+}
+
+a {
+    color: #a94442;
+    text-decoration: none;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #333333;
+}

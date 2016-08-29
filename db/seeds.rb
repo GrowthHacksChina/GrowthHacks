@@ -420,10 +420,10 @@ create_issue = Issue.create([title: 'Issue no.1']) do
   puts '供ios开发测试的第五篇文章'
 end
 
-create_issues = for i in 2..11 do
+create_issues = for i in 2..6 do
                   Issue.create!([title: "Issue no.#{i}"])
-                  create_posts = for j in 1..10 do
+                  create_posts = for j in 1..5 do
                                    Post.create!([title: "Post no.#{j} with Issue no.#{i}", content: "content no.#{j}", issue_id: i, author: "content no.#{j}", brief_introduction: "introduction no.#{j}"])
                   end
 end
-puts '10 issues created.'
+puts '5 issues created.'

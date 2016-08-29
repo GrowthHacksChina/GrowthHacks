@@ -18,6 +18,10 @@ module BootstrapHelper
         @breadcrumbs = ["<a href='/'>首页</a>".html_safe]
       end
 
+      def set_admin_breadcrumbs
+        @breadcrumbs = ["<a href='/admin/'>首页</a>".html_safe]
+      end
+
       def drop_breadcrumb(title=nil, url=nil)
         title ||= @page_title
 

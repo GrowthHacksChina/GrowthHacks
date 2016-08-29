@@ -15,11 +15,8 @@
 #
 
 class Issue < ApplicationRecord
-
   belongs_to :user
-
-  validates :title, presence: true
-  has_many :posts
-  scope :recent, -> {order("created_at DESC")}
-
+  validates :title, presence: true, length: { in: 1..20 }
+  has_many :posts, dependent: :destroy
+  scope :recent, -> { order('created_at DESC') }
 end

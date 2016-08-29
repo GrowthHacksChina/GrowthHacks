@@ -23,6 +23,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:id])
+    @post.likes.create
+    redirect_to issue_post_path(@post.issue,@post)
+  end
+
   private
 
   def post_params
