@@ -1,8 +1,4 @@
 class Admin::JobsController < AdminController
-  def set_admin_breadcrumbs
-    @breadcrumbs = ["<a href='/admin/jobs'>招聘管理</a>".html_safe]
-  end
-
   def index
     @jobs = Job.all.paginate(page: params[:page], per_page: 10)
   end
@@ -47,6 +43,10 @@ class Admin::JobsController < AdminController
   end
 
   private
+
+  def drop_each_admin_breadcrumbs
+    drop_breadcrumb "招聘管理", admin_jobs_path
+  end
 
   def job_params
     params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :work_address, :work_experience, :company, :company_description)

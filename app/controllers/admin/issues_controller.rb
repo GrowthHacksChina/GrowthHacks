@@ -1,11 +1,6 @@
 class Admin::IssuesController < AdminController
-  def set_admin_breadcrumbs
-    @breadcrumbs = ["<a href='/admin/issues'>期刊管理</a>".html_safe]
-  end
-
   def index
-    @issues = Issue.all
-    @issues = @issues.recent.paginate(page: params[:page], per_page: 10)
+    @issues = Issue.recent.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -45,6 +40,10 @@ class Admin::IssuesController < AdminController
   end
 
   private
+
+  def drop_each_admin_breadcrumbs
+    drop_breadcrumb "期刊管理", admin_issues_path
+  end
 
   def issue_params
     params.require(:issue).permit(:title, :description)
