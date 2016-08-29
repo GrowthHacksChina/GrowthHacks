@@ -13,10 +13,11 @@
 #  issue              :string
 #  tag                :string
 #  origin_link        :string
-#  pv                 :string
+#  pv                 :integer
 #  favorite           :string
-#  image              :string
+#  introduce          :string
 #  brief_introduction :text
+#  image              :string
 #
 
 require 'test_helper'
