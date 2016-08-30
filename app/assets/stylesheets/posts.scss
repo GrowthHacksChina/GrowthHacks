@@ -4,11 +4,15 @@
 
 .issue_post_title {
   color: black;
+  font-size:1.5em;
 }
 
-.tag_color{
-  color:#f16a07;
-  font-color:#f16a07
+.tag_color span{
+  font-color:red
+}
+
+.tag_color i{
+  color:green
 }
 
 .post-content{

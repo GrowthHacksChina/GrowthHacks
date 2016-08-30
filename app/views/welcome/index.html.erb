@@ -18,44 +18,45 @@
 <% @posts.each do |post| %>
 <div class="container hidden-xs col-md-8">
     <div class="panel panel-default">
-        <div class="panel-heading" style="background-color:white;">
+        <div class="panel-heading">
             <%= link_to(post.title, post_path(post), class: "issue_post_title") %>
         </div>
-        <div class="panel-body issue_content">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="row">
-                      <div class="col-md-2 col-xs-8" style="margin-left:20px">
-                          <i class="fa fa-user tag_color" aria-hidden="true"></i>
-                          <%= post.author %>
-                      </div>
 
-                      <div class="col-md-2 col-xs-8" style="margin-left:20px">
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-9  issue_content">
+                    <div class="row index_tag tag_color">
+                      <span >
+                          <i class="fa fa-user " aria-hidden="true"></i>
+                          <%= post.author %>
+                      </span>
+
+                      <span >
                           <i class="fa fa-tags tag_color" aria-hidden="true"></i>
                           <%=link_to("标签","#",style:"color:black")%>
                           <%= post.tag%>
-                      </div>
+                      </span>
 
-                      <div class="col-md-2 col-xs-8" style="padding-left:20px">
+                      <span >
                           <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
                           <%= post.created_at.strftime("%Y-%m-%d")%>
-                      </div>
+                      </span>
 
-                      <div class="col-md-3 col-xs-8" style="margin-left:20px">
+                      <span>
                           <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
                           阅读量:
                           <%= post.visit %>
-                      </div>
+                      </span>
                     </div>
-
                     <div class="row">
-                      <div class="col-md-9 col-xs-10">
+                      <div class="issue_brief">
                       <%= post.brief_introduction %>
                     </div>
                     </div>
                 </div>
 
-              <div class="col-md-3 col-xs-2" style="padding-right:50px">
+              <div class="index_hot_image">
                   <%= image_tag post.image.thumb, class:"img-grouded" %>
               </div>
           </div>
