@@ -2,7 +2,6 @@
 class Post < ApplicationRecord
   belongs_to :issue
   belongs_to :user
-  has_many :likes, dependent: :destroy
 
   has_many :favorites
   has_many :favorite_by_users, through: :favorites, source: :user
@@ -33,7 +32,6 @@ class Post < ApplicationRecord
     Post.where(["id > ?", id]).first
   end
 end
-
 # == Schema Information
 #
 # Table name: posts
@@ -50,10 +48,11 @@ end
 #  tag                :string
 #  origin_link        :string
 #  favorite           :string
+#  introduce          :string
 #  brief_introduction :text
 #  image              :string
-#  pv                 :integer          default(1)
 #  support            :integer          default(0)
+#  pv                 :integer          default(1)
 #
 
 #  support            :integer          default(0)
