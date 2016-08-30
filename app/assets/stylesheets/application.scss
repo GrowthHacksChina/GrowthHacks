@@ -79,3 +79,12 @@ a {
   height: 63px;
   float: left;
 }
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: green;
+  border-color: green;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: green;
+}
