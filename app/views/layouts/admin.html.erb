@@ -10,9 +10,10 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'simplemde.min' %>
     </head>
+
     <body style="padding-top:0;">
-        <div class="container" >
-            <%= render "common/navbar" %>
+      <%= render "common/navbar" %>
+              <div class="container" >
             <%= render "common/flashes" %>
             <br />
             <div class="container">
@@ -35,9 +36,7 @@
                     </div>
                 </div>
             </div>
-
           </div>
-      </body>
-      <%= render "common/footer" %>
 
+      </body>
   </html>
