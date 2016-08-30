@@ -15,7 +15,9 @@
      <%= render "common/navbar" %>
      <%= render "common/banner" %>
      <%= render "common/flashes"%>
-     <span class="hidden-xs"></span>
+
+
+     <span class="hidden-xs"><%= render_breadcrumb %></span>
      <%= yield %>
 <div class="col-md-10">
      <div class="bdsharebuttonbox pull-right"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a>
@@ -26,6 +28,8 @@
       "viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};
       with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
       </script>
+  </div>
+  <div class="clearfix">
   </div>
     <%= render "common/footer" %>
   </body>
