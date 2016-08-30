@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @hot_posts = Post.all.hot_post
   end
 
   def show
