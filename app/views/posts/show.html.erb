@@ -28,7 +28,7 @@
 
         <%= @post.pv %>
       </span>
-      <div class="post-content col-md-12"><%= render_markdown_text(@post.content) %></div>
+
     </div>
     <div class="row visible-xs-block">
       <span class="col-md-3 col-xs-7">
@@ -53,10 +53,9 @@
         阅读量:
         <%= @post.pv %>
       </span>
-      <div class="post-content col-xs-12"><%= render_markdown_text(@post.content) %></div>
     </div>
-    <br>
-    <br>
+
+    <div class="post-content col-xs-12"><%= render_markdown_text(@post.content) %></div>
 
 
     <ul class="pager">
