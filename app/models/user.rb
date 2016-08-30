@@ -1,3 +1,43 @@
+class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :issues
+  has_many :jobs
+  has_many :issue_relationships
+  has_many :participated_issues, through: :issue_relationships, source: :issue
+
+  has_many :favorites
+  has_many :favorite_posts, through: :favorites, source: :post
+  mount_uploader :image, ImageUploader
+
+  def admin?
+    is_admin
+  end
+
+  def member_of?(issue)
+    participated_issues.include?(issue)
+  end
+
+  def join!(issue)
+    participated_issues << issue
+  end
+
+  def quit!(issue)
+    participated_issues.delete(issue)
+  end
+
+  def join_favorite!(post)
+    favorite_posts << post
+  end
+
+  def delete_favorite!(post)
+    favorite_posts.delete(post)
+  end
+end
+
 # == Schema Information
 #
 # Table name: users
@@ -24,43 +64,3 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  has_many :issues
-  has_many :jobs
-  has_many :issue_relationships
-  has_many :participated_issues, through: :issue_relationships, source: :issue
-
-  has_many :favorites
-  has_many :favorite_posts, through: :favorites, source: :post
-  mount_uploader :image, ImageUploader
-
-  def admin?
-    is_admin
-  end
-
-  def is_member_of?(issue)
-    participated_issues.include?(issue)
-  end
-
-  def join!(issue)
-    participated_issues << issue
-  end
-
-  def quit!(issue)
-    participated_issues.delete(issue)
-  end
-
-  def join_favorite!(post)
-    favorite_posts << post
-  end
-
-  def delete_favorite!(post)
-    favorite_posts.delete(post)
-  end
-end
