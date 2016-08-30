@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favorite_posts, through: :favorites, source: :post
   mount_uploader :image, ImageUploader
+  mount_uploader :avatar, AvatarUploader
 
   def admin?
     is_admin
@@ -58,6 +59,7 @@ end
 #  is_admin               :boolean          default(FALSE)
 #  introduction           :text
 #  image                  :string
+#  avatar                 :string
 #
 # Indexes
 #

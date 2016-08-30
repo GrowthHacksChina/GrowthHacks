@@ -1,7 +1,10 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    点赞数：<%= pluralize(@post.support,'') %>
-    <i class="fa fa-heart-o pull-right" aria-hidden="true"><%= link_to '点赞', like_post_path(@post),method: :post %></i>
+
+    <i class="fa fa-heart-o pull-right" aria-hidden="true">
+      <%= pluralize(@post.support,'') %>
+      <%= link_to '点赞', like_post_path(@post),method: :post, style:"color:#ffffff;"%>
+    </i>
     <span class="issue_post_title h3"><%= @post.title %></span>
   </div>
   <div class="panel-body">
@@ -62,9 +65,13 @@
       <li class="previous">
         <%=link_to("上一页", @post.previous) %>
       </li>
+
+      <% if current_user %>
       <li>
         <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %>
       </li>
+      <% end %>
+
       <li class="next">
         <%=link_to("下一页", @post.next) %>
       </li>
