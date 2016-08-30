@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20160829104832) do
     t.string   "tag"
     t.string   "origin_link"
     t.string   "favorite"
-    t.text     "brief_introduction"
     t.string   "image"
+    t.text     "brief_introduction"
     t.integer  "pv",                 default: 1
     t.integer  "support",            default: 0
   end
