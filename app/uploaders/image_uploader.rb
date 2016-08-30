@@ -29,6 +29,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [119, 63]
   end
 
+  version :hot do
+    process resize_to_fill: [80, 50]
+  end
+
   # For Rails 3.1+ asset pipeline compatibility:
   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #

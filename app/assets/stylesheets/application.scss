@@ -38,11 +38,6 @@ body {
     background-color: rgba(114, 138, 59, 0.14);
 }
 
-.container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .panel-primary {
     border-color: #333;
 }
@@ -78,4 +73,17 @@ a {
   width: 119px;
   height: 63px;
   float: left;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: green;
+  border-color: green;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: green;
+}
+
+.con_l {
+  padding-left: 0;
 }
