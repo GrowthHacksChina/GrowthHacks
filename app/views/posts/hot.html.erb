@@ -1,13 +1,63 @@
+<% @posts.each do |post| %>
+<div class="container hidden-xs col-md-8">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <%= link_to(post.title, issue_post_path(post.issue,post), class: "issue_post_title") %>
+        </div>
 
+        <div class="panel-body">
 
-<div class="row">
-  <% @posts.each do |post| %>
-  <div class="col-md-4">
-    <div class="panel panel-primary">
-      <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %>
-      </div>
+            <div class="row">
+                <div class="col-md-9  issue_content">
+                    <div class="row index_tag tag_color">
+                      <span >
+                          <i class="fa fa-user " aria-hidden="true"></i>
+                          <%= post.author %>
+                      </span>
 
+                      <span >
+                          <i class="fa fa-tags tag_color" aria-hidden="true"></i>
+                          <%=link_to("标签","#",style:"color:black")%>
+                          <%= post.tag%>
+                      </span>
+
+                      <span >
+                          <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
+                          <%= post.created_at.strftime("%Y-%m-%d")%>
+                      </span>
+
+                      <span>
+                          <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
+                          阅读量:
+                          <%= post.visit %>
+                      </span>
+                    </div>
+                    <div class="row">
+                      <div class="issue_brief">
+                      <%= post.brief_introduction %>
+                    </div>
+                    </div>
+                </div>
+
+              <div class="index_hot_image">
+                  <%= image_tag post.image.thumb, class:"img-grouded" %>
+              </div>
+          </div>
+        </div>
     </div>
-  </div>
-  <% end %>
 </div>
+<% end %>
+
+<div class=" visible-xs-block">
+    <% @posts.each do |post| %>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3><%= link_to(post.title, issue_post_path(post.issue,post), class:"issuetitle-mobile") %></h3>
+            <hr>
+            <div class="index-article-picture">
+                <%#= image_tag post.image.default_url %>
+                <%= image_tag post.image.mobile %></div>
+            <p><%= link_to(post.brief_introduction, issue_post_path(post.issue,post), class:"issue-brief-controduction-mobile") %></p>
+        </div>
+    </div>
+    <% end %>
