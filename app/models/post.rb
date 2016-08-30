@@ -32,6 +32,7 @@ class Post < ApplicationRecord
     Post.where(["id > ?", id]).first
   end
 end
+
 # == Schema Information
 #
 # Table name: posts
@@ -48,8 +49,9 @@ end
 #  tag                :string
 #  origin_link        :string
 #  favorite           :string
+#  introduce          :string
 #  brief_introduction :text
 #  image              :string
-#  pv                 :integer          default(1)
 #  support            :integer          default(0)
+#  pv                 :integer          default(1)
 #

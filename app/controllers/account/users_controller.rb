@@ -28,4 +28,12 @@ class Account::UsersController < ApplicationController
       redirect_to :back, notice: "没有收藏的文章"
     end
   end
+
+  private
+
+  def params_user
+    params.require(:user).permit(:email, :introduction, :avatar)
+  end
+
+
 end

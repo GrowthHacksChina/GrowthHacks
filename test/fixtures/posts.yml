@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id                 :integer          not null, primary key
+#  content            :text
+#  issue_id           :integer
+#  user_id            :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  title              :string
+#  author             :string
+#  issue              :string
+#  tag                :string
+#  origin_link        :string
+#  favorite           :string
+#  introduce          :string
+#  brief_introduction :text
+#  image              :string
+#  support            :integer          default(0)
+#  pv                 :integer          default(1)
+#
+
+one:
+  content: MyText
+  issue_id: 1
+  user_id: 1
