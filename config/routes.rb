@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get :search
+      get :hot
     end
     member do
       post :like
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'welcome#index'
+  root "welcome#index"
 
   namespace :admin do
     resources :users do

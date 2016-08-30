@@ -1,6 +1,6 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -11,9 +11,9 @@ module GrowthHacks
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.active_record.default_timezone = :local
-    config.time_zone = 'Beijing'
+    config.time_zone = "Beijing"
     # config.active_record.default_timezone = :local
     config.autoload_paths << Rails.root.join("lib")
-
+    config.generators.test_framework = nil
   end
 end
