@@ -7,6 +7,6 @@ class AdminController < ApplicationController
   layout "admin"
 
   def set_admin_breadcrumbs
-    @breadcrumbs = [view_context.link_to("Admin 页", "/admin")]
+    @breadcrumbs = [view_context.link_to("Admin 页", "/admin/users")]
   end
 end

@@ -35,6 +35,7 @@ class PostsController < ApplicationController
 
   def hot
     @posts = Post.all.hot_post
+    drop_breadcrumb("热门文章")
   end
 
   private
