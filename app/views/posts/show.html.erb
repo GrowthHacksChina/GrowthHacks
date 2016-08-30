@@ -1,7 +1,5 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    点赞数：<%= pluralize(@post.support,'') %>
-    <i class="fa fa-heart-o pull-right" aria-hidden="true"><%= link_to '点赞', like_post_path(@post),method: :post %></i>
     <span class="issue_post_title h3"><%= @post.title %></span>
   </div>
   <div class="panel-body">
@@ -56,6 +54,7 @@
     <div class="post-content col-xs-12"><%= render_markdown_text(@post.content) %></div>
     </div>
     <br>
+    <i class="fa fa-heart-o pull-left" aria-hidden="true"><%= link_to '点赞', like_post_path(@post),method: :post %>  <%= pluralize(@post.support,'') %></i>
     <br>
 
 
