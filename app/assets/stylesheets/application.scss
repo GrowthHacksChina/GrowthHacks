@@ -38,6 +38,10 @@ body {
     background-color: rgba(114, 138, 59, 0.14);
 }
 
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 .panel-primary {
     border-color: #333;
@@ -57,6 +61,10 @@ body {
 a {
     color: #a94442;
     text-decoration: none;
+}
+
+.right-nav {
+  padding-right:0;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
