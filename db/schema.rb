@@ -71,10 +71,11 @@ ActiveRecord::Schema.define(version: 20160830053020) do
     t.string   "tag"
     t.string   "origin_link"
     t.string   "favorite"
+    t.string   "introduce"
     t.text     "brief_introduction"
     t.string   "image"
-    t.integer  "pv",                 default: 1
     t.integer  "support",            default: 0
+    t.integer  "pv",                 default: 1
   end
 
   create_table "users", force: :cascade do |t|
