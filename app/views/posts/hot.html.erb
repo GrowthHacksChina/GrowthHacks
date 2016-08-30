@@ -1,0 +1,13 @@
+
+
+<div class="row">
+  <% @posts.each do |post| %>
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-body"><%= link_to(post.title, issue_post_path(post.issue,post)) %>
+      </div>
+
+    </div>
+  </div>
+  <% end %>
+</div>

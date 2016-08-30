@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828174717) do
-
+ActiveRecord::Schema.define(version: 20_160_828_174_717) do
   create_table "favorites", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -70,10 +69,12 @@ ActiveRecord::Schema.define(version: 20160828174717) do
     t.string   "issue"
     t.string   "tag"
     t.string   "origin_link"
-    t.string   "pv"
     t.string   "favorite"
-    t.string   "image"
+    t.string   "introduce"
     t.text     "brief_introduction"
+    t.string   "image"
+    t.integer  "support",            default: 0
+    t.integer  "pv",                 default: 1
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,19 +83,18 @@ ActiveRecord::Schema.define(version: 20160828174717) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.boolean  "is_admin",               default: false
+    t.boolean  "is_admin", default: false
     t.text     "introduction"
     t.string   "image"
     t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 end
