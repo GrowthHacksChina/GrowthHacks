@@ -17,6 +17,9 @@
 #  favorite           :string
 #  introduce          :string
 #  brief_introduction :text
+#  image              :string
+#
+
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
