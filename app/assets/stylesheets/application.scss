@@ -38,11 +38,6 @@ body {
     background-color: rgba(114, 138, 59, 0.14);
 }
 
-.container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .panel-primary {
     border-color: #333;
 }
@@ -87,4 +82,8 @@ a {
 
 .pagination > li > a, .pagination > li > span {
   color: green;
+}
+
+.post-introduction {
+  padding-left: 0;
 }
