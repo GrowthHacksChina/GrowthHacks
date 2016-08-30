@@ -15,10 +15,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-                <li><%= link_to("往期",issues_path) %></li>
-                <li><%= link_to("热门文章",hot_posts_path) %></li>
-
-                <li><%#= link_to("招聘",jobs_path) %></li>
+              <li><a href="/posts/hot">热门文章<sup style="font-size:1em;color:#16A085;">荐</sup></a>
+              </li>
+                  <li><%= link_to("往期合辑",issues_path) %></li>
+                <!-- <li><%#= link_to("招聘",jobs_path) %></li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <% if !current_user %>
@@ -47,7 +47,6 @@
                         <li>
                             <%= link_to("登出", destroy_user_session_path, method: :delete) %>
                         </li>
-
                     </ul>
                 </li>
                 <% end %>
