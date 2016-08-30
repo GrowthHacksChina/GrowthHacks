@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829104832) do
+ActiveRecord::Schema.define(version: 20160830053020) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "post_id"
@@ -73,8 +73,9 @@ ActiveRecord::Schema.define(version: 20160829104832) do
     t.string   "favorite"
     t.string   "image"
     t.text     "brief_introduction"
-    t.integer  "pv",                 default: 1
+    t.string   "introduce"
     t.integer  "support",            default: 0
+    t.integer  "pv",                 default: 1
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160829104832) do
     t.boolean  "is_admin",               default: false
     t.text     "introduction"
     t.string   "image"
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

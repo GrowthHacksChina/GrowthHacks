@@ -26,7 +26,7 @@
 
         <%= @post.pv %>
       </span>
-      <div class="post-content col-md-12"><%= render_markdown_text(@post.content) %></div>
+
     </div>
     <div class="row visible-xs-block">
       <span class="col-md-3 col-xs-7">
@@ -51,20 +51,25 @@
         阅读量:
         <%= @post.pv %>
       </span>
-    <div class="post-content col-xs-12"><%= render_markdown_text(@post.content) %></div>
     </div>
     <br>
     <i class="fa fa-heart-o pull-left" aria-hidden="true"><%= link_to '点赞', like_post_path(@post),method: :post %>  <%= pluralize(@post.support,'') %></i>
     <br>
+
+    <div class="post-content col-xs-12"><%= render_markdown_text(@post.content) %></div>
 
 
     <ul class="pager">
       <li class="previous">
         <%=link_to("上一页", @post.previous) %>
       </li>
+
+      <% if current_user %>
       <li>
         <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %>
       </li>
+      <% end %>
+
       <li class="next">
         <%=link_to("下一页", @post.next) %>
       </li>
