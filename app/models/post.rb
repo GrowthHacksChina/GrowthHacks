@@ -16,7 +16,7 @@ class Post < ApplicationRecord
   validates :author, presence: true
 
   scope :recent, -> { order("created_at DESC") }
-  scope :hot_post, -> { order("support DESC").limit(20) }
+  scope :hot_post, -> { order("support DESC").limit(10) }
 
   mount_uploader :image, ImageUploader
 
