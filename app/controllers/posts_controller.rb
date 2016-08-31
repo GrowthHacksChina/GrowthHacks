@@ -10,6 +10,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post == Post.first
+      flash[:notice] = "这是第一篇文章"
+    elsif @post == Post.last
+      flash[:notice] = "这是最后一篇文章"
+    end
     @issue = @post.issue
     drop_breadcrumb(@issue.title, issue_path(@issue))
     drop_breadcrumb("正文")
@@ -36,6 +41,7 @@ class PostsController < ApplicationController
 
   def hot
     @posts = Post.all.hot_post
+    @favorite_posts = Post.all.favorite_posts
     drop_breadcrumb("热门文章")
   end
 
