@@ -1,5 +1,6 @@
-class Account::PostsController < ApplicationController
-  before_action :authenticate_user! 
+class Account::PostsController < AccountController
+  before_action :authenticate_user!
+  before_action :drop_account_breadcrumb
 
   def add_to_favorite_test
     @post = Post.find(params[:id])
