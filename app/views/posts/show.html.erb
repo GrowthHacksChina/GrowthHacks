@@ -1,11 +1,11 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary no_bord">
   <div class="panel-heading">
     <span class="issue_post_title h3"><%= @post.title %></span>
   </div>
-  <div class="panel-body">
-    <div class="row hidden-xs">
+  <div class="panel-body ">
+    <div class="row tag_color hidden-xs">
       <span class="col-md-2 col-xs-4, margin-bottom:10px">
-        <i class="fa fa-user tag_color" aria-hidden="true"></i>
+        <i class="fa fa-user " aria-hidden="true"></i>
         作者:
         <%= @post.author %>
       </span>
@@ -22,9 +22,9 @@
       <span class="col-md-2 col-xs-12">
         <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
         阅读量:
-        <% @post.visit %>
 
         <%= @post.pv %>
+        <% @post.visit %>
       </span>
 
     </div>
@@ -52,11 +52,12 @@
         <%= @post.pv %>
       </span>
     </div>
+    <div class="post-content col-xs-12"><%= render_markdown_text(@post.content) %></div>
+
     <br>
-    <i class="fa fa-heart-o pull-left" aria-hidden="true"><%= link_to '点赞', like_post_path(@post),method: :post %>  <%= pluralize(@post.support,'') %></i>
     <br>
 
-    <div class="post-content col-xs-12"><%= render_markdown_text(@post.content) %></div>
+
 
 
     <ul class="pager">
@@ -68,6 +69,12 @@
       <li>
         <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %>
       </li>
+      <!-- <i class="fa fa-heart-o pull-left" aria-hidden="true">
+      </i> -->
+      <li>
+        <%= link_to "点赞#{pluralize(@post.support,'')}", like_post_path(@post),method: :post ,:wrap_tag => :li%>
+      </li>
+
       <% end %>
 
       <li class="next">
