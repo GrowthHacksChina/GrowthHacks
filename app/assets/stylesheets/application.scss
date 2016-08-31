@@ -53,8 +53,13 @@ body {
 }
 
 a {
-    color: #a94442;
+    color: black;
     text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: green;
+  text-decoration: none;
 }
 
 .right-nav {
