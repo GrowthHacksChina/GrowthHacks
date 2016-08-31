@@ -2,7 +2,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get issueed for better mobile display -->
-        <div class="navbar-header" >
+        <div class="navbar-header"style="padding-top:5px" >
           <a class="navbar-brand" href="/">GrowthHacker黑板报</a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -13,7 +13,7 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" style="padding-top:5px" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
               <li><a href="/posts/hot">热门文章<sup style="font-size:1em;color:#16A085;">荐</sup></a>
               </li>
@@ -29,8 +29,8 @@
             <% else %>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <%= image_tag current_user.avatar.thumb, width: 30, height: 30, class: "img-circle" %> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding:12px;">
+                        <%= image_tag current_user.avatar.thumb, width: 30, height: 30, class: "img-circle" %>
                         Hi!,
                         <%= current_user.email %>
                         <b class="caret"></b>
