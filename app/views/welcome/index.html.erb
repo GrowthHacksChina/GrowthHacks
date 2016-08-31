@@ -1,8 +1,8 @@
 
 <br>
-<div class="center">
-    <%= render :partial => "welcome/search_bar"%>
-</div>
+<!-- <div class="center"> -->
+    <%#= render :partial => "welcome/search_bar"%>
+<!-- </div> -->
 <br>
 
 <div class="con_l col-md-8 hidden-xs">
@@ -42,13 +42,13 @@
                     </div>
                     <div class="row">
                       <div class="issue_brief">
-                      <%= post.brief_introduction %>
+                      <%= link_to(post.brief_introduction, post_path(post)) %>
                     </div>
                     </div>
                 </div>
 
-              <div class="index_hot_image">
-                  <%= image_tag post.image.thumb, class:"img-grouded" %>
+              <div class="text-center index_hot_image">
+                  <a href="<%= post_path(post) %>"><%= image_tag post.image.thumb, class:"img-grouded" %></a>
               </div>
           </div>
         </div>
@@ -58,16 +58,17 @@
 
 <div class="con_r pull-right col-md-4 hidden-xs">
     <div class="section_title">
-      <h3 style="margin-top: 10px;">热门文章</h3>
+      <span class="rmwz">热门文章</span>
+      <span class="pull-right"><%= link_to(">>更多",hot_posts_path, class: "more") %></span>
     </div>
 
     <div class="height_box">
       <% @hot_posts.each do |hot_post| %>
           <div class="hot_posts row">
-            <span class="hot_post_image col-md-4">
-              <%= image_tag hot_post.image.hot %>
+            <span class="hot_post_image col-md-3">
+            <a href="<%= issue_post_path(hot_post.issue,hot_post) %>"><%= image_tag hot_post.image.hot %></a>
             </span>
-            <span class="hot_post_title col-md-8">
+            <span class="hot_post_title col-md-9">
               <%= link_to(hot_post.title, issue_post_path(hot_post.issue,hot_post)) %>
             </span>
           </div>
@@ -85,7 +86,8 @@
             <hr>
             <div class="index-article-picture">
                 <%#= image_tag post.image.default_url %>
-                <%= image_tag post.image.mobile %></div>
+                <a href="<%= post_path(post) %>"><%= image_tag post.image.mobile %></a>
+            </div>
             <p><%= link_to(post.brief_introduction, post_path(post), class:"issue-brief-controduction-mobile") %></p>
         </div>
     </div>
