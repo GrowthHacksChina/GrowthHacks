@@ -12,10 +12,12 @@
 
     <body style="padding-top:0;">
       <%= render "common/navbar" %>
+      <div class="center">
+          <%= render :partial => "welcome/slide"%>
+      </div>
         <div class="container">
             <%= render "common/flashes"%>
             <%= yield %>
-        
         </div>
         <%= render "common/footer" %>
     </body>
