@@ -73,9 +73,8 @@ ActiveRecord::Schema.define(version: 20160830053020) do
     t.string   "favorite"
     t.string   "image"
     t.text     "brief_introduction"
-    t.string   "introduce"
-    t.integer  "support",            default: 0
     t.integer  "pv",                 default: 1
+    t.integer  "support",            default: 0
   end
 
   create_table "users", force: :cascade do |t|
