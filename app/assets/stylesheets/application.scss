@@ -44,8 +44,17 @@ body {
     color: #fff;
     background-color: #333;
     border-color: #333333;
-}
 
+  }
+
+.panel-primary > .panel-heading-none {
+  color: black;
+  font-size: 2em;
+  background-color: none;
+  border-color: #333333;
+  text-align:center;
+  padding: 30px 0 30px;
+}
 
 .panel-body {
     padding: 15px;
