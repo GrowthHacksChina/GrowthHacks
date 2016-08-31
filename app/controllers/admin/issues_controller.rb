@@ -1,4 +1,6 @@
 class Admin::IssuesController < AdminController
+  layout "admin"
+
   def index
     @issues = Issue.recent.paginate(page: params[:page], per_page: 10)
   end
