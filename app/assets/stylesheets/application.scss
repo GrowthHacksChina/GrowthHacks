@@ -102,7 +102,7 @@ a:hover, a:focus {
 }
 
 .container-all {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .container-fluid {
@@ -114,7 +114,7 @@ a:hover, a:focus {
 }
 
 .navbar {
-  height: 50px;
+  height: 60px;
 }
 
 
@@ -124,4 +124,9 @@ a:hover, a:focus {
   list-style: none;
   background-color: #f5f5f5;
   border-radius: 4px;
+}
+
+.navbar-nav > .open > a:focus{
+   background-color: #222222!important;
+   color: #fff;
 }
