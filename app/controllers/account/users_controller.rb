@@ -1,5 +1,6 @@
-class Account::UsersController < ApplicationController
+class Account::UsersController < AccountController
   before_action :authenticate_user!
+  before_action :drop_account_breadcrumb
 
   def index
     @user = current_user
@@ -11,6 +12,8 @@ class Account::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    drop_breadcrumb "编辑信息"
+
   end
 
   def update
@@ -27,6 +30,8 @@ class Account::UsersController < ApplicationController
     unless @posts
       redirect_to :back, notice: "没有收藏的文章"
     end
+    drop_breadcrumb "我的收藏"
+
   end
 
   private
@@ -34,6 +39,7 @@ class Account::UsersController < ApplicationController
   def params_user
     params.require(:user).permit(:email, :introduction, :avatar)
   end
+
 
 
 end
