@@ -26,7 +26,6 @@
  .btn-primary {
      color: #fff;
      background-color: rgb(51, 51, 51);
-     border-color: #f5deb3;
  }
 
 
@@ -54,8 +53,13 @@ body {
 }
 
 a {
-    color: #a94442;
+    color: black;
     text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: green;
+  text-decoration: none;
 }
 
 .right-nav {
@@ -86,4 +90,20 @@ a {
 
 .con_l {
   padding-left: 0;
+}
+
+.container-all {
+  padding-top: 50px;
+}
+
+.container-fluid {
+  width: 1140px;
+}
+
+.search-form {
+  padding-top: 7.5px;
+}
+
+.navbar {
+  height: 50px;
 }
