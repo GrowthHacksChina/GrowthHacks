@@ -7,9 +7,8 @@
           <% @i = @i + 1 %>
             <%= link_to(post.title, issue_post_path(post.issue,post), class: "issue_post_title") %>
             <span class="pull-right red">
-              <b style="color: red">TOP <%= @i %></b>&nbsp;
-                <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
-
+              <b style="color: green">TOP <%= @i %></b>&nbsp;
+                <i class="glyphicon glyphicon-fire" style="color:red" aria-hidden="true"></i>
                 <%= post.pv %>
             </span>
         </div>
