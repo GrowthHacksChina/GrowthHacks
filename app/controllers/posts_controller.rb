@@ -41,6 +41,7 @@ class PostsController < ApplicationController
 
   def hot
     @posts = Post.all.hot_post
+    @favorite_posts = Post.all.favorite_posts
     drop_breadcrumb("热门文章")
   end
 
