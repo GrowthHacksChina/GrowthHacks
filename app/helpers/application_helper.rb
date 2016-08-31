@@ -20,4 +20,14 @@ module ApplicationHelper
   #   markdown = Redcarpet::Markdown.new(render.new(hard_wrap: true), options)
   #   markdown.render(text).html_safe
   #   end
+
+  def gender_type
+    if @user.gender == "true"
+      "Male"
+    elsif @user.gender == "false"
+     "Female"
+    else
+      ""
+    end
+  end
 end
