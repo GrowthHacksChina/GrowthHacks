@@ -53,6 +53,16 @@
       </span>
     </div>
     <div class="col-md-9 post-content col-xs-12" ><%= render_markdown_text(@post.content) %></div>
+    <div class="fback col-md-3 hidden-xs">
+    <% if current_user %>
+    <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
+      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"> 加入收藏</span></a>
+
+    <a href="<%= like_post_path(@post)%>">
+      <span class="glyphicon glyphicon-star-empty " aria-hidden="true">赞一下</span></a>
+    <% end %>
+      </div>
+
 <div class="clearfix"></div>
     <br>
     <br>
@@ -62,23 +72,7 @@
         <%=link_to("上一页", @post.previous) %>
       </li>
 
-      <% if current_user %>
-      <li>
-        <%= link_to("收藏", add_to_favorite_test_account_post_path(@post), method: :post  ) %>
-      </li>
-      <!-- <i class="fa fa-heart-o pull-left" aria-hidden="true">
-      </i> -->
-      <li>
-        <%= link_to "点赞#{pluralize(@post.support,'')}", like_post_path(@post),method: :post ,:wrap_tag => :li%>
-      </li>
-
-      <% end %>
-
       <li class="next">
         <%=link_to("下一页", @post.next) %>
       </li>
     </ul>
-  <!-- </div> -->
-
-<!-- </div> -->
-<!-- <img src="/x.png" alt="" /> -->

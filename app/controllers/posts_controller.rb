@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     @post.support = @post.support + 1
     @post.save
 
-    redirect_to issue_post_path(@post.issue, @post)
+    redirect_to issue_post_path(@post.issue, @post), notice: "点赞成功"
   end
 
   def hot
