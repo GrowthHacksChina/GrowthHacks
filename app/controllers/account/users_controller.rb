@@ -1,4 +1,5 @@
 class Account::UsersController < AccountController
+  layout "user"
   before_action :authenticate_user!
   before_action :drop_account_breadcrumb
 
