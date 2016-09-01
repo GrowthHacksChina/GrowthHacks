@@ -1,3 +1,24 @@
+<script type="text/javascript">
+$(function() {
+  $("#previousPage").click(function() {
+
+    var previousPost = $(this).attr("previousPost")
+    if (previousPost=="null") {
+      alert("已经是最后一篇了");
+    }
+  });
+
+  $("#nextPage").click(function() {
+
+    var nextPost = $(this).attr("nextPost")
+    if (nextPost=="null") {
+      alert("已经是最后一篇了");
+    }
+  });
+})
+
+</script>
+
   <div class="post_title">
     <%= @post.title %>
   </div>
@@ -59,7 +80,8 @@
 
     <ul class="pager">
       <li class="previous">
-        <%=link_to("上一页", @post.previous) %>
+        <%=link_to("上一篇", @post.previous, id:"previousPage",  previousPost: @post.previous.nil? ? "null" : @post.previous.id) %>
+
       </li>
 
       <% if current_user %>
@@ -75,7 +97,7 @@
       <% end %>
 
       <li class="next">
-        <%=link_to("下一页", @post.next) %>
+        <%=link_to("下一篇", @post.next, id:"nextPage", curPost:@post.id, nextPost: @post.next.nil? ? "null" : @post.next.id) %>
       </li>
     </ul>
   <!-- </div> -->
