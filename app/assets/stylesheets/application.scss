@@ -127,8 +127,8 @@ a:hover, a:focus {
   border-radius: 4px;
 }
 
-.navbar-nav > .open > a:focus{
-   background-color: #222222!important;
+.navbar-inverse .navbar-nav > .open > a:focus{
+   background-color:#154c19;
    color: #fff;
 }
 
