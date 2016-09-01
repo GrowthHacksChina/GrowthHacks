@@ -1,26 +1,32 @@
-<div class="col-lg-offset-3 col-lg-6 col-sm-3", style="center">
+<div class="container-all">
+<div class="col-lg-offset-3 col-lg-6 col-sm-3", style="background: url(/images/p5.png)" >
+  <div class="form-area">
 
-  <h3 class="text-center">编辑信息</h3>
+        <h3 class="text-center">编辑信息</h3>
 
-  <img src="<%= @user.avatar.thumb %>" width="90" height="90", class="img-circle" >
+        <img src="<%= @user.avatar.thumb %>" width="90" height="90", class="img-circle" >
 
-  <%= simple_form_for [:account,@user] do |f| %>
-    <div class="form-group">
+        <%= simple_form_for [:account,@user] do |f| %>
+          <div class="form-group">
 
-      <%= f.input :avatar, :label =>"Avatar" %>
-      <hr>
-      <%= f.label :gender %><br/>
-      <%= f.label :gender, "Male", :value => "true"  %>
-      <%= f.radio_button :gender, true %>
-      <%= f.label :gender, "Female", :value => "false" %>
-      <%= f.radio_button :gender, false %>
-      <hr>
-      <%= f.input :name %>
-      <hr>
-      <%= f.input :email %>
-      <hr>
-      <%= f.input :introduction %>
-    </div>
-    <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submitting..." } %>
-  <% end %>
+            <%= f.input :avatar, :label =>"Avatar" %>
+            <hr>
+            <%= f.label :gender %><br/>
+            <%= f.label :gender, "Male", :value => "true"  %>
+            <%= f.radio_button :gender, true %>
+            <%= f.label :gender, "Female", :value => "false" %>
+            <%= f.radio_button :gender, false %>
+            <hr>
+            <%= f.input :name %>
+            <hr>
+            <%= f.input :email %>
+            <hr>
+            <%= f.input :introduction %>
+          </div>
+          <%= f.submit "Submit", class: "btn btn-info pull-right", data: { disable_with: "Submitting..." } %>
+
+        <% end %>
+      <br>
+ </div>
+</div>
 </div>
