@@ -22,4 +22,5 @@ class ApplicationController < ActionController::Base
       @breadcrumbs.push(title)
     end
   end
+
 end
