@@ -9,6 +9,7 @@ class Account::UsersController < AccountController
 
   def show
     @user = User.find(params[:id])
+    drop_breadcrumb "个人信息"
   end
 
   def edit
