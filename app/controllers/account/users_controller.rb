@@ -37,7 +37,7 @@ class Account::UsersController < AccountController
   private
 
   def params_user
-    params.require(:user).permit(:email, :introduction, :avatar)
+    params.require(:user).permit(:email, :introduction, :avatar, :gender, :name)
   end
 
 

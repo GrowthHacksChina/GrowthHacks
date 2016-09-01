@@ -32,7 +32,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding:12px;">
                         <%= image_tag current_user.avatar.thumb, width: 30, height: 30, class: "img-circle" %>
                         Hi!,
-                        <%= current_user.email %>
+                        <%= current_user.name %>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -42,9 +42,11 @@
                         </li>
                         <% end %>
                         <li>
-                            <%= link_to("个人中心", account_user_path(current_user)) %>
+                            <%= link_to("个人中心", account_users_path(current_user)) %>
                         </li>
-
+                        <li>
+                            <%= link_to("我的收藏",  account_user_favorite_path(current_user)) %>
+                        </li>
                         <li>
                             <%= link_to("登出", destroy_user_session_path, method: :delete) %>
                         </li>

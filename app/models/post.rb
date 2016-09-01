@@ -50,7 +50,6 @@ end
 #  tag                :string
 #  origin_link        :string
 #  favorite           :string
-#  introduce          :string
 #  brief_introduction :text
 #  image              :string
 #  pv                 :integer          default(1)
