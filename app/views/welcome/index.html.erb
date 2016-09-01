@@ -1,9 +1,9 @@
 
-<br>
+<br class="hidden-xs">
 <!-- <div class="center"> -->
     <%#= render :partial => "welcome/search_bar"%>
 <!-- </div> -->
-<br>
+<br class="hidden-xs">
 
 <div class="con_l col-md-8 hidden-xs">
 <% @posts.each do |post| %>
@@ -77,6 +77,16 @@
 </div>
 
 
+<br class=" visible-xs-block">
+
+<p class="visible-xs-block">
+  <button type="button" class="btn btn-default btn-lg col-xs-6" >
+    <%= link_to("热门文章",hot_posts_path) %></button>
+  <button type="button" class="btn btn-default btn-lg col-xs-6" >
+  <%= link_to("往期合集",issues_path) %></button>
+</p>
+
+<br class=" visible-xs-block"><br class=" visible-xs-block"><br class=" visible-xs-block">
 
 <div class=" visible-xs-block">
     <% @posts.each do |post| %>
