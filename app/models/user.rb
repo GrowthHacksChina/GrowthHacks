@@ -60,6 +60,8 @@ end
 #  introduction           :text
 #  image                  :string
 #  avatar                 :string
+#  gender                 :string
+#  name                   :string
 #
 # Indexes
 #
