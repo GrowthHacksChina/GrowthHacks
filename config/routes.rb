@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     member do
       post :like
+      get :like
     end
   end
 
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     resources :posts do
       member do
         post :add_to_favorite_test
+        get :add_to_favorite_test
         delete :remove_favorite_post
       end
     end
