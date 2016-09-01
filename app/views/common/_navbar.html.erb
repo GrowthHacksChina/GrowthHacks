@@ -1,6 +1,6 @@
 <div>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
+    <div class="container-fluid navbar-content-width">
         <!-- Brand and toggle get issueed for better mobile display -->
         <div class="navbar-header" style="padding-top:5px" >
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -42,7 +42,7 @@
                         </li>
                         <% end %>
                         <li>
-                            <%= link_to("个人中心", account_users_path(current_user)) %>
+                            <%= link_to("个人中心", account_users_path) %>
                         </li>
                         <li>
                             <%= link_to("我的收藏",  account_user_favorite_path(current_user)) %>

@@ -14,15 +14,16 @@
       <%= render "common/navbar" %>
 
 
+      <div class="center">
+          <%= render :partial => "welcome/slide"%>
+      </div>
       <div class="container">
-        <div class="center">
-            <%= render :partial => "welcome/slide"%>
-        </div>
+
 
             <%= render "common/flashes"%>
             <%= yield %>
             <%= render "common/footer" %>
 
-        </div>
+      </div>
     </body>
 </html>
