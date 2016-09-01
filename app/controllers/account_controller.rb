@@ -3,7 +3,7 @@ class AccountController < ApplicationController
   before_action :set_account_breadcrumbs
 
   def set_account_breadcrumbs
-    @breadcrumbs = [view_context.link_to("个人中心", account_user_path(current_user))]
+    @breadcrumbs = [view_context.link_to("个人中心", account_users_path(current_user))]
   end
 
   def drop_account_breadcrumb(title = nil, url = nil)
