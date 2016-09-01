@@ -1,0 +1,34 @@
+<div class="col-lg-offset-2 col-lg-8 col-sm-2">
+    <div class="card hovercard" style="background: url(/images/p5.png)">
+        <div class="card-background " >
+          <img class="card-bkimg" alt=""  >
+        </div>
+        <div class="useravatar">
+             <img src="<%= @user.avatar.thumb %>" width="200" height="200">
+        </div>
+        <div class="card-info"> <span class="card-title"><%= current_user.name %></span>
+
+        </div>
+    </div>
+    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-user"></span>
+                <div class="hidden-xs"><%= link_to("个人信息", account_user_path(current_user))%></div>
+
+        </div>
+        </button>
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>
+                <div class="hidden-xs"><%= link_to("编辑信息", edit_account_user_path(current_user))%></div>
+            </button>
+        </div>
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-erase"></span>
+                <div class="hidden-xs"><%= link_to("修改密码", edit_user_registration_path(current_user))%></div>
+            </button>
+        </div>
+    </div>
+</div>
