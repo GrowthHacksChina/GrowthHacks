@@ -35,6 +35,12 @@
 }
 
 
+.issue_post_title {
+  color: black;
+  font-size:1.5em;
+  font-weight: bold;
+  color: currentColor;
+}
 
 .issue-brief-controduction-mobile {
   color: black;
@@ -50,8 +56,8 @@
 
 .container .jumbotron, .container-fluid .jumbotron {
    padding-left: 60px;
-   background-color: #416941;
-   color: wheat;
+   background-color: black;
+   color: white;
  }
 
 // background-color: orange;
@@ -95,7 +101,7 @@ padding-left: 20px;
   height: 37px;
   line-height: 37px;
   border-bottom: 3px #000 solid;
-  padding: 0 5px;
+  padding: 0 5px 0 0;
 }
 
 .height_box {
@@ -105,4 +111,17 @@ padding-left: 20px;
 .hot_posts {
   padding: 10px 0;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.rmwz {
+  margin-top: 10px;
+  width: 100px;
+  font-size: 24px;
+}
+
+.more {
+  font-size: 24px;
+  font-color: green;
+  color: green;
+  font-weight: bold;
 }
