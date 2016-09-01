@@ -10,16 +10,12 @@
 
     </head>
 
-    <body style="padding-top:49px;">
-      <%= render "common/navbar" %>
-
-
+      <body style="padding-top:49px;">
+          <%= render "common/navbar" %>
       <div class="center">
-          <%= render :partial => "welcome/slide"%>
+        <%= render :partial => "welcome/slide" %>
       </div>
       <div class="container">
-
-
             <%= render "common/flashes"%>
             <%= yield %>
             <%= render "common/footer" %>
