@@ -12,10 +12,12 @@
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-user"></span>
                 <div class="hidden-xs"><%= link_to("个人信息", account_user_path(current_user))%></div>
-            </button>
+
         </div>
+        </button>
 
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>
@@ -24,7 +26,7 @@
         </div>
 
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star"></span>
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-erase"></span>
                 <div class="hidden-xs"><%= link_to("修改密码", edit_user_registration_path(current_user))%></div>
             </button>
         </div>
