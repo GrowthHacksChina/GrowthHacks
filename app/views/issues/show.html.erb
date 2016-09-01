@@ -1,13 +1,20 @@
-<div class="right-nav pull-right col-md-4 hidden-xs">
+<div class="pull-right col-md-4 hidden-xs">
+    <div class="">
+        <span class="gdwq">往期目录</span>
+        <span class="pull-right"><%= link_to(">>more...",issues_path, class: "more") %></span>
+    </div>
     <ul class="list-group">
+        <% @issues.each do |issue| %>
         <li class="list-group-item">
-            <span class="badge">14</span>
-            更多热门话题
+            <span class=""><%= link_to(issue.title, issue_path(issue))%></span>
+            <span class="badge"><%=issue.created_at.strftime("%Y-%m-%d")%></span>
         </li>
+        <% end %>
     </ul>
 </div>
+
 <%  @issue.posts.each do |post| %>
-<div class="container hidden-xs col-md-8">
+<div class="con_l hidden-xs col-md-8">
     <div class="panel panel-default">
         <div class="panel-heading">
             <%= link_to(post.title, issue_post_path(@issue,post), class: "issue_post_title") %>
@@ -18,45 +25,45 @@
             <div class="row">
                 <div class="col-md-9  issue_content">
                     <div class="row index_tag tag_color">
-                      <span >
-                          <i class="fa fa-user " aria-hidden="true"></i>
-                          <%= post.author %>
-                      </span>
+                        <span >
+                            <i class="fa fa-user " aria-hidden="true"></i>
+                            <%= post.author %>
+                        </span>
 
-                      <span >
-                          <i class="fa fa-tags tag_color" aria-hidden="true"></i>
-                          <%=link_to("标签","#",style:"color:black")%>
-                          <%= post.tag%>
-                      </span>
+                        <span >
+                            <i class="fa fa-tags tag_color" aria-hidden="true"></i>
+                            <%=link_to("标签","#",style:"color:black")%>
+                            <%= post.tag%>
+                        </span>
 
-                      <span >
-                          <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
-                          <%= post.created_at.strftime("%Y-%m-%d")%>
-                      </span>
+                        <span >
+                            <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
+                            <%= post.created_at.strftime("%Y-%m-%d")%>
+                        </span>
 
-                      <span>
-                          <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
-                          阅读量:
-                          <%= post.pv %>
-                      </span>
+                        <span>
+                            <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
+                            阅读量:
+                            <%= post.pv %>
+                        </span>
                     </div>
                     <div class="row">
-                      <div class="issue_brief">
-                      <%= post.brief_introduction %>
-                    </div>
+                        <div class="issue_brief">
+                            <%= post.brief_introduction %>
+                        </div>
                     </div>
                 </div>
 
-              <div class="index_hot_image">
-                  <%= image_tag post.image.thumb, class:"img-grouded" %>
-              </div>
-          </div>
+                <div class="index_hot_image">
+                    <%= image_tag post.image.thumb, class:"img-grouded" %>
+                </div>
+            </div>
         </div>
-            <!-- <div class="clearfix"></div> -->
+        <!-- <div class="clearfix"></div> -->
     </div>
 </div>
-  <% end %>
-  <% @issue.posts.each do |post| %>
+<% end %>
+<% @issue.posts.each do |post| %>
 <div class="panel panel-primary visible-xs-block">
     <div class="panel-heading">
         <%= link_to(post.title, issue_post_path(@issue,post), class: "issue_post_title_white") %>
@@ -64,24 +71,21 @@
 
     <div class="panel-body issue_content">
         <div>
-          <div class="post-picture"><%= image_tag post.image.mobile %></div>
-          <p><%= post.brief_introduction %></p>
+            <div class="post-picture"><%= image_tag post.image.mobile %></div>
+            <p><%= post.brief_introduction %></p>
         </div>
 
         <div>
-          <span class="pull-right">
-              <i class="fa fa-tags tag_color" aria-hidden="true"></i>
-              <%#=link_to("标签","#",style:"color:black")%>
-              <%#= post.tag%>
-              GrowthHack
-          </span>
+            <span class="pull-right">
+                <i class="fa fa-tags tag_color" aria-hidden="true"></i>
+                <%#=link_to("标签","#",style:"color:black")%>
+                <%#= post.tag%>
+                GrowthHack
+            </span>
         </div>
     </div>
 </div>
-  <% end %>
-
-
-
+<% end %>
 
 <div class="text-center">
     <%= will_paginate @posts %>
