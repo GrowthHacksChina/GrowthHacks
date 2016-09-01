@@ -6,7 +6,7 @@
  .card {
     margin-top: 20px;
     padding: 30px;
-    background-color: rgba(214, 224, 226, 0.2);
+    // background-color: rgba(214, 224, 226, 0.2);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -16,8 +16,8 @@
     padding-top: 0;
     overflow: hidden;
     text-align: center;
-    background-color: #fff;
-    background-color: rgba(255, 255, 255, 1);
+//     background-color: #fff;
+// background-color: rgba(255, 255, 255, 1);
 }
 .card.hovercard .card-background {
     height: 130px;
