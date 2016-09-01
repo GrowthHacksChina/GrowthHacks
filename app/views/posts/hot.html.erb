@@ -1,3 +1,4 @@
+
 <div class="con_l hidden-xs col-md-8">
   <!-- i表示Top，前几名 -->
   <% @i = 0 %>
@@ -44,9 +45,10 @@
                     </div>
                 </div>
 
-              <div class="text-center index_hot_image">
-                  <%= image_tag post.image.thumb, class:"img-grouded" %>
-              </div>
+                <div class="text-center index_hot_image">
+                    <a href="<%= post_path(post) %>"><%= image_tag post.image.thumb, class:"img-grouded" %></a>
+                </div>
+
           </div>
         </div>
     </div>
@@ -68,23 +70,22 @@
     </div>
     <% end %>
 </div>
-
 <div class="con_r pull-right col-md-4 hidden-xs">
     <div class="section_title">
-      <h3 style="margin-top: 10px;">猜你喜欢</h3>
+      <span class="rmwz">猜你喜欢</span>
+      <span class="pull-right"><%= link_to(">>更多",hot_posts_path, class: "more") %></span>
     </div>
 
     <div class="height_box">
       <% @favorite_posts.each do |favorite_post| %>
           <div class="hot_posts row">
-            <span class="hot_post_image col-md-4">
-              <%= image_tag favorite_post.image.hot %>
+            <span class="hot_post_image col-md-3">
+            <a href="<%= issue_post_path(favorite_post.issue,favorite_post) %>"><%= image_tag favorite_post.image.hot %></a>
             </span>
-            <span class="hot_post_title col-md-8">
+            <span class="hot_post_title col-md-9">
               <%= link_to(favorite_post.title, issue_post_path(favorite_post.issue,favorite_post)) %>
             </span>
           </div>
       <% end %>
     </div>
-</div>
 </div>
