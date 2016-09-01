@@ -1,29 +1,43 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-10 col-sm-6 col-md-12">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                      <%= image_tag current_user.avatar.thumb,weight: 140, height: 140 %>
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h3>用户资料</h3>
-                        <p>
-                            <i class="glyphicon glyphicon-envelope"></i>
-                            <%= @user.email %>
-                            <br/>
-                            <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
-                            <i class="glyphicon glyphicon-user"></i>
-                            <%= @user.introduction %>
-                        </p>
-                        <!-- Split button -->
-                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"> <%=link_to("我的收藏", account_user_favorite_path(current_user))%></span>
-
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"><%=link_to("编辑资料", edit_account_user_path)%></span>
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"><%=link_to("修改密码", edit_user_registration_path)%></span>
-                    </div>
-                </div>
+<div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6 col-sm-3">
+          <div class="panel">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= current_user.name %> </h3>
             </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center">
+                  <img src="<%= current_user.avatar.thumb %>" width="140" height="140" >
+                </div>
+
+                <div class=" col-md-9 col-lg-9 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Username</td>
+                        <td><%= current_user.name %></td>
+                      </tr>
+                      <tr>
+                       <td>Gender</td>
+                       <td><%= gender_type %></td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><%= current_user.email%></td>
+                      </tr>
+                      <tr>
+                        <td>Introduction</td>
+                        <td><%= current_user.introduction %></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </div>
     </div>
-</div>

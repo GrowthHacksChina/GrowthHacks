@@ -2,14 +2,14 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get issueed for better mobile display -->
-        <div class="navbar-header"style="padding-top:5px" >
-          <a class="navbar-brand" href="/">GrowthHacker黑板报</a>
+        <div class="navbar-header" style="padding-top:5px" >
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand" href="/">GrowthHacker黑板报</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,7 +21,7 @@
                 <!-- <li><%#= link_to("招聘",jobs_path) %></li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><%= render :partial => "welcome/search_bar"%></li>
+                <li class="hidden-xs"><%= render :partial => "welcome/search_bar"%></li>
                 <% if !current_user %>
                 <li><%= link_to("注册", new_user_registration_path) %>
                 </li>
@@ -31,8 +31,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding:12px;">
                         <%= image_tag current_user.avatar.thumb, width: 30, height: 30, class: "img-circle" %>
-                        Hi!,
-                        <%= current_user.email %>
+                        Hey!&nbsp;
+                        <%= current_user.name %>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -42,9 +42,11 @@
                         </li>
                         <% end %>
                         <li>
-                            <%= link_to("个人中心", account_user_path(current_user)) %>
+                            <%= link_to("个人中心", account_users_path(current_user)) %>
                         </li>
-
+                        <li>
+                            <%= link_to("我的收藏",  account_user_favorite_path(current_user)) %>
+                        </li>
                         <li>
                             <%= link_to("登出", destroy_user_session_path, method: :delete) %>
                         </li>
