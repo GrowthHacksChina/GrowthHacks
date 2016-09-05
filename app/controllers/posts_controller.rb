@@ -26,13 +26,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def like
-    @post = Post.find(params[:id])
-    @post.support = @post.support + 1
-    @post.save
-
-    redirect_to issue_post_path(@post.issue, @post), notice: "点赞成功"
-  end
 
   def hot
     @posts = Post.all.hot_post

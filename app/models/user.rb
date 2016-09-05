@@ -14,6 +14,10 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   mount_uploader :avatar, AvatarUploader
 
+  has_many :like_relationships
+  has_many :like_posts, through: :like_relationships, source: :post
+
+
   def admin?
     is_admin
   end
