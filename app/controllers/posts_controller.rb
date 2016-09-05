@@ -33,6 +33,30 @@ class PostsController < ApplicationController
     drop_breadcrumb("热门文章")
   end
 
+  def like
+   @post = Post.find(params[:id])
+
+    if !current_user.is_like?(@post)
+      current_user.like!(@post)
+      @post.support = @post.support + 1
+      @post.save
+    end
+
+    redirect_to post_path(@post)
+  end
+
+  def cancell_like
+    @post = Post.find(params[:id])
+
+    if current_user.is_like?(@post)
+      current_user.cancell_like!(@post)
+      @post.support = @post.support - 1
+      @post.save
+    end
+
+    redirect_to post_path(@post)
+  end
+
   private
 
   def post_params
