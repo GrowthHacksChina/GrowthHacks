@@ -19,35 +19,7 @@ $(function() {
 
 </script>
 
-  <div class="post_title">
-    <%= @post.title %>
-  </div>
 
-    <div class="row hidden-xs tag_color">
-      <span class="col-md-3 col-xs-4", style="margin-bottom: 30px; padding-left:100px;">
-        <i class="fa fa-user" aria-hidden="true"></i>
-
-        作者:
-        <%= @post.author %>
-      </span>
-      <span class="col-md-3 col-xs-6">
-        <i class="fa fa-tags" aria-hidden="true"></i>
-        <%#=link_to("标签","#",style:"color:black")%>
-        <%#= @post.tag%>
-        GrowthHack
-      </span>
-      <span class="col-md-3 col-xs-12">
-        <i class="fa fa-clock-o " aria-hidden="true"></i>
-        <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-      </span>
-      <span class="col-md-2 col-xs-12">
-        <i class="fa fa-file-text-o " aria-hidden="true"></i>
-        阅读量:
-
-        <%= @post.pv %>
-        <% @post.visit %>
-      </span>
-    </div>
 
     <div class="row visible-xs-block">
       <span class="col-md-3 col-xs-6 col-xs-offset-1">
@@ -75,13 +47,46 @@ $(function() {
       </span>
     </div>
 
-    <div class="col-md-9 post-content col-xs-12" ><%= render_markdown_text(@post.content) %></div>
+    <div class="col-md-9 post-content col-xs-12" >
+      <div class="post_title">
+        <%= @post.title %>
+      </div>
 
-    <div class="fback col-md-3 hidden-xs">
+        <div class="row hidden-xs post-common-icon">
+          <span class="col-md-2 col-xs-4">
+            <i class="fa fa-user" aria-hidden="true"></i>
+
+            作者:
+            <%= @post.author %>
+          </span>
+          <span class="col-md-2 col-xs-6">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <%#=link_to("标签","#",style:"color:black")%>
+            <%#= @post.tag%>
+            GrowthHack
+          </span>
+          <span class="col-md-3 col-xs-12">
+            <i class="fa fa-clock-o " aria-hidden="true"></i>
+            <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          </span>
+          <span class="col-md-2 col-xs-12">
+            <i class="fa fa-file-text-o " aria-hidden="true"></i>
+            阅读量:
+
+            <%= @post.pv %>
+            <% @post.visit %>
+          </span>
+        </div>
+
+        <%= render_markdown_text(@post.content) %>
+
+    </div>
+
+    <div class="fback col-md-offset-1 col-md-2 hidden-xs">
     <% if current_user %>
     <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
       <span class="fa fa-heart-o fa-2x  heart-icon" aria-hidden="true"></span> 加入收藏</a>
-      <br><br><br>
+      <br><br>
 
       <span>
           <% if  current_user.is_like?(@post) %>
