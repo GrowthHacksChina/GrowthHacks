@@ -10,9 +10,8 @@
 }
 
 
-.tag_color i{
-  color:green;
-  font-size:1.5em;
+.post-common-icon {
+  font-size:0.8em;
 }
 
 
@@ -20,9 +19,15 @@
 .post-content{
   font-size: 1.22em;
   // line-height: 3;
-  margin:0;
-  text-align:justify;
-  line-height:170%;
+  margin: 0;
+  text-align: justify;
+  line-height: 170%;
+  background-color: white;
+}
+
+.fback {
+  background-color: white;
+  padding:25px 0;
 }
 
 .post-content p{
