@@ -6,6 +6,9 @@ class Post < ApplicationRecord
   has_many :favorites
   has_many :favorite_by_users, through: :favorites, source: :user
 
+  has_many :like_relationships
+  has_many :likers, through: :like_relationships, source: :user
+
   validates :content, presence: true
   validates :title, presence: true, length: { in: 1..50 }
   validates :author, presence: true

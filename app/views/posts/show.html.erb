@@ -47,8 +47,8 @@ $(function() {
         <%= @post.pv %>
         <% @post.visit %>
       </span>
-
     </div>
+
     <div class="row visible-xs-block">
       <span class="col-md-3 col-xs-6 col-xs-offset-1">
         <i class="fa fa-tags tag_color" aria-hidden="true"></i>
@@ -62,27 +62,38 @@ $(function() {
         <%= @post.author %>
       </span>
     </div>
+
     <div class="row visible-xs-block">
       <span class="col-md-5 col-xs-6 col-xs-offset-1">
         <i class="fa fa-clock-o tag_color" aria-hidden="true"></i>
         <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
       </span>
       <span class="col-md-2 col-xs-5">
-        <i class="fa fa-file-text-o tag_color" aria-hidden="true"></i>
+        <i class="fa fa-file-text-o tag_color " aria-hidden="true"></i>
         阅读量:
         <%= @post.pv %>
       </span>
     </div>
+
     <div class="col-md-9 post-content col-xs-12" ><%= render_markdown_text(@post.content) %></div>
+
     <div class="fback col-md-3 hidden-xs">
     <% if current_user %>
     <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
-      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"> 加入收藏</span></a>
+      <span class="fa fa-heart-o fa-2x  heart-icon" aria-hidden="true"></span> 加入收藏</a>
+      <br><br><br>
 
-    <a href="<%= like_post_path(@post)%>">
-      <span class="glyphicon glyphicon-star-empty " aria-hidden="true">赞一下</span></a>
+      <span>
+          <% if  current_user.is_like?(@post) %>
+          <i class="fa fa-thumbs-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
+        <% else %>
+          <i class="fa fa-thumbs-o-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
+        <% end %>
+
+      </span>
+      点赞数<span id="supports"><%= @post.support %></span>
     <% end %>
-      </div>
+    </div>
 
 <div class="clearfix"></div>
     <br>
@@ -98,3 +109,54 @@ $(function() {
         <%=link_to("下一篇", @post.next, id:"nextPage", curPost:@post.id, nextPost: @post.next.nil? ? "null" : @post.next.id) %>
       </li>
     </ul>
+
+
+    <script>
+
+
+      $(function() {
+        $("#thumb").click(function() {
+          var obj = $(this);
+          var postId = $(this).attr("postId");
+          if ($(this).hasClass("fa-thumbs-o-up")) {
+            like(postId, obj)
+            return
+          }
+          if ($(this).hasClass("fa-thumbs-up")) {
+            cancelLike(postId, obj)
+            return
+          }
+        });
+
+      })
+
+      function cancelLike(postId, obj) {
+        $.ajax({
+          url: "/posts/" + postId + "/cancel_like/",
+          method: "post",
+          dataType: "json",
+          success: function(data) {
+            if (data.status == "y") {
+              obj.removeClass("fa-thumbs-up").addClass("fa-thumbs-o-up");
+              $("#supports").text(data.support);
+
+            }
+          }
+        })
+      }
+
+      function like(postId, obj) {
+        $.ajax({
+          url: "/posts/" + postId + "/like/",
+          method: "post",
+          dataType: "json",
+          success: function(data) {
+            if (data.status == "y") {
+              obj.removeClass("fa-thumbs-o-up").addClass("fa-thumbs-up");
+              $("#supports").text(data.support);
+            }
+          }
+        })
+      }
+
+    </script>

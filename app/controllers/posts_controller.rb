@@ -26,18 +26,42 @@ class PostsController < ApplicationController
     end
   end
 
-  def like
-    @post = Post.find(params[:id])
-    @post.support = @post.support + 1
-    @post.save
-
-    redirect_to issue_post_path(@post.issue, @post), notice: "点赞成功"
-  end
 
   def hot
     @posts = Post.all.hot_post
     @favorite_posts = Post.all.favorite_posts
     drop_breadcrumb("热门文章")
+  end
+
+  def like
+   @post = Post.find(params[:id])
+    message = {}
+    if !current_user.is_like?(@post)
+      current_user.like!(@post)
+      @post.support = @post.support + 1
+      @post.save
+      message[:status] = "y"
+      message[:support] = @post.support
+    else
+      message[:status] = "n"
+    end
+
+    render json: message
+  end
+
+  def cancel_like
+    @post = Post.find(params[:id])
+    message = {}
+    if current_user.is_like?(@post)
+      current_user.cancel_like!(@post)
+      @post.support = @post.support - 1
+      @post.save
+      message[:status] = "y"
+      message[:support] = @post.support
+    else
+      message[:status] = "n"
+    end
+    render json: message
   end
 
   private
