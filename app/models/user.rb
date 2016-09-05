@@ -14,12 +14,28 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   mount_uploader :avatar, AvatarUploader
 
+  has_many :like_relationships
+  has_many :like_posts, through: :like_relationships, source: :post
+
+
   def admin?
     is_admin
   end
 
   def member_of?(issue)
     participated_issues.include?(issue)
+  end
+
+  def is_like?(post)
+    like_posts.include?(post)
+  end
+
+  def like!(post)
+    like_posts << post
+  end
+
+  def cancel_like!(post)
+    like_posts.delete(post)
   end
 
   def join!(issue)
