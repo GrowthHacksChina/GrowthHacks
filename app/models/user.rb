@@ -34,7 +34,7 @@ class User < ApplicationRecord
     like_posts << post
   end
 
-  def cancell_like!(post)
+  def cancel_like!(post)
     like_posts.delete(post)
   end
 

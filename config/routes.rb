@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
     member do
       post :like
-      post :cancell_like
+      post :cancel_like
     end
   end
 
