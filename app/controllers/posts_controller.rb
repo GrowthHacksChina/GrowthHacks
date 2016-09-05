@@ -35,26 +35,33 @@ class PostsController < ApplicationController
 
   def like
    @post = Post.find(params[:id])
-
+    message = {}
     if !current_user.is_like?(@post)
       current_user.like!(@post)
       @post.support = @post.support + 1
       @post.save
+      message[:status] = "y"
+      message[:support] = @post.support
+    else
+      message[:status] = "n"
     end
 
-    redirect_to post_path(@post)
+    render json: message
   end
 
-  def cancell_like
+  def cancel_like
     @post = Post.find(params[:id])
-
+    message = {}
     if current_user.is_like?(@post)
-      current_user.cancell_like!(@post)
+      current_user.cancel_like!(@post)
       @post.support = @post.support - 1
       @post.save
+      message[:status] = "y"
+      message[:support] = @post.support
+    else
+      message[:status] = "n"
     end
-
-    redirect_to post_path(@post)
+    render json: message
   end
 
   private
