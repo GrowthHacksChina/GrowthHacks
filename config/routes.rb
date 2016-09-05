@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       get :search
       get :hot
     end
+    member do
+      post :like
+      post :cancell_like
+    end
   end
 
   namespace :account do

@@ -26,6 +26,18 @@ class User < ApplicationRecord
     participated_issues.include?(issue)
   end
 
+  def is_like?(post)
+    like_posts.include?(post)
+  end
+
+  def like!(post)
+    like_posts << post
+  end
+
+  def cancell_like!(post)
+    like_posts.delete(post)
+  end
+
   def join!(issue)
     participated_issues << issue
   end
