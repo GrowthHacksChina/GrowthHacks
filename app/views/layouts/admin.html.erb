@@ -3,40 +3,20 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>GrowthHack中国 </title>
+        <meta name="description" content="growthhack, growth, hack, hacker, growthhacker, 数字营销, 精准营销, 黑板报, growingio">
+        <meta name="keywords" content="growthhack, growth, hack, hacker, growthhacker, 后台, 数字营销, 精准营销, 黑板报,growingio">
+        <title>GrowthHack黑板报 | 管理后台
+        </title>
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= stylesheet_link_tag    'simplemde.min' %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_include_tag 'simplemde.min' %>
     </head>
 
     <body style="padding-top:0;">
-      <%= render "common/navbar" %>
-              <div class="container container-all" >
-            <%= render "common/flashes" %>
-            <br />
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 col-xs-12">
-                        <ul class="nav nav-pills nav-stacked">
-                              <%= active_link_to '用户管理', admin_users_path, :active => :exclusive, :wrap_tag => :li %>
-
-                              <%= active_link_to '期刊管理', admin_issues_path, :active => :exclusive, :wrap_tag => :li %>
-
-                              <%= active_link_to '文章管理', admin_posts_path, :active => :exclusive, :wrap_tag => :li %>
-
-                              <%= active_link_to '招聘管理', admin_jobs_path, :active => :exclusive, :wrap_tag => :li %>
-
-                        </ul>
-                    </div>
-                    <div class="col-md-10 col-xs-12">
-                       <%= render_breadcrumb %>
-                        <%= yield %>
-                    </div>
-                </div>
-            </div>
-          </div>
-
-      </body>
-  </html>
+        <%= render "common/navbar" %>
+        <%= render "layouts/sidebar" %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'simplemde.min' %>
+        <%= yield :handwrite_javascript %>
+    </body>
+</html>

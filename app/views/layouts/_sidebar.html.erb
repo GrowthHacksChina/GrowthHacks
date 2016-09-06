@@ -1,0 +1,24 @@
+<div class="container container-all" >
+<%= render "common/flashes" %>
+<br />
+<div class="container">
+  <div class="row">
+      <div class="col-md-2 col-xs-12">
+          <ul class="nav nav-pills nav-stacked">
+                <%= active_link_to '用户管理', admin_users_path, :active => :exclusive, :wrap_tag => :li %>
+
+                <%= active_link_to '期刊管理', admin_issues_path, :active => :exclusive, :wrap_tag => :li %>
+
+                <%= active_link_to '文章管理', admin_posts_path, :active => :exclusive, :wrap_tag => :li %>
+
+                <%= active_link_to '招聘管理', admin_jobs_path, :active => :exclusive, :wrap_tag => :li %>
+
+          </ul>
+      </div>
+      <div class="col-md-10 col-xs-12">
+         <%= render_breadcrumb %>
+          <%= yield %>
+      </div>
+  </div>
+</div>
+</div>

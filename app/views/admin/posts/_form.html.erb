@@ -24,7 +24,9 @@
 
 </style>
 
+<%= content_for :handwrite_javascript do %>
 <script>
     var simplemde = new SimpleMDE({element: document.getElementById("post_content")});
     simplemde.value();
 </script>
+<% end %>
