@@ -78,11 +78,10 @@ ActiveRecord::Schema.define(version: 20160905110025) do
     t.string   "tag"
     t.string   "origin_link"
     t.string   "favorite"
-    t.string   "introduce"
-    t.text     "brief_introduction"
     t.string   "image"
-    t.integer  "support",            default: 0
+    t.text     "brief_introduction"
     t.integer  "pv",                 default: 1
+    t.integer  "support",            default: 0
     t.index ["issue_id"], name: "index_posts_on_issue_id"
   end
 
