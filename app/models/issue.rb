@@ -3,7 +3,7 @@ class Issue < ApplicationRecord
   belongs_to :user
   validates :title, presence: true, length: { in: 1..20 }
   has_many :posts, dependent: :destroy
-  scope :recent, -> { order("created_at DESC") }
+  scope :recent, -> { order("id DESC") }
 end
 
 # == Schema Information
