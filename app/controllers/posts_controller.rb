@@ -26,7 +26,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   def hot
     @posts = Post.all.hot_post
     @favorite_posts = Post.all.favorite_posts
@@ -34,7 +33,7 @@ class PostsController < ApplicationController
   end
 
   def like
-   @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     message = {}
     if !current_user.is_like?(@post)
       current_user.like!(@post)
