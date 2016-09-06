@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(version: 20160905110025) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text     "content"
     t.integer  "issue_id"
@@ -72,10 +78,11 @@ ActiveRecord::Schema.define(version: 20160905110025) do
     t.string   "tag"
     t.string   "origin_link"
     t.string   "favorite"
+    t.string   "introduce"
     t.text     "brief_introduction"
     t.string   "image"
-    t.integer  "pv",                 default: 1
     t.integer  "support",            default: 0
+    t.integer  "pv",                 default: 1
     t.index ["issue_id"], name: "index_posts_on_issue_id"
   end
 
