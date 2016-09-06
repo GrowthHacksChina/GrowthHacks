@@ -65,6 +65,7 @@ group :development do
 end
 
 group :development do
+  gem "rails-erd"
 end
 
 group :production do
