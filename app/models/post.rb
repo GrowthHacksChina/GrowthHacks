@@ -53,8 +53,8 @@ end
 #  tag                :string
 #  origin_link        :string
 #  favorite           :string
-#  image              :string
 #  brief_introduction :text
+#  image              :string
 #  pv                 :integer          default(1)
 #  support            :integer          default(0)
 #
