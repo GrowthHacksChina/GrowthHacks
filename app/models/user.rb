@@ -46,6 +46,10 @@ class User < ApplicationRecord
     participated_issues.delete(issue)
   end
 
+  def is_favorite?(post)
+    favorite_posts.include?(post)
+  end
+  
   def join_favorite!(post)
     favorite_posts << post
   end
