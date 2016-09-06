@@ -19,7 +19,7 @@
 .post-content{
   font-size: 1.22em;
   // line-height: 3;
-  margin: 0;
+  // margin: 0;
   text-align: justify;
   line-height: 170%;
   background-color: white;
@@ -28,6 +28,10 @@
 .fback {
   background-color: white;
   padding:25px 0;
+}
+
+.fback-outside {
+  padding-right:0 !important;
 }
 
 .post-content p{
