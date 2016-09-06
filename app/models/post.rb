@@ -53,11 +53,10 @@ end
 #  tag                :string
 #  origin_link        :string
 #  favorite           :string
-#  introduce          :string
-#  brief_introduction :text
 #  image              :string
-#  support            :integer          default(0)
+#  brief_introduction :text
 #  pv                 :integer          default(1)
+#  support            :integer          default(0)
 #
 # Indexes
 #

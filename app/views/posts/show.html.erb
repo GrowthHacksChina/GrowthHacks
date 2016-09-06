@@ -83,13 +83,31 @@ $(function() {
     </div>
 
     <div class="fback col-md-offset-1 col-md-2 hidden-xs">
-    <% if current_user %>
-    <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
-      <span class="fa fa-heart-o fa-2x  heart-icon" aria-hidden="true"></span> 加入收藏</a>
+    <%# if current_user %>
+    <!-- <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
+      <span class="fa fa-heart-o fa-2x  heart-icon" aria-hidden="true"></span> 加入收藏</a> -->
+      <!-- <span>
+        <i class="fa fa-heart-o fa-2x thumb-icon" ></i>
+      </span>
+      加入收藏
       <br><br>
 
       <span>
-          <% if  current_user.is_like?(@post) %>
+        <i class="fa fa-thumbs-o-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
+      </span>
+      点赞数<span id="supports"><%= @post.support %></span> -->
+      <span>
+          <% if current_user && current_user.is_favorite?(@post) %>
+          <i class="fa fa-heart fa-2x thumb-icon" aria-hidden="true" id="heart" postId="<%= @post.id %>"></i>已收藏
+        <% else %>
+          <i class="fa fa-heart-o fa-2x thumb-icon" aria-hidden="true" id="heart" postId="<%= @post.id %>"></i>加入收藏
+        <% end %>
+
+      </span>
+      <br><br>
+
+      <span>
+          <% if  current_user && current_user.is_like?(@post) %>
           <i class="fa fa-thumbs-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
         <% else %>
           <i class="fa fa-thumbs-o-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
@@ -97,7 +115,7 @@ $(function() {
 
       </span>
       点赞数<span id="supports"><%= @post.support %></span>
-    <% end %>
+    <%# end %>
     </div>
 
 <div class="clearfix"></div>
@@ -133,6 +151,15 @@ $(function() {
           }
         });
 
+        $("#heart").click(function() {
+          var obj = $(this);
+          var postId = $(this).attr("postId");
+          if ($(this).hasClass("fa-heart-o")) {
+            favorite(postId, obj)
+            return
+          }
+        });
+
       })
 
       function cancelLike(postId, obj) {
@@ -159,6 +186,24 @@ $(function() {
             if (data.status == "y") {
               obj.removeClass("fa-thumbs-o-up").addClass("fa-thumbs-up");
               $("#supports").text(data.support);
+            } else if(data.status == "e"){
+              window.location = "/users/sign_in"
+            }
+          }
+        })
+      }
+
+      function favorite(postId, obj) {
+        $.ajax({
+          url: "/account/posts/" + postId + "/add_to_favorite_test/",
+          method: "post",
+          dataType: "json",
+          success: function(data) {
+            if (data.status == "y") {
+              obj.removeClass("fa-heart-o").addClass("fa-heart");
+
+            } else if(data.status == "e") {
+              window.location = "/users/sign_in";
             }
           }
         })
