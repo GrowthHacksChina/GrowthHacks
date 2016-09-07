@@ -1,91 +1,47 @@
-
-<div class="con_l hidden-xs col-md-8">
+<div class="post-hot padding:10px,0px;">
   <!-- i表示Top，前几名 -->
-  <% @i = 0 %>
-  <% @posts.each do |post| %>
-    <div class="panel panel-default">
-        <div class="panel-heading">
+  <% @i = 1 %>
+   <div class="row col-md-8" style="padding:0px,0px;">
+     <% @posts.each do |post| %>
+      <div class="col-md-6">
+        <div >
+        <span class="pull-right">
+          <b style="color: green">TOP <%= @i %></b>&nbsp;
+          <i class="glyphicon glyphicon-fire" style="color:red" aria-hidden="true"></i>
+          <%= post.pv %>
+        </span>
+       </div>
+        <div class="hot-img-bg">
           <% @i = @i + 1 %>
+          <div class="img">
+              <a href="<%= post_path(post) %>"><%= image_tag post.image.thumb, class:"img-grouded" %></a>
+          </div>
+          <div class="hot-post-title">
             <%= link_to(post.title, issue_post_path(post.issue,post), class: "issue_post_title") %>
-            <span class="pull-right red">
-              <b style="color: green">TOP <%= @i %></b>&nbsp;
-                <i class="glyphicon glyphicon-fire" style="color:red" aria-hidden="true"></i>
-                <%= post.pv %>
-            </span>
-        </div>
-
-        <div class="panel-body">
-
-            <div class="row">
-                <div class="col-md-9  issue_content">
-                    <div class="row index_tag tag_color">
-                      <span >
-                          <i class="fa fa-user " aria-hidden="true"></i>
-                          <%= post.author %>
-                      </span>
-
-                      <span >
-                          <i class="fa fa-tags " aria-hidden="true"></i>
-                          <%#=link_to("标签","#",style:"color:black")%>
-                          <%#= post.tag%>
-                          GrowthHack
-                      </span>
-
-                      <span >
-                          <i class="fa fa-clock-o " aria-hidden="true"></i>
-                          <%= post.created_at.strftime("%Y-%m-%d")%>
-                      </span>
-
-
-                    </div>
-                    <div class="row">
-                      <div class="issue_brief">
-                      <%= post.brief_introduction %>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="text-center index_hot_image">
-                    <a href="<%= post_path(post) %>"><%= image_tag post.image.thumb, class:"img-grouded" %></a>
-                </div>
-
           </div>
-        </div>
-    </div>
-    <% end %>
-
-</div>
-
-<div class=" visible-xs-block">
-    <% @posts.each do |post| %>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <h3><%= link_to(post.title, issue_post_path(post.issue,post), class:"issuetitle-mobile") %></h3>
-            <hr>
-            <div class="index-article-picture">
-                <%#= image_tag post.image.default_url %>
-                <%= image_tag post.image.mobile %></div>
-            <p><%= link_to(post.brief_introduction, issue_post_path(post.issue,post), class:"issue-brief-controduction-mobile") %></p>
-        </div>
-    </div>
-    <% end %>
-</div>
-<div class="con_r pull-right col-md-4 hidden-xs">
-    <div class="section_title">
-      <span class="rmwz">猜你喜欢</span>
-      <span class="pull-right"><%= link_to(">>更多",hot_posts_path, class: "more") %></span>
-    </div>
-
-    <div class="height_box">
-      <% @favorite_posts.each do |favorite_post| %>
-          <div class="hot_posts row">
-            <span class="hot_post_image col-md-3">
-            <a href="<%= issue_post_path(favorite_post.issue,favorite_post) %>"><%= image_tag favorite_post.image.hot %></a>
-            </span>
-            <span class="hot_post_title col-md-9">
-              <%= link_to(favorite_post.title, issue_post_path(favorite_post.issue,favorite_post)) %>
-            </span>
           </div>
+      </div>
       <% end %>
     </div>
+
+    <div class="con_r pull-right col-md-4 hidden-xs">
+      <div class="section_title">
+        <span class="rmwz">猜你喜欢</span>
+        <span class="pull-right"><%= link_to(">>MORE",hot_posts_path, class: "more") %></span>
+      </div>
+
+      <div class="height_box">
+        <% @favorite_posts.each do |favorite_post| %>
+            <div class="hot_posts row">
+              <span class="hot_post_image col-md-3">
+              <a href="<%= issue_post_path(favorite_post.issue,favorite_post) %>"><%= image_tag favorite_post.image.hot %></a>
+              </span>
+              <span class="hot_post_title col-md-9">
+                <%= link_to(favorite_post.title, issue_post_path(favorite_post.issue,favorite_post)) %>
+              </span>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
 </div>

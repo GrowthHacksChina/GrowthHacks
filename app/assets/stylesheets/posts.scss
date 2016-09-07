@@ -55,10 +55,24 @@
   border: 0 !important;
 }
 
-.thumb-icon {
-  color: green;
+.post-hot{
+  text-align: center;
+
+.hot-img-bg img{
+    position:relative;
+    width:350px;
+    height:250px;
+    padding: 0;
+  }
+.hot-post-title{
+    height:60px;
 }
 
-.heart-icon {
-  color: green;
+}
+
+.hot-section-title {
+  height: 37px;
+  line-height: 37px;
+  border-bottom: 3px #000 solid;
+  padding: 0 5px 0 0;
 }
