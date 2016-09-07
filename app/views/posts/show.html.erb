@@ -83,7 +83,7 @@ $(function() {
         <h3>文章评论</h3>
         <div class="comment_inner">
           <div class="col-md-1 user_avatar">
-            <% @post.comments.each do |comment| %>
+            <% @comments.each do |comment| %>
             <%= image_tag comment.user.avatar.thumb, width: 30, height: 30, class: "img-circle" %>
           </div>
           <div class="col-md-11 reviews">
