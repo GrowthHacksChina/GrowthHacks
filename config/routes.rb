@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post :like
       post :cancel_like
     end
+    resources :comments
   end
 
   namespace :account do
