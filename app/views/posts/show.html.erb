@@ -82,7 +82,29 @@ $(function() {
 
     </div>
 
-    <div class="fback col-md-offset-1 col-md-2 hidden-xs">
+
+    <!-- <div class="col-md-3 hidden-xs fback-outside">
+      <div class="fback">
+        <% if current_user %>
+        <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
+          <span class="fa fa-heart-o fa-2x  heart-icon" aria-hidden="true"></span> 加入收藏</a>
+          <br><br>
+
+          <span>
+              <% if  current_user.is_like?(@post) %>
+              <i class="fa fa-thumbs-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
+            <% else %>
+              <i class="fa fa-thumbs-o-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
+            <% end %>
+
+          </span>
+          点赞数<span id="supports"><%= @post.support %></span>
+        <% end %>
+        </div>
+      </div> -->
+
+  <div class="col-md-3 hidden-xs fback-outside">
+    <div class="fback">
     <%# if current_user %>
     <!-- <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
       <span class="fa fa-heart-o fa-2x  heart-icon" aria-hidden="true"></span> 加入收藏</a> -->
@@ -117,6 +139,7 @@ $(function() {
       点赞数<span id="supports"><%= @post.support %></span>
     <%# end %>
     </div>
+  </div>
 
 <div class="clearfix"></div>
     <br>
