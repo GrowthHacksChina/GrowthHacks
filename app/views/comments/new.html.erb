@@ -1,0 +1,14 @@
+<div>
+
+
+  <div>
+  请输入您的评论内容
+    <%= simple_form_for [@post,@comment]  do |f| %>
+    <div>
+      <%= f.input :content %>
+      <%= f.submit "提交评论", disable_with:"提交中", class:"btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+
+</div>
