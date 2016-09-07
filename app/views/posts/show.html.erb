@@ -88,7 +88,7 @@ $(function() {
           </div>
           <div class="col-md-11 reviews">
             <h3 class="reviews_name"><%= comment.user.name %></h3>
-            <p class="reviews_time"><%= comment.created_at %></p>
+            <p class="reviews_time"><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
             <p class="reviews_con"><%= comment.content %></p>
             <% end %>
           </div>
