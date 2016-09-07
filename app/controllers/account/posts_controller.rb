@@ -1,18 +1,24 @@
 class Account::PostsController < AccountController
   layout "user"
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => :add_to_favorite_test
   before_action :drop_account_breadcrumb
 
   def add_to_favorite_test
+    message = {}
+    unless current_user
+      message[:status] = "e"
+      render json: message
+      return
+    end
     @post = Post.find(params[:id])
     if current_user.favorite_posts.include?(@post)
-      flash[:alert] = "此文章已在收藏夹!"
+        message[:status] = "n"
     else
       current_user.join_favorite!(@post)
-
-      flash[:notice] = "收藏成功!"
+      message[:status] = "y"
     end
-    redirect_to :back
+
+    render json: message
   end
 
   def remove_favorite_post
