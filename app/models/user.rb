@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :jobs
   has_many :issue_relationships
   has_many :participated_issues, through: :issue_relationships, source: :issue
+  has_many :comments
 
   has_many :favorites
   has_many :favorite_posts, through: :favorites, source: :post
@@ -49,7 +50,7 @@ class User < ApplicationRecord
   def is_favorite?(post)
     favorite_posts.include?(post)
   end
-  
+
   def join_favorite!(post)
     favorite_posts << post
   end

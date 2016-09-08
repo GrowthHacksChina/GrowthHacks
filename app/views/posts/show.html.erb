@@ -79,8 +79,27 @@ $(function() {
         </div>
 
         <%= render_markdown_text(@post.content) %>
+        <div>
+        <h4 style="font-weight: bold;">文章评论</h4>
+        <div class="comment_inner">
+          <% @comments.each do |comment| %>
+          <div class="col-md-1 user_avatar">
+            <%= image_tag comment.user.avatar.thumb, width: 30, height: 30, class: "img-circle" %>
+          </div>
+          <div class="col-md-11 reviews">
+            <h3 class="reviews_name"><%= comment.user.name %></h3>
+            <p class="reviews_time"><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+            <p class="reviews_con"><%= comment.content %></p>
+          </div>
+          <% end %>
+        </div>
 
+        <hr>
+        <%= link_to("新增评论", new_post_comment_path(@post),class:"btn btn-success" ) %>
+        </div>
     </div>
+
+
 
 
     <!-- <div class="col-md-3 hidden-xs fback-outside">
