@@ -1,0 +1,28 @@
+<table class="table table-hover table-condensed table-striped">
+
+    <thead>
+        <tr>
+            <td class="col-md-3">用户名</td>
+            <td class="col-md-5">评论内容</td>
+            <td class="col-md-3 col-md-offset-1">评论管理</td>
+        </tr>
+    </thead>
+    <tbody>
+              <% @comment.each do |comment| %>
+        <tr>
+            <td><%= comment.user.name %></td>
+            <td>
+              <%= comment.content %>
+            </td>
+            <td>
+                <%= link_to("Hide", "#", class:"btn btn-xs btn-primary" )%>
+                <%= link_to("Destroy", admin_comment_path(comment), class:"btn btn-xs btn-danger",
+                          method: :delete, data: {confirm: "确定删除吗?"})%>
+            </td>
+        </tr>
+          <% end %>
+    </tbody>
+</table>
+<!-- <div class="text-center">
+    <%#= will_paginate @comment %>
+</div> -->

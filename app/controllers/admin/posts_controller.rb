@@ -1,5 +1,4 @@
 class Admin::PostsController < AdminController
-
   def index
     @posts = Post.all.paginate(page: params[:page], per_page: 10)
   end
@@ -65,6 +64,12 @@ class Admin::PostsController < AdminController
     else
       render :back, notice: "Failed to delete"
     end
+  end
+
+  def comment
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments
+    drop_breadcrumb "评论管理"
   end
 
   private
