@@ -1,7 +1,7 @@
 module ApplicationHelper
   # def zone
-  #     @post.created_at.strftime("%Y-%m-%d %H:%M:%S")
-  #     # @issue.created_at.strftime("%Y-%m-%d %H:%M:%S")
+  #     @post.created_at.strftime("%Y-%m-%d")
+  #     # @issue.created_at.strftime("%Y-%m-%d")
   # end
 
   def render_markdown_text(text)
