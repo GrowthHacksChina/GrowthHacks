@@ -57,9 +57,15 @@
 
 .post-hot{
   text-align:left;
+}
 
 .hot-left{
-  padding:34px 20px 0 0;
+  padding:6px 0;
+  margin: 0;
+}
+.hot-post-left{
+  padding-left: 0 !important;
+  padding-bottom: 25px;
 }
 .hot-detail{
   position:relative;;
@@ -69,20 +75,20 @@
 }
 .hot-img-bg img{
     position:relative;
-    width:350px;
+    width:380px;
     height:250px;
-    padding:10px,0;
+    padding:0 25px 0 0;
 
   }
 .hot-post-title{
     height:60px;
-    width:350px;
+    width:320px;
     float:left;
-    padding:3px 0;
+    padding:7px 0;
 }
-
+.hot-right{
+  padding-right:0 !important;
 }
-
 .hot-section-title {
   height: 37px;
   line-height: 37px;
