@@ -1,31 +1,11 @@
-<script type="text/javascript">
-$(function() {
-  $("#previousPage").click(function() {
 
-    var previousPost = $(this).attr("previousPost")
-    if (previousPost=="null") {
-      alert("已经是最后一篇了");
-    }
-  });
-
-  $("#nextPage").click(function() {
-
-    var nextPost = $(this).attr("nextPost")
-    if (nextPost=="null") {
-      alert("已经是最后一篇了");
-    }
-  });
-})
-
-</script>
+<%= javascript_include_tag 'post', 'data-turbolinks-track': 'reload' %>
 
 
 
     <div class="row visible-xs-block">
       <span class="col-md-3 col-xs-6 col-xs-offset-1">
         <i class="fa fa-tags tag_color" aria-hidden="true"></i>
-        <%#=link_to("标签","#",style:"color:black")%>
-        <%#= @post.tag%>
         GrowthHack
       </span>
       <span class="col-md-2 col-xs-5, margin-bottom:10px">
@@ -61,8 +41,6 @@ $(function() {
           </span>
           <span class="col-md-2 col-xs-6">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <%#=link_to("标签","#",style:"color:black")%>
-            <%#= @post.tag%>
             GrowthHack
           </span>
           <span class="col-md-3 col-xs-12">
@@ -83,41 +61,8 @@ $(function() {
     </div>
 
 
-    <!-- <div class="col-md-3 hidden-xs fback-outside">
-      <div class="fback">
-        <% if current_user %>
-        <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
-          <span class="fa fa-heart-o fa-2x  heart-icon" aria-hidden="true"></span> 加入收藏</a>
-          <br><br>
-
-          <span>
-              <% if  current_user.is_like?(@post) %>
-              <i class="fa fa-thumbs-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
-            <% else %>
-              <i class="fa fa-thumbs-o-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
-            <% end %>
-
-          </span>
-          点赞数<span id="supports"><%= @post.support %></span>
-        <% end %>
-        </div>
-      </div> -->
-
   <div class="col-md-3 hidden-xs fback-outside">
     <div class="fback">
-    <%# if current_user %>
-    <!-- <a href="<%= add_to_favorite_test_account_post_path(@post)%>">
-      <span class="fa fa-heart-o fa-2x  heart-icon" aria-hidden="true"></span> 加入收藏</a> -->
-      <!-- <span>
-        <i class="fa fa-heart-o fa-2x thumb-icon" ></i>
-      </span>
-      加入收藏
-      <br><br>
-
-      <span>
-        <i class="fa fa-thumbs-o-up fa-2x thumb-icon" aria-hidden="true" id="thumb" postId="<%= @post.id %>"></i>
-      </span>
-      点赞数<span id="supports"><%= @post.support %></span> -->
       <span>
           <% if current_user && current_user.is_favorite?(@post) %>
           <i class="fa fa-heart fa-2x thumb-icon" aria-hidden="true" id="heart" postId="<%= @post.id %>"></i>已收藏
@@ -136,7 +81,7 @@ $(function() {
         <% end %>
 
       </span>
-      点赞数<span id="supports"><%= @post.support %></span>
+      点赞数&nbsp;<span id="supports"><%= @post.support %></span>
     <%# end %>
     </div>
   </div>
@@ -155,81 +100,3 @@ $(function() {
         <%=link_to("下一篇", @post.next, id:"nextPage", curPost:@post.id, nextPost: @post.next.nil? ? "null" : @post.next.id) %>
       </li>
     </ul>
-
-
-    <script>
-
-
-      $(function() {
-        $("#thumb").click(function() {
-          var obj = $(this);
-          var postId = $(this).attr("postId");
-          if ($(this).hasClass("fa-thumbs-o-up")) {
-            like(postId, obj)
-            return
-          }
-          if ($(this).hasClass("fa-thumbs-up")) {
-            cancelLike(postId, obj)
-            return
-          }
-        });
-
-        $("#heart").click(function() {
-          var obj = $(this);
-          var postId = $(this).attr("postId");
-          if ($(this).hasClass("fa-heart-o")) {
-            favorite(postId, obj)
-            return
-          }
-        });
-
-      })
-
-      function cancelLike(postId, obj) {
-        $.ajax({
-          url: "/posts/" + postId + "/cancel_like/",
-          method: "post",
-          dataType: "json",
-          success: function(data) {
-            if (data.status == "y") {
-              obj.removeClass("fa-thumbs-up").addClass("fa-thumbs-o-up");
-              $("#supports").text(data.support);
-
-            }
-          }
-        })
-      }
-
-      function like(postId, obj) {
-        $.ajax({
-          url: "/posts/" + postId + "/like/",
-          method: "post",
-          dataType: "json",
-          success: function(data) {
-            if (data.status == "y") {
-              obj.removeClass("fa-thumbs-o-up").addClass("fa-thumbs-up");
-              $("#supports").text(data.support);
-            } else if(data.status == "e"){
-              window.location = "/users/sign_in"
-            }
-          }
-        })
-      }
-
-      function favorite(postId, obj) {
-        $.ajax({
-          url: "/account/posts/" + postId + "/add_to_favorite_test/",
-          method: "post",
-          dataType: "json",
-          success: function(data) {
-            if (data.status == "y") {
-              obj.removeClass("fa-heart-o").addClass("fa-heart");
-
-            } else if(data.status == "e") {
-              window.location = "/users/sign_in";
-            }
-          }
-        })
-      }
-
-    </script>
