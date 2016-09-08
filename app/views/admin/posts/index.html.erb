@@ -20,7 +20,7 @@
                     <%= link_to("Edit", edit_admin_post_path(post), class:"btn btn-xs btn-primary" )%>
                     <%= link_to("Destroy", admin_post_path(post), class:"btn btn-xs btn-danger",
                               method: :delete, data: {confirm: "确定删除吗?"})%>
-                    <%= link_to("comment manage", "#",class:"btn btn-xs btn-info") %>
+                    <%= link_to("comment manage", admin_post_comment_path(post),class:"btn btn-xs btn-info") %>
                 </td>
             </tr>
               <% end %>

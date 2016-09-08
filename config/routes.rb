@@ -50,7 +50,9 @@ Rails.application.routes.draw do
       resources :posts
     end
 
-    resources :posts
+    resources :posts do
+      get :comment
+    end
 
     resources :comments do
       member do
