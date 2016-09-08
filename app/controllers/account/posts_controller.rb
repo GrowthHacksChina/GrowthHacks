@@ -6,16 +6,19 @@ class Account::PostsController < AccountController
   def add_to_favorite_test
     message = {}
     unless current_user
-      message[:status] = "e"
+      message[:status] = "Failed"
+      message[:msg] = "请您先登陆，再收藏！"
       render json: message
       return
     end
     @post = Post.find(params[:id])
     if current_user.favorite_posts.include?(@post)
-        message[:status] = "n"
+        message[:status] = "Repeat"
+        message[:msg] = "您已经收藏过这篇文章！"
     else
       current_user.join_favorite!(@post)
-      message[:status] = "y"
+      message[:status] = "Success"
+      message[:msg] = "收藏成功！"
     end
 
     render json: message
