@@ -4,8 +4,7 @@
 
       <h3 class="text-center">编辑信息</h3>
 
-      <img src="<%= @user.avatar.thumb %>" width="90" height="90", class="img-circle" >
-      <div class="form-group">
+      <%= image_tag current_user.avatar.thumb, width: 120, height: 120, class: "img-circle" %>
         <%= simple_form_for [:account,@user] do |f| %>
 
         <%= f.input :avatar, :label =>"Avatar" %>
