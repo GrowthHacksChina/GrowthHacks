@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   has_many :like_relationships
   has_many :likers, through: :like_relationships, source: :user
 
+  has_many :comments
+
   validates :content, presence: true
   validates :title, presence: true, length: { in: 1..50 }
   validates :author, presence: true
@@ -21,6 +23,7 @@ class Post < ApplicationRecord
   scope :recent, -> { order("id DESC") }
   scope :hot_post, -> { order("pv DESC").limit(10) }
   scope :favorite_posts, -> { order("support DESC").limit(9) }
+
 
   mount_uploader :image, ImageUploader
 

@@ -6,7 +6,7 @@
             <tr>
                 <td class="col-md-3">文章名</td>
                 <td class="col-md-5">文章简介</td>
-                <td class="col-md-2 col-md-offset-2">文章管理</td>
+                <td class="col-md-3 col-md-offset-1">文章管理</td>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +20,7 @@
                     <%= link_to("Edit", edit_admin_post_path(post), class:"btn btn-xs btn-primary" )%>
                     <%= link_to("Destroy", admin_post_path(post), class:"btn btn-xs btn-danger",
                               method: :delete, data: {confirm: "确定删除吗?"})%>
+                    <%= link_to("comment manage", admin_post_comment_path(post),class:"btn btn-xs btn-info") %>
                 </td>
             </tr>
               <% end %>
