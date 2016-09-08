@@ -4,6 +4,16 @@ class Comment < ApplicationRecord
   validates :content, presence: true
 
   scope :recent, -> { order("created_at DESC")}
+
+  def punbish!
+    self.is_hidden = false
+    self.save
+  end
+
+  def hide!
+    self.is_hidden = true
+    self.save
+  end
 end
 
 # == Schema Information
