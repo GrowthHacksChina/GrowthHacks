@@ -1,2 +1,3 @@
 module Admin::IssuesHelper
+  
 end

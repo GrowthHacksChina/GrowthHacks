@@ -6,20 +6,29 @@
             <tr>
                 <td class="col-md-3">文章名</td>
                 <td class="col-md-5">文章简介</td>
-                <td class="col-md-3 col-md-offset-1">文章管理</td>
+                <td class="col-md-4 ">文章管理</td>
             </tr>
         </thead>
         <tbody>
                   <% @posts.each do |post| %>
             <tr>
-                <td><%= link_to(post.title, admin_post_path(post)) %></td>
+                <td>
+                <%= render_post_status(post) %>
+                <%= link_to(post.title, admin_post_path(post)) %>
+                </td>
                 <td>
                   <%= post.brief_introduction %>
                 </td>
                 <td>
+                    <% if post.is_hidden %>
+                    <%= link_to("Publish",publish_admin_post_path(post),method: :post, class:"btn btn-xs btn-success") %>
+                    <% else %>
+                    <%= link_to("Hide",hide_admin_post_path(post),method: :post, class:"btn btn-xs btn-success") %>
+                    <% end %>
                     <%= link_to("Edit", edit_admin_post_path(post), class:"btn btn-xs btn-primary" )%>
                     <%= link_to("Destroy", admin_post_path(post), class:"btn btn-xs btn-danger",
                               method: :delete, data: {confirm: "确定删除吗?"})%>
+                    |
                     <%= link_to("comment manage", admin_post_comment_path(post),class:"btn btn-xs btn-info") %>
                 </td>
             </tr>
