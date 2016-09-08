@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post :like
       post :cancel_like
     end
+    resources :comments
   end
 
   namespace :account do
@@ -49,7 +50,16 @@ Rails.application.routes.draw do
       resources :posts
     end
 
-    resources :posts
+    resources :posts do
+      get :comment
+    end
+
+    resources :comments do
+      member do
+        post :publish
+        post :hide
+      end
+    end
   end
 
   resources :faqs

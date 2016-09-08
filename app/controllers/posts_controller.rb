@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @issue = @post.issue
+    @comments = @post.comments.where(:is_hidden => false).recent
     drop_breadcrumb(@issue.title, issue_path(@issue))
     drop_breadcrumb("正文")
   end
@@ -36,7 +37,8 @@ class PostsController < ApplicationController
   def like
     message = {}
     unless current_user
-      message[:status] = "e"
+      message[:status] = "Failed"
+      message[:msg] = "用户未登陆，请您登陆后再点赞！"
       render json: message
       return
     end
@@ -45,10 +47,11 @@ class PostsController < ApplicationController
       current_user.like!(@post)
       @post.support = @post.support + 1
       @post.save
-      message[:status] = "y"
+      message[:status] = "Success"
+      message[:msg] = "点赞成功！"
       message[:support] = @post.support
     else
-      message[:status] = "n"
+      message[:status] = "您已经赞过这篇文章了，无法重复点赞"
     end
 
     render json: message
@@ -61,10 +64,12 @@ class PostsController < ApplicationController
       current_user.cancel_like!(@post)
       @post.support = @post.support - 1
       @post.save
-      message[:status] = "y"
+      message[:status] = "Success"
+      message[:msg] = "取消点赞成功"
       message[:support] = @post.support
     else
-      message[:status] = "n"
+      message[:status] = "Failed"
+      message[:msg] = "取消点赞失败，您尚未点赞该文章"
     end
     render json: message
   end
