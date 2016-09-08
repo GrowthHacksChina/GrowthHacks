@@ -11,3 +11,4 @@ Rails.application.config.assets.version = "1.0"
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w(simplemde.min.scss)
 Rails.application.config.assets.precompile += %w(simplemde.min.js)
+Rails.application.config.assets.precompile += %w(post.js)
