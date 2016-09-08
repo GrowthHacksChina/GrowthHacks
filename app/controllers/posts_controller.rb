@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @issue = @post.issue
+    @comments = @post.comments.where(:is_hidden => false).recent
     drop_breadcrumb(@issue.title, issue_path(@issue))
     drop_breadcrumb("正文")
   end
