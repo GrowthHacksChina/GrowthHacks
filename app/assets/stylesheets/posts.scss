@@ -56,20 +56,39 @@
 }
 
 .post-hot{
-  text-align: center;
+  text-align:left;
+}
 
+.hot-left{
+  padding:6px 0;
+  margin: 0;
+}
+.hot-post-left{
+  padding-left: 0 !important;
+  padding-bottom: 25px;
+}
+.hot-detail{
+  position:relative;;
+  width:350px;
+  height:15px;
+  margin:20px,0;
+}
 .hot-img-bg img{
     position:relative;
-    width:350px;
+    width:380px;
     height:250px;
-    padding: 0;
+    padding:0 25px 0 0;
+
   }
 .hot-post-title{
     height:60px;
+    width:320px;
+    float:left;
+    padding:7px 0;
 }
-
+.hot-right{
+  padding-right:0 !important;
 }
-
 .hot-section-title {
   height: 37px;
   line-height: 37px;
