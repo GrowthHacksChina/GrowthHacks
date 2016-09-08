@@ -38,6 +38,17 @@ class Post < ApplicationRecord
   def next
     Post.where(["id > ?", id]).first
   end
+
+  def publish!
+    self.is_hidden = false
+    self.save
+  end
+
+  def hide!
+    self.is_hidden = true
+    self.save
+  end
+
 end
 
 # == Schema Information
@@ -56,11 +67,14 @@ end
 #  tag                :string
 #  origin_link        :string
 #  favorite           :string
+
 #  introduce          :string
 #  brief_introduction :text
 #  image              :string
 #  support            :integer          default(0)
 #  pv                 :integer          default(1)
+#  is_hidden          :boolean          default(FALSE)
+
 #
 # Indexes
 #

@@ -47,11 +47,16 @@ Rails.application.routes.draw do
     resources :jobs
 
     resources :issues do
-      resources :posts
+      resources :posts do
+      end
     end
 
     resources :posts do
       get :comment
+      member do
+        post :publish
+        post :hide
+      end
     end
 
     resources :comments do

@@ -39,6 +39,7 @@ class Admin::IssuesController < AdminController
     redirect_to admin_issues_path, alert: "成功删除讨论版"
   end
 
+
   private
 
   def drop_each_admin_breadcrumbs

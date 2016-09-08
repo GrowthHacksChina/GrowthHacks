@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908062113) do
+ActiveRecord::Schema.define(version: 20160908083333) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20160908062113) do
     t.text     "content"
     t.integer  "issue_id"
     t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "title"
     t.string   "author"
     t.string   "issue"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20160908062113) do
     t.string   "image"
     t.integer  "support",            default: 0
     t.integer  "pv",                 default: 1
+    t.boolean  "is_hidden",          default: false
     t.index ["issue_id"], name: "index_posts_on_issue_id"
   end
 
