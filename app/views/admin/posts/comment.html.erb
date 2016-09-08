@@ -12,10 +12,17 @@
         <tr>
             <td><%= comment.user.name %></td>
             <td>
+              <%= render_comment_status(comment) %>
               <%= comment.content %>
             </td>
             <td>
-                <%= link_to("Hide", "#", class:"btn btn-xs btn-primary" )%>
+                <% if comment.is_hidden %>
+                <%= link_to("Publish", publish_admin_comment_path(comment), class:"btn btn-xs btn-primary",
+                          method: :post )%>
+                <% else %>
+                <%= link_to("Hide", hide_admin_comment_path(comment), class:"btn btn-xs btn-primary",
+                          method: :post) %>
+                <% end %>
                 <%= link_to("Destroy", admin_comment_path(comment), class:"btn btn-xs btn-danger",
                           method: :delete, data: {confirm: "确定删除吗?"})%>
             </td>
