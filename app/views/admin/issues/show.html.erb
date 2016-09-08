@@ -20,12 +20,24 @@
         <tbody>
             <% @posts.each do |post| %>
             <tr>
-                <td><%= link_to(post.title , admin_issue_post_path(@issue,post)) %></td>
+                <td>
+                <% if post.is_hidden %>
+                  <%= content_tag(:span, "", :class => "fa fa-lock") %>
+                <% else %>
+                  <%= content_tag(:span,"", :class => "fa fa-globe") %>
+                <% end %>
+                <%= link_to(post.title , admin_issue_post_path(@issue,post)) %>
+                </td>
                 <td><%= post.brief_introduction %></td>
                 <td><%= post.author %></td>
                 <td><%= post.created_at %></td>
 
                 <td>
+                    <% if post.is_hidden %>
+                    <%= link_to("Publish",publish_admin_post_path(post), method: :post,class:"btn btn-xs btn-success") %>
+                    <% else %>
+                    <%= link_to("Hide",hide_admin_post_path(post),method: :post, class:"btn btn-xs btn-success") %>
+                    <% end %>
                     <%= link_to("Edit", edit_admin_issue_post_path(@issue,post), class: "btn btn-primary btn-xs btn-default")%>
                     <%= link_to("Destroy", admin_post_path(post), class: "btn btn-danger btn-xs btn-default",
           method: :delete, data: {confirm: "确定删除吗?"})%>

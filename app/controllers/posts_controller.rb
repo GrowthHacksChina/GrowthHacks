@@ -4,12 +4,18 @@ class PostsController < ApplicationController
   before_action :set_breadcrumbs
 
   def index
-    @posts = Post.all
-    @hot_posts = Post.all.hot_post
+    @posts = Post.where(:is_hidden => false)
+    @hot_posts = Post.where(:is_hidden => false).hot_post
   end
 
   def show
     @post = Post.find(params[:id])
+
+    if @post.is_hidden
+      flash[:waring] = "该文章不存在！"
+      redirect_to :back
+    end
+
     @issue = @post.issue
     @comments = @post.comments.where(:is_hidden => false).recent
     drop_breadcrumb(@issue.title, issue_path(@issue))
@@ -29,7 +35,7 @@ class PostsController < ApplicationController
 
 
   def hot
-    @posts = Post.all.hot_post
+    @posts = Post.where(:is_hidden => false).hot_post
     @favorite_posts = Post.all.favorite_posts
     drop_breadcrumb("热门文章")
   end
@@ -78,7 +84,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :author, :tag, :origin_link, :pv, :image, :brief_introduction)
+    params.require(:post).permit(:title, :content, :author, :tag, :origin_link, :pv, :image, :brief_introduction,:is_hidden)
   end
 
   protected

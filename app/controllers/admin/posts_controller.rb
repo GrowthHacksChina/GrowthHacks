@@ -72,6 +72,18 @@ class Admin::PostsController < AdminController
     drop_breadcrumb "评论管理"
   end
 
+  def publish
+    @post = Post.find(params[:id])
+    @post.publish!
+    redirect_to :back
+  end
+
+  def hide
+    @post = Post.find(params[:id])
+    @post.hide!
+    redirect_to :back
+  end
+
   private
 
   def drop_each_admin_breadcrumbs
@@ -79,6 +91,6 @@ class Admin::PostsController < AdminController
   end
 
   def post_params
-    params.require(:post).permit(:content, :title, :author, :tag, :origin_link, :pv, :image, :brief_introduction)
+    params.require(:post).permit(:content, :title, :author, :tag, :origin_link, :pv, :image, :brief_introduction, :is_hidden)
   end
 end
