@@ -56,16 +56,29 @@
 }
 
 .post-hot{
-  text-align: center;
+  text-align:left;
 
+.hot-left{
+  padding:34px 20px 0 0;
+}
+.hot-detail{
+  position:relative;;
+  width:350px;
+  height:15px;
+  margin:20px,0;
+}
 .hot-img-bg img{
     position:relative;
     width:350px;
     height:250px;
-    padding: 0;
+    padding:10px,0;
+
   }
 .hot-post-title{
     height:60px;
+    width:350px;
+    float:left;
+    padding:3px 0;
 }
 
 }
