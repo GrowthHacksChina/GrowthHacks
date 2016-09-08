@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
 
   scope :recent, -> { order("created_at DESC")}
 
-  def punbish!
+  def publish!
     self.is_hidden = false
     self.save
   end
@@ -26,4 +26,5 @@ end
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  post_id    :integer
+#  is_hidden  :boolean          default(FALSE)
 #

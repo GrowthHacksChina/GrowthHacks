@@ -11,14 +11,20 @@ class Admin::CommentsController < ApplicationController
 
   def hide
     @comment = Comment.find(params[:id])
+    @comment.hide!
+    redirect_to :back
+  end
+
+  def publish
+    @comment = Comment.find(params[:id])
     @comment.publish!
     redirect_to :back
   end
 
-  def public
-    @comment = Comment.find(params[:id])
-    @job.hide!
-    redirect_to :back
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content,:is_hidden)
   end
 
 end
