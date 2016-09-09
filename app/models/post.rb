@@ -50,7 +50,6 @@ class Post < ApplicationRecord
   end
 
 end
-
 # == Schema Information
 #
 # Table name: posts
@@ -67,6 +66,17 @@ end
 #  tag                :string
 #  origin_link        :string
 #  favorite           :string
+#  introduce          :string
+#  brief_introduction :text
+#  image              :string
+#  support            :integer          default(0)
+#  pv                 :integer          default(1)
+#  is_hidden          :boolean          default(FALSE)
+#
+# Indexes
+#
+#  index_posts_on_issue_id  (issue_id)
+#
 
 #  introduce          :string
 #  brief_introduction :text
