@@ -34,13 +34,12 @@ $(function() {
   $("#heart").click(function() {
     var obj = $(this);
     var postId = $(this).attr("postId");
+    if ($(this).hasClass("fa-heart")) {
+      alert("您已收藏成功，请到个人中心查看已收藏文章！");
+    }
     if ($(this).hasClass("fa-heart-o")) {
       favorite(postId, obj)
       return
-    }
-    if ($(this).hasClass("fa-heart")) {
-      console.log("1")
-      alert("您已收藏成功，请到个人中心查看已收藏文章！");
     }
   });
 
