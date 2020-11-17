@@ -6,8 +6,7 @@
 * 随时随地保持公德心，才是好队友
 
 # 开发用帐号
-account:example@gmail.com
-passwore:123456
+
 
 
 
